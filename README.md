@@ -1,7 +1,4 @@
-# README #
-
-
-## A 3-way superscalar Out-of-Order Processor with P6 style register renaming. ##
+# A 3-way superscalar Out-of-Order Processor with P6 style register renaming. #
 
 ### Introduction ###
 
