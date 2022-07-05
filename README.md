@@ -28,12 +28,16 @@ To run the code, open the terminal in the folder and run:
 Then the processor would run all assembly files and put all output result in the ./Outputs folder.
 
 ### Check Output Result ###
-* ./Outputs/program_name.program.out
-* ./Outputs/program_name.cpi.out
-* ./Outputs/program_name.pipeline.out
-* ./Outputs/program_name.program.out
+For each assembly test program(.s) in ./test_progs folder, the output result contains four types of files:
 
+* ./Outputs/testname.program.out : record the executed result of the assembly program.
+* ./Outputs/testname.cpi.out: record the CPI(cycle per instruction) of the code.
+* ./Outputs/testname.pipeline.out: record the pipeline output, show which instruction in which stage each time.
+* ./Outputs/testname.writeback.out: record the data writeback to the memory after executed.
 
+### More Information ###
+
+If you want to learn more about our work or make contributions to the project, please check the report: EECS_470_report.pdf.
 
 ### Who do I talk to? ###
 
