@@ -1,0 +1,26 @@
+<session version="1.1" release="R-2020.12-SP2-1" timestp="2022-03-15 02:21:46 GMT">
+  <info>
+    <attr name="datetime" value="Mon Mar 14 22:22:15 2022
+"/>
+    <attr name="command" value="urg -dir simv.vdb -format text"/>
+    <attr name="top_instance" value="testbench"/>
+  </info>
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Toggle" type="ratio" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="164/180" />
+    <metric name="Toggle" value="186/1524" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+  </scope>
+  <scope type="assert" name="Statistics">
+  </scope>
+  </old_coverage>
+</session>

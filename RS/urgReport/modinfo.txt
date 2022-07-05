@@ -1,0 +1,651 @@
+===============================================================================
+Module : testbench
+===============================================================================
+SCORE  LINE   TOGGLE 
+ 69.64  97.10  42.19 
+
+Source File(s) : 
+
+/afs/umich.edu/user/j/i/jiachenj/Downloads/eecs-470-final-project/RS/test_RS.v
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE NAME      
+ 69.64  97.10  42.19 testbench 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : testbench
+
+             Line No.   Total   Covered  Percent
+TOTAL                      138      134    97.10
+ALWAYS             55        2        2   100.00
+ROUTINE            59        4        0     0.00
+INITIAL            67      132      132   100.00
+
+54                      	
+55         2/2          	always #5 clk = ~clk;
+56                      	
+57                      	task exit_on_error;
+58                      		begin
+59         0/2     ==>  			#1;
+60         0/1     ==>  			$display("@@@Failed at time %f", $time);
+61         0/1     ==>  			$finish;
+62                      		end
+63                      	endtask
+64                      	
+65                      	initial begin
+66                      		
+67         1/1          		$monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[0]:%d,V2[0]:%d,V1[3]:%d,V2[3]:%d,V1[6]:%d,V2[6]:%d,T[0]:%d,T[3]:%d,T[6]:%d",
+68                               dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+69                               rs_entry_test[0].V1,rs_entry_test[0].V2,
+70                               rs_entry_test[3].V1,rs_entry_test[3].V2,
+71                               rs_entry_test[6].V1,rs_entry_test[6].V2,
+72                               rs_entry_test[0].T,rs_entry_test[3].T,rs_entry_test[6].T);
+73                              //  || 
+74         1/1          		clk = 0;
+75         1/1          		dispatch_en = 0;
+76         1/1          		issue_en = 0;
+77         1/1          		execute_en = 0;
+78         1/1                  complete_en = 0;
+79                      		
+80                      		/***RESET***/
+81         1/1          		reset = 1;
+82         1/1          		@(negedge clk)
+83         1/1          		reset = 0;
+84                      		
+85                      		/***CHECK DISPATCH WORKS WELL, not hit, value from RRF***/
+86         1/1          		dispatch_en = 1;
+87         1/1          		opcode [0] = `RV32_LOAD;    //load
+88         1/1          		opcode [1] = `RV32_STORE;   //store
+89         1/1          		opcode [2] = `RV32_ADDI;    //add
+90         1/1          		ROB_tail = 3; // impact T , {ROB#4,ROB#5,ROB#6}
+91         1/1                  ROB_remain_size = 7;
+92                      
+93         1/1                  MAP_TABLE_hit1 = 0;
+94         1/1                  MAP_TABLE_hit2 = 0;
+95                      
+96         1/1                  OPA[0] = 11;
+97         1/1                  OPA[1] = 12;
+98         1/1                  OPA[2] = 13;
+99                      
+100        1/1                  OPB[0] = 14;
+101        1/1                  OPB[1] = 15;
+102        1/1                  OPB[2] = 16;
+103                     
+104        1/1          		@(negedge clk)
+105        1/1                  $display("@@@Dispatch1.1 Passed");
+106                     
+107        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[1]:%d,V2[1]:%d,V1[4]:%d,V2[4]:%d,V1[7]:%d,V2[7]:%d,T[1]:%d,T[4]:%d,T[7]:%d",
+108                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+109                              rs_entry_test[1].V1,rs_entry_test[1].V2,
+110                              rs_entry_test[4].V1,rs_entry_test[4].V2,
+111                              rs_entry_test[7].V1,rs_entry_test[7].V2,
+112                              rs_entry_test[1].T,rs_entry_test[4].T,rs_entry_test[7].T);
+113                             
+114        1/1                  @(negedge clk)
+115        1/1                  $display("@@@Dispatch1.2 Passed");
+116        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[2]:%d,V2[2]:%d,V1[5]:%d,V2[5]:%d,V1[8]:%d,V2[8]:%d,T[2]:%d,T[5]:%d,T[8]:%d",
+117                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+118                              rs_entry_test[2].V1,rs_entry_test[2].V2,
+119                              rs_entry_test[5].V1,rs_entry_test[5].V2,
+120                              rs_entry_test[8].V1,rs_entry_test[8].V2,
+121                              rs_entry_test[2].T,rs_entry_test[5].T,rs_entry_test[8].T);
+122                     
+123        1/1                  @(negedge clk)
+124        1/1                  $display("@@@Dispatch1.3 Passed");
+125                             // nothing happened since RS structure hazard, notice value not enter RS#10.V
+126        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[9]:%d,V2[9]:%d",
+127                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+128                              rs_entry_test[9].V1,rs_entry_test[9].V2);
+129                     
+130        1/1                  @(negedge clk)
+131        1/1          		$display("@@@Dispatch1 Passed");
+132        1/1                  $display("-----------------------------------------------------------------------------------------------------------------------------------");
+133                     
+134                             /***RESET***/
+135        1/1          		reset = 1;
+136        1/1          		@(negedge clk)
+137        1/1          		reset = 0;
+138                     
+139                             /***CHECK DISPATCH WORKS WELL, hit and ready,  value from ROB***/
+140        1/1          		dispatch_en = 1;
+141        1/1          		opcode [0] = `RV32_LOAD;    //load
+142        1/1          		opcode [1] = `RV32_STORE;   //store
+143        1/1          		opcode [2] = `RV32_ADDI;    //add
+144        1/1          		ROB_tail = 3; // impact T , {ROB#4,ROB#5,ROB#6}
+145        1/1                  ROB_remain_size = 7;
+146                     
+147        1/1                  MAP_TABLE_hit1 = 3'b111;
+148        1/1                  MAP_TABLE_hit2 = 3'b111;
+149        1/1                  MAP_TABLE_ready1 = 3'b111;
+150        1/1                  MAP_TABLE_ready2 = 3'b111;
+151                     
+152        1/1                  ROB_V1[0] = 21;
+153        1/1                  ROB_V1[1] = 22;
+154        1/1                  ROB_V1[2] = 23;
+155                     
+156        1/1                  ROB_V2[0] = 24;
+157        1/1                  ROB_V2[1] = 25;
+158        1/1                  ROB_V2[2] = 26;
+159                     
+160        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[0]:%d,V2[0]:%d,V1[3]:%d,V2[3]:%d,V1[6]:%d,V2[6]:%d,T[0]:%d,T[3]:%d,T[6]:%d",
+161                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+162                              rs_entry_test[0].V1,rs_entry_test[0].V2,
+163                              rs_entry_test[3].V1,rs_entry_test[3].V2,
+164                              rs_entry_test[6].V1,rs_entry_test[6].V2,
+165                              rs_entry_test[0].T,rs_entry_test[3].T,rs_entry_test[6].T);
+166        1/1                  @(negedge clk)
+167        1/1                  $display("@@@Dispatch2.1 Passed");
+168                     
+169        1/1                   $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[1]:%d,V2[1]:%d,V1[4]:%d,V2[4]:%d,V1[7]:%d,V2[7]:%d,T[1]:%d,T[4]:%d,T[7]:%d",
+170                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+171                              rs_entry_test[1].V1,rs_entry_test[1].V2,
+172                              rs_entry_test[4].V1,rs_entry_test[4].V2,
+173                              rs_entry_test[7].V1,rs_entry_test[7].V2,
+174                              rs_entry_test[1].T,rs_entry_test[4].T,rs_entry_test[7].T);
+175                             
+176        1/1                  @(negedge clk)
+177        1/1                  $display("@@@Dispatch2.2 Passed");
+178        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[2]:%d,V2[2]:%d,V1[5]:%d,V2[5]:%d,V1[8]:%d,V2[8]:%d,T[2]:%d,T[5]:%d,T[8]:%d",
+179                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+180                              rs_entry_test[2].V1,rs_entry_test[2].V2,
+181                              rs_entry_test[5].V1,rs_entry_test[5].V2,
+182                              rs_entry_test[8].V1,rs_entry_test[8].V2,
+183                              rs_entry_test[2].T,rs_entry_test[5].T,rs_entry_test[8].T);
+184                     
+185        1/1                  @(negedge clk)
+186        1/1                  $display("@@@Dispatch2.3 Passed");
+187                             
+188                             // nothing happened since RS structure hazard, notice value not enter RS#10.V
+189        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,V1[9]:%d,V2[9]:%d",
+190                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+191                              rs_entry_test[9].V1,rs_entry_test[9].V2);
+192                     
+193        1/1                  @(negedge clk)
+194        1/1          		$display("@@@Dispatch2 Passed");
+195        1/1                  $display("-----------------------------------------------------------------------------------------------------------------------------------");
+196                     
+197                             /***RESET***/
+198        1/1          		reset = 1;
+199        1/1          		@(negedge clk)
+200        1/1          		reset = 0;
+201                     
+202                             /***CHECK DISPATCH WORKS WELL, hit and not ready, T1 T2 from MAP_TABLE***/
+203        1/1          		dispatch_en = 1;
+204        1/1          		opcode [0] = `RV32_LOAD;    //load
+205        1/1          		opcode [1] = `RV32_STORE;   //store
+206        1/1          		opcode [2] = `RV32_ADDI;    //add
+207        1/1          		ROB_tail = 3; // impact T , {ROB#4,ROB#5,ROB#6}
+208        1/1                  ROB_remain_size = 7;
+209                     
+210        1/1                  MAP_TABLE_hit1 = 3'b111;
+211        1/1                  MAP_TABLE_hit2 = 3'b111;
+212        1/1                  MAP_TABLE_ready1 = 3'b000;
+213        1/1                  MAP_TABLE_ready2 = 3'b000;
+214                     
+215        1/1                  MAP_TABLE_tag1[0] = 1;
+216        1/1                  MAP_TABLE_tag1[1] = 2;
+217        1/1                  MAP_TABLE_tag1[2] = 3;
+218                     
+219        1/1                  MAP_TABLE_tag2[0] = 4;
+220        1/1                  MAP_TABLE_tag2[1] = 5;
+221        1/1                  MAP_TABLE_tag2[2] = 6;
+222                     
+223        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,T1[0]:%d,T2[0]:%d,T1[3]:%d,T2[3]:%d,T1[6]:%d,T2[6]:%d,T[0]:%d,T[3]:%d,T[6]:%d",
+224                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+225                              rs_entry_test[0].T1,rs_entry_test[0].T2,
+226                              rs_entry_test[3].T1,rs_entry_test[3].T2,
+227                              rs_entry_test[6].T1,rs_entry_test[6].T2,
+228                              rs_entry_test[0].T,rs_entry_test[3].T,rs_entry_test[6].T);
+229        1/1                  @(negedge clk)
+230        1/1                  $display("@@@Dispatch3.1 Passed");
+231                     
+232        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,T1[1]:%d,T2[1]:%d,T1[4]:%d,T2[4]:%d,T1[7]:%d,T2[7]:%d,T[1]:%d,T[4]:%d,T[7]:%d",
+233                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+234                              rs_entry_test[1].T1,rs_entry_test[1].T2,
+235                              rs_entry_test[4].T1,rs_entry_test[4].T2,
+236                              rs_entry_test[7].T1,rs_entry_test[7].T2,
+237                              rs_entry_test[1].T,rs_entry_test[4].T,rs_entry_test[7].T);
+238        1/1                  @(negedge clk)
+239        1/1                  $display("@@@Dispatch3.2 Passed");
+240                     
+241        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,T1[2]:%d,T2[2]:%d,T1[5]:%d,T2[5]:%d,T1[8]:%d,T2[8]:%d,T[2]:%d,T[5]:%d,T[8]:%d",
+242                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+243                              rs_entry_test[2].T1,rs_entry_test[2].T2,
+244                              rs_entry_test[5].T1,rs_entry_test[5].T2,
+245                              rs_entry_test[8].T1,rs_entry_test[8].T2,
+246                              rs_entry_test[2].T,rs_entry_test[5].T,rs_entry_test[8].T);
+247        1/1                  @(negedge clk)
+248        1/1                  $display("@@@Dispatch3.3 Passed");
+249                             // nothing happened since RS structure hazard, notice value not enter RS#10.V
+250        1/1                  $monitor("dispatch_en: %b,RS_available_size:%d,RS_idx[0]:%d,RS_idx[1]:%d,RS_idx[2]:%d,T1[9]:%d,T2[9]:%d",
+251                              dispatch_en, RS_available_size,RS_idx_test[0],RS_idx_test[1],RS_idx_test[2],
+252                              rs_entry_test[9].T1,rs_entry_test[9].T2);
+253                     
+254        1/1                  @(negedge clk)
+255        1/1                   $display("@@@Dispatch3 Passed");
+256        1/1                   $display("-----------------------------------------------------------------------------------------------------------------------------------");
+257                     
+258                             /***CHECK ISSUE WORKS WELL, T1 T2 not zero, can't permit issue***/
+259        1/1                  $monitor("issue_en: %b,permit_issue:%b,issue_V1_out[0]:%d,issue_V2_out[0]:%d,issue_V1_out[1]:%d,issue_V2_out[1]:%d,issue_V1_out[2]:%d,issue_V2_out[2]:%d,", issue_en,permit_issue,
+260                             issue_V1_out[0],issue_V2_out[0],
+261                             issue_V1_out[1],issue_V2_out[1],
+262                             issue_V1_out[2],issue_V2_out[2]);
+263        1/1                  dispatch_en = 0;
+264        1/1                  issue_en = 1;
+265        1/1                  issue_rob_tag[0] = 4;
+266        1/1                  issue_rob_tag[1] = 5;
+267        1/1                  issue_rob_tag[2] = 6;
+268                     
+269        2/2                  @(negedge clk);
+270                             assert(permit_issue == 3'b000) else #1 exit_on_error;
+271        1/1                  $display("@@@Issue Passed");
+272        1/1                  $display("-----------------------------------------------------------------------------------------------------------------------------------");
+273                     
+274                             /***CHECK EXECUTE WORKS WELL, execute 3***/
+275        1/1                  $monitor("execute_en: %b,T1[0]:%d,T2[0]:%d,T1[3]:%d,T2[3]:%d,T1[6]:%d,T2[6]:%d,T[0]:%d,T[3]:%d,T[6]:%d, busy[0]:%d,busy[3]:%d,busy[6]:%d,",
+276                             execute_en, 
+277                              rs_entry_test[0].T1,rs_entry_test[0].T2,
+278                              rs_entry_test[3].T1,rs_entry_test[3].T2,
+279                              rs_entry_test[6].T1,rs_entry_test[6].T2,
+280                              rs_entry_test[0].T,rs_entry_test[3].T,rs_entry_test[6].T,
+281                              rs_entry_test[0].busy,rs_entry_test[3].busy,rs_entry_test[6].busy);
+282        1/1                  issue_en = 0;
+283        1/1                  execute_en = 1;
+284        1/1                  execute_rob_tag[0] = 4;
+285        1/1                  execute_rob_tag[1] = 5;
+286        1/1                  execute_rob_tag[2] = 6;
+287                     
+288        2/2                  @(negedge clk);
+289        1/1                  $display("@@@Execute Passed");
+290        1/1                  $display("-----------------------------------------------------------------------------------------------------------------------------------");
+291                     
+292                     
+293                             /***CHECK COMPLETE WORKS WELL, complete 3***/
+294        1/1                  $monitor("complete_en: %b,T1[1]:%d,T2[1]:%d,T1[4]:%d,T2[4]:%d,T1[7]:%d,T2[7]:%d,V1[1]:%d,V2[1]:%d,V1[4]:%d,V2[4]:%d,V1[7]:%d,V2[7]:%d,",
+295                             complete_en, 
+296                              rs_entry_test[1].T1,rs_entry_test[1].T2,
+297                              rs_entry_test[4].T1,rs_entry_test[4].T2,
+298                              rs_entry_test[7].T1,rs_entry_test[7].T2,
+299                     
+300                              rs_entry_test[1].V1,rs_entry_test[1].V2,
+301                              rs_entry_test[4].V1,rs_entry_test[4].V2,
+302                              rs_entry_test[7].V1,rs_entry_test[7].V2,
+303                              );
+304        1/1                  execute_en = 0;
+305        1/1                  complete_en = 1;
+306        1/1                  CDB_tag[0] = 4;
+307        1/1                  CDB_tag[1] = 5;
+308        1/1                  CDB_tag[2] = 6;
+309                     
+310        1/1                  CDB_value[0] = 31;
+311        1/1                  CDB_value[1] = 32;
+312        1/1                  CDB_value[2] = 33;
+313                     
+314        2/2                  @(negedge clk);
+315        1/1                  $display("@@@Complete Passed");
+316                     
+317        1/1          		$finish;
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : testbench
+                Total Covered Percent 
+Totals          14    5       35.71   
+Total Bits      64    27      42.19   
+Total Bits 0->1 32    14      43.75   
+Total Bits 1->0 32    13      40.62   
+
+                              
+Signals          14 5  35.71  
+Signal Bits      64 27 42.19  
+Signal Bits 0->1 32 14 43.75  
+Signal Bits 1->0 32 13 40.62  
+
+Signal Details
+                       Toggle Toggle 1->0 Toggle 0->1 
+clk                    Yes    Yes         Yes         
+reset                  Yes    Yes         Yes         
+dispatch_en            Yes    Yes         Yes         
+ROB_tail[3:0]          No     No          No          
+ROB_remain_size[3:0]   No     No          No          
+MAP_TABLE_ready1[2:0]  No     Yes         No          
+MAP_TABLE_ready2[2:0]  No     Yes         No          
+MAP_TABLE_hit1[2:0]    No     No          Yes         
+MAP_TABLE_hit2[2:0]    No     No          Yes         
+issue_en               Yes    Yes         Yes         
+execute_en             Yes    Yes         Yes         
+complete_en            No     No          Yes         
+RS_available_size[1:0] Yes    Yes         Yes         
+RS_available_size[2]   No     No          No          
+permit_issue[2:0]      No     No          No          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : testbench
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE 
+ 69.64  97.10  42.19 
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE 
+ 70.95  96.70  45.21 
+
+
+Module : 
+
+SCORE  LINE   TOGGLE NAME      
+ 69.64  97.10  42.19 testbench 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   TOGGLE NAME 
+ 71.75  95.95  47.56 rs   
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : RS
+===============================================================================
+SCORE  LINE   TOGGLE 
+ 71.75  95.95  47.56 
+
+Source File(s) : 
+
+/afs/umich.edu/user/j/i/jiachenj/Downloads/eecs-470-final-project/RS/RS.v
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE NAME         
+ 71.75  95.95  47.56 testbench.rs 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : RS
+
+             Line No.   Total   Covered  Percent
+TOTAL                       74       71    95.95
+ALWAYS             77        3        3   100.00
+ALWAYS             97       22       22   100.00
+ALWAYS            149       49       46    93.88
+
+76                      always_comb begin
+77         1/1              if(dispatch_en) begin
+78         1/1                  for(int i = 0;i<3;i++) begin
+79         1/1                      fu_name[i]  =   (opcode[i] == `RV32_LOAD)   ?   LD :
+80                                                  (opcode[i] == `RV32_STORE)  ?   ST : ALU;
+81                              end
+82                          end
+                        MISSING_ELSE
+83                      end
+84                      
+85                      // in-order dispatch, check RS available size
+86                      assign RS_available_size =  !available[0]   ? 0:
+87                                                  !available[1]   ? 1:
+88                                                  !available[2]   ? 2:3;
+89                      
+90                      // calculate dispatch number = min(3,ROB_remain_size,RS_available_size)
+91                      assign dispatch_num_temp   =   (ROB_remain_size < RS_available_size) ? ROB_remain_size : RS_available_size;
+92                      assign dispatch_num        =   (dispatch_num_temp < 3) ? dispatch_num_temp : 3;
+93                      
+94                      
+95                      // calculate right RS index
+96                      always_comb begin
+97         1/1              if (reset) begin
+98         1/1                  for(int i=0;i<3;i++) begin
+99         1/1                      RS_idx[i] = 0;
+100        1/1                      available[i] = 1'b1;
+101                             end
+102                         end
+103        1/1              else if(dispatch_en) begin
+104                             // check whether the FU is available(not rs_entry.busy), calculate RS_idx
+105        1/1                  for(int i = 0;i<dispatch_num;i++) begin // for each insn
+106        1/1                      priority case(fu_name[i])
+107                                 LD:begin
+108                                     // if any RS not busy, then it is available
+109        1/1                          available[i] = !(rs_entry[0].busy & rs_entry[1].busy & rs_entry[2].busy);
+110                                     // allocate the toppest one which is available, record the RS idx
+111        1/1                          for (int j=0;j<3;j++)begin
+112        1/1                              if(rs_entry[j].busy == 0) begin
+113        1/1                                  RS_idx[i] = j + 1;
+114        1/1                                  break;
+115                                         end
+                        MISSING_ELSE
+116                                     end
+117                                 end
+118                                 ST:begin
+119        1/1                          available[i] = !(rs_entry[3].busy & rs_entry[4].busy & rs_entry[5].busy);
+120        1/1                          for (int j=3;j<6;j++)begin
+121        1/1                              if(rs_entry[j].busy == 0) begin
+122        1/1                                  RS_idx[i] = j + 1;
+123        1/1                                  break;
+124                                         end
+                        MISSING_ELSE
+125                                     end
+126                                 end
+127                                 ALU:begin
+128        1/1                          available[i] = !(   rs_entry[6].busy & rs_entry[7].busy & rs_entry[8].busy & rs_entry[9].busy & rs_entry[10].busy & 
+129                                                         rs_entry[11].busy & rs_entry[12].busy & rs_entry[13].busy & rs_entry[14].busy & rs_entry[15].busy);
+130        1/1                          for (int j=6;j<16;j++)begin
+131        1/1                              if(rs_entry[j].busy == 0) begin
+132        1/1                                  RS_idx[i] = j + 1;
+133        1/1                                  break;
+134                                         end
+                        MISSING_ELSE
+135                                     end
+136                                 end 
+                   ==>  MISSING_DEFAULT
+137                                 endcase
+138                             end
+139                         end
+                        MISSING_ELSE
+140                     end
+141                     
+142                     
+143                     
+144                     // Execute stage
+145                     // find the idx according to the execute_rob_tag
+146                     
+147                     
+148                     always_ff @(posedge clk) begin
+149        1/1              if(reset)begin
+150        1/1                  for(int i=0;i<16;i++) begin
+151        1/1                      rs_entry[i].busy    <= 0;
+152        1/1                      rs_entry[i].T       <= 0;
+153        1/1                      rs_entry[i].T1      <= 0;
+154        1/1                      rs_entry[i].T2      <= 0;
+155                             end
+156                         end
+157                         else begin
+158                             // Dispatch stage
+159        1/1                  if(dispatch_en) begin
+160                                 // set tag value in RS_idx
+161        1/1                      for(int i=0;i<dispatch_num;i++) begin // for each insn we can dispatch
+162                                     // set rs_entry.T to be the ROB#
+163        1/1                          rs_entry[RS_idx[i] - 1].T <= (ROB_tail + i + 1) % (`ROB_SIZE-1); 
+164                                     // set rs_entry.busy
+165        1/1                          rs_entry[RS_idx[i] - 1].busy <= 1'b1;
+166                     
+167                                     // set T1/T2 or V1/V2 according to the hit and ready "+" bit
+168        1/1                          if(!MAP_TABLE_hit1[i])begin                     // not find the tag
+169        1/1                              rs_entry[RS_idx[i] - 1].V1 <= OPA[i];             // use value from RRF
+170                                     end 
+171        1/1                          else if(MAP_TABLE_ready1[i])begin               // find the tag, and there is "+" bit
+172        1/1                              rs_entry[RS_idx[i] - 1].V1 <= ROB_V1[i];             // use value from ROB
+173                                     end
+174                                     else                                            // find the tag and there is no "+" bit
+175        1/1                              rs_entry[RS_idx[i] - 1].T1 <= MAP_TABLE_tag1[i];     // just copy the tag from MAP_TABLE
+176                     
+177                                     // the same thing for T2/V2
+178        1/1                          if(!MAP_TABLE_hit2[i])begin                     // not find the tag
+179        1/1                              rs_entry[RS_idx[i] - 1].V2 <= OPB[i];             // use value from RRF
+180                                     end 
+181        1/1                          else if(MAP_TABLE_ready2[i])begin               // find the tag, and there is "+" bit
+182        1/1                              rs_entry[RS_idx[i] - 1].V2 <= ROB_V2[i];             // use value from ROB
+183                                     end
+184                                     else                                            // find the tag and there is no "+" bit
+185        1/1                              rs_entry[RS_idx[i] - 1].T2 <= MAP_TABLE_tag2[i];     // just copy the tag from MAP_TABLE
+186                                 end
+187                             end
+                        MISSING_ELSE
+188                             // Issue stage
+189        1/1                  if(issue_en) begin
+190        1/1                      for(int i=0;i<3;i++)begin 
+191        1/1                          for(int j=0;j<16;j++) begin // search for 16 RS entries
+192        1/1                              if(rs_entry[j].T == issue_rob_tag[i])begin // find ROB#
+193        1/1                                  permit_issue[i] <= (rs_entry[j].T1 == 0) && (rs_entry[j].T2 == 0); // both T1 and T2 is 0, can issue
+194                                             // send the value out to FU
+195        1/1                                  issue_V1_out[i] <= rs_entry[j].V1;
+196        1/1                                  issue_V2_out[i] <= rs_entry[j].V2;
+197        1/1                                  break;
+198                                         end
+                        MISSING_ELSE
+199                                     end
+200                                 end
+201                             end
+                        MISSING_ELSE
+202                             // Execute stage
+203        1/1                  if(execute_en) begin
+204        1/1                      for(int i=0;i<3;i++)begin
+205        1/1                          for(int j=0;j<16;j++) begin // search for 16 RS entries
+206        1/1                              if(rs_entry[j].T == execute_rob_tag[i])begin // find ROB#
+207                                             // clear all
+208        1/1                                  rs_entry[j].busy <= 1'b0; 
+209        1/1                                  rs_entry[j].T    <= 0;
+210        1/1                                  rs_entry[j].T1   <= 0;
+211        1/1                                  rs_entry[j].T2   <= 0;
+212        1/1                                  break;
+213                                         end
+                        MISSING_ELSE
+214                                     end 
+215                                 end
+216                             end
+                        MISSING_ELSE
+217                             // Complete Stage
+218        1/1                  if(complete_en) begin
+219        1/1                      for(int i=0;i<3;i++) begin
+220        1/1                          for(int j=0;j<16;j++) begin
+221        1/1                              if(rs_entry[j].busy && (rs_entry[j].T1==CDB_tag[i])) begin// find match of T1
+222        0/1     ==>                          rs_entry[j].T1 <= 0;
+223        0/1     ==>                          rs_entry[j].V1 <= CDB_value[i];
+224        0/1     ==>                          break;
+225                                         end
+                        MISSING_ELSE
+226                                     end
+227        1/1                          for(int j=0;j<16;j++) begin
+228        1/1                              if(rs_entry[j].busy && (rs_entry[j].T2==CDB_tag[i])) begin// find match of rs_entry.T2
+229        1/1                                  rs_entry[j].T2 <= 0;
+230        1/1                                  rs_entry[j].V2 <= CDB_value[i];
+231        1/1                                  break;
+232                                         end
+                        MISSING_ELSE
+233                     
+234                                     end
+235                                 end
+236                     
+237                             end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : RS
+                Total Covered Percent 
+Totals          17    5       29.41   
+Total Bits      82    39      47.56   
+Total Bits 0->1 41    20      48.78   
+Total Bits 1->0 41    19      46.34   
+
+                            
+Ports          14 5  35.71  
+Port Bits      64 27 42.19  
+Port Bits 0->1 32 14 43.75  
+Port Bits 1->0 32 13 40.62  
+
+                              
+Signals          3  0  0.00   
+Signal Bits      18 12 66.67  
+Signal Bits 0->1 9  6  66.67  
+Signal Bits 1->0 9  6  66.67  
+
+Port Details
+                       Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk                    Yes    Yes         Yes         INPUT     
+reset                  Yes    Yes         Yes         INPUT     
+dispatch_en            Yes    Yes         Yes         INPUT     
+ROB_tail[3:0]          No     No          No          INPUT     
+ROB_remain_size[3:0]   No     No          No          INPUT     
+MAP_TABLE_ready1[2:0]  No     Yes         No          INPUT     
+MAP_TABLE_ready2[2:0]  No     Yes         No          INPUT     
+MAP_TABLE_hit1[2:0]    No     No          Yes         INPUT     
+MAP_TABLE_hit2[2:0]    No     No          Yes         INPUT     
+issue_en               Yes    Yes         Yes         INPUT     
+execute_en             Yes    Yes         Yes         INPUT     
+complete_en            No     No          Yes         INPUT     
+RS_available_size[1:0] Yes    Yes         Yes         OUTPUT    
+RS_available_size[2]   No     No          No          OUTPUT    
+permit_issue[2:0]      No     No          No          OUTPUT    
+
+Signal Details
+                       Toggle Toggle 1->0 Toggle 0->1 
+available[1:0]         Yes    Yes         Yes         
+available[2]           No     No          No          
+dispatch_num[1:0]      Yes    Yes         Yes         
+dispatch_num[2]        No     No          No          
+dispatch_num_temp[1:0] Yes    Yes         Yes         
+dispatch_num_temp[2]   No     No          No          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : testbench.rs
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE 
+ 71.75  95.95  47.56 
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE 
+ 71.75  95.95  47.56 
+
+
+Module : 
+
+SCORE  LINE   TOGGLE NAME 
+ 71.75  95.95  47.56 RS   
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE NAME      
+ 69.64  97.10  42.19 testbench 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

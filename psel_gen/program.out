@@ -1,0 +1,29 @@
+Chronologic VCS simulator copyright 1991-2017
+Contains Synopsys proprietary information.
+Compiler version N-2017.12-SP2-1_Full64; Runtime version N-2017.12-SP2-1_Full64;  Apr  6 23:27 2022
+free: 111111
+gnts: 100000
+gnt0: 100000
+
+free: 111001
+gnts: 100000
+gnt0: 100000
+
+free: 110101
+gnts: 100000
+gnt0: 100000
+
+free: 111011
+gnts: 100000
+gnt0: 100000
+
+free: 001010
+gnts: 001000
+gnt0: 001000
+
+$finish called from file "psel_test.sv", line 38.
+$finish at simulation time                   60
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 6000 ps
+CPU Time:      0.160 seconds;       Data structure size:   0.0Mb
+Wed Apr  6 23:27:06 2022

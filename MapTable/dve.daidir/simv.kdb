@@ -1,0 +1,14 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/afs/umich.edu/user/j/i/jiachenj/Downloads/Map Table
+SystemC=FALSE
+UUM=FALSE
+KDB=FALSE
+USE_NOVAS_HOME=FALSE
+COSIM=FALSE
+TOP=testbench 
+
+[Value]
+WREALX=ffff534e50535f58
+WREALZ=ffff534e50535f5a

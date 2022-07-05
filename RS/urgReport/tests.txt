@@ -1,0 +1,12 @@
+Tests
+
+Total Coverage Summary 
+SCORE  LINE   TOGGLE 
+ 70.95  96.70  45.21 
+
+
+Total tests in report: 1
+-------------------------------------------------------------------------------
+Data from the following tests was used to generate this report
+simv/test 
+

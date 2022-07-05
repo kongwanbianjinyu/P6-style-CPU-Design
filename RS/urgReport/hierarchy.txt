@@ -1,0 +1,11 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   TOGGLE           
+ 70.95  96.70  45.21 testbench 
+  
+  ----------------
+  SCORE  LINE   TOGGLE    
+   71.75  95.95  47.56 rs 
+

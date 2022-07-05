@@ -1,0 +1,60 @@
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version R-2020.12-SP2-1_Full64; Runtime version R-2020.12-SP2-1_Full64;  Mar 15 17:34 2022
+dispatch_en: 0,RS_available_size:3,RS_idx[0]: 0,RS_idx[1]: 0,RS_idx[2]: 0,V1[0]:         x,V2[0]:         x,V1[3]:         x,V2[3]:         x,V1[6]:         x,V2[6]:         x,T[0]: x,T[3]: x,T[6]: x
+dispatch_en: 0,RS_available_size:3,RS_idx[0]: 0,RS_idx[1]: 0,RS_idx[2]: 0,V1[0]:         x,V2[0]:         x,V1[3]:         x,V2[3]:         x,V1[6]:         x,V2[6]:         x,T[0]: 0,T[3]: 0,T[6]: 0
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 1,RS_idx[1]: 4,RS_idx[2]: 7,V1[0]:         x,V2[0]:         x,V1[3]:         x,V2[3]:         x,V1[6]:         x,V2[6]:         x,T[0]: 0,T[3]: 0,T[6]: 0
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 2,RS_idx[1]: 5,RS_idx[2]: 8,V1[0]:        11,V2[0]:        14,V1[3]:        12,V2[3]:        15,V1[6]:        13,V2[6]:        16,T[0]: 4,T[3]: 5,T[6]: 6
+@@@Dispatch1.1 Passed
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 2,RS_idx[1]: 5,RS_idx[2]: 8,V1[1]:         x,V2[1]:         x,V1[4]:         x,V2[4]:         x,V1[7]:         x,V2[7]:         x,T[1]: 0,T[4]: 0,T[7]: 0
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]: 9,V1[1]:        11,V2[1]:        14,V1[4]:        12,V2[4]:        15,V1[7]:        13,V2[7]:        16,T[1]: 4,T[4]: 5,T[7]: 6
+@@@Dispatch1.2 Passed
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]: 9,V1[2]:         x,V2[2]:         x,V1[5]:         x,V2[5]:         x,V1[8]:         x,V2[8]:         x,T[2]: 0,T[5]: 0,T[8]: 0
+dispatch_en: 1,RS_available_size:0,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]:10,V1[2]:        11,V2[2]:        14,V1[5]:        12,V2[5]:        15,V1[8]:        13,V2[8]:        16,T[2]: 4,T[5]: 5,T[8]: 6
+@@@Dispatch1.3 Passed
+dispatch_en: 1,RS_available_size:0,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]:10,V1[9]:         x,V2[9]:         x
+@@@Dispatch1 Passed
+-----------------------------------------------------------------------------------------------------------------------------------
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 0,RS_idx[1]: 0,RS_idx[2]: 0,V1[9]:         x,V2[9]:         x
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 1,RS_idx[1]: 4,RS_idx[2]: 7,V1[0]:        11,V2[0]:        14,V1[3]:        12,V2[3]:        15,V1[6]:        13,V2[6]:        16,T[0]: 0,T[3]: 0,T[6]: 0
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 2,RS_idx[1]: 5,RS_idx[2]: 8,V1[0]:        21,V2[0]:        24,V1[3]:        22,V2[3]:        25,V1[6]:        23,V2[6]:        26,T[0]: 4,T[3]: 5,T[6]: 6
+@@@Dispatch2.1 Passed
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 2,RS_idx[1]: 5,RS_idx[2]: 8,V1[1]:        11,V2[1]:        14,V1[4]:        12,V2[4]:        15,V1[7]:        13,V2[7]:        16,T[1]: 0,T[4]: 0,T[7]: 0
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]: 9,V1[1]:        21,V2[1]:        24,V1[4]:        22,V2[4]:        25,V1[7]:        23,V2[7]:        26,T[1]: 4,T[4]: 5,T[7]: 6
+@@@Dispatch2.2 Passed
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]: 9,V1[2]:        11,V2[2]:        14,V1[5]:        12,V2[5]:        15,V1[8]:        13,V2[8]:        16,T[2]: 0,T[5]: 0,T[8]: 0
+dispatch_en: 1,RS_available_size:0,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]:10,V1[2]:        21,V2[2]:        24,V1[5]:        22,V2[5]:        25,V1[8]:        23,V2[8]:        26,T[2]: 4,T[5]: 5,T[8]: 6
+@@@Dispatch2.3 Passed
+dispatch_en: 1,RS_available_size:0,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]:10,V1[9]:         x,V2[9]:         x
+@@@Dispatch2 Passed
+-----------------------------------------------------------------------------------------------------------------------------------
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 0,RS_idx[1]: 0,RS_idx[2]: 0,V1[9]:         x,V2[9]:         x
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 1,RS_idx[1]: 4,RS_idx[2]: 7,T1[0]: 0,T2[0]: 0,T1[3]: 0,T2[3]: 0,T1[6]: 0,T2[6]: 0,T[0]: 0,T[3]: 0,T[6]: 0
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 2,RS_idx[1]: 5,RS_idx[2]: 8,T1[0]: 1,T2[0]: 4,T1[3]: 2,T2[3]: 5,T1[6]: 3,T2[6]: 6,T[0]: 4,T[3]: 5,T[6]: 6
+@@@Dispatch3.1 Passed
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 2,RS_idx[1]: 5,RS_idx[2]: 8,T1[1]: 0,T2[1]: 0,T1[4]: 0,T2[4]: 0,T1[7]: 0,T2[7]: 0,T[1]: 0,T[4]: 0,T[7]: 0
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]: 9,T1[1]: 1,T2[1]: 4,T1[4]: 2,T2[4]: 5,T1[7]: 3,T2[7]: 6,T[1]: 4,T[4]: 5,T[7]: 6
+@@@Dispatch3.2 Passed
+dispatch_en: 1,RS_available_size:3,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]: 9,T1[2]: 0,T2[2]: 0,T1[5]: 0,T2[5]: 0,T1[8]: 0,T2[8]: 0,T[2]: 0,T[5]: 0,T[8]: 0
+dispatch_en: 1,RS_available_size:0,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]:10,T1[2]: 1,T2[2]: 4,T1[5]: 2,T2[5]: 5,T1[8]: 3,T2[8]: 6,T[2]: 4,T[5]: 5,T[8]: 6
+@@@Dispatch3.3 Passed
+dispatch_en: 1,RS_available_size:0,RS_idx[0]: 3,RS_idx[1]: 6,RS_idx[2]:10,T1[9]: 0,T2[9]: 0
+@@@Dispatch3 Passed
+-----------------------------------------------------------------------------------------------------------------------------------
+issue_en: 1,permit_issue:xxx,issue_V1_out[0]:         x,issue_V2_out[0]:         x,issue_V1_out[1]:         x,issue_V2_out[1]:         x,issue_V1_out[2]:         x,issue_V2_out[2]:         x,
+issue_en: 1,permit_issue:000,issue_V1_out[0]:        21,issue_V2_out[0]:        24,issue_V1_out[1]:        22,issue_V2_out[1]:        25,issue_V1_out[2]:        23,issue_V2_out[2]:        26,
+@@@Issue Passed
+-----------------------------------------------------------------------------------------------------------------------------------
+execute_en: 1,T1[0]: 1,T2[0]: 4,T1[3]: 2,T2[3]: 5,T1[6]: 3,T2[6]: 6,T[0]: 4,T[3]: 5,T[6]: 6, busy[0]:1,busy[3]:1,busy[6]:1,
+execute_en: 1,T1[0]: 0,T2[0]: 0,T1[3]: 0,T2[3]: 0,T1[6]: 0,T2[6]: 0,T[0]: 0,T[3]: 0,T[6]: 0, busy[0]:0,busy[3]:0,busy[6]:0,
+@@@Execute Passed
+-----------------------------------------------------------------------------------------------------------------------------------
+complete_en: 1,T1[1]: 1,T2[1]: 4,T1[4]: 2,T2[4]: 5,T1[7]: 3,T2[7]: 6,V1[1]:        21,V2[1]:        24,V1[4]:        22,V2[4]:        25,V1[7]:        23,V2[7]:        26, 
+complete_en: 1,T1[1]: 1,T2[1]: 0,T1[4]: 2,T2[4]: 0,T1[7]: 3,T2[7]: 0,V1[1]:        21,V2[1]:        31,V1[4]:        22,V2[4]:        32,V1[7]:        23,V2[7]:        33, 
+@@@Complete Passed
+$finish called from file "test_RS.v", line 317.
+$finish at simulation time                  180
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 180
+CPU Time:      0.210 seconds;       Data structure size:   0.0Mb
+Tue Mar 15 17:34:09 2022

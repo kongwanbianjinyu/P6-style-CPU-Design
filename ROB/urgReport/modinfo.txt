@@ -1,0 +1,585 @@
+===============================================================================
+Module : ROB
+===============================================================================
+SCORE  LINE   TOGGLE 
+ 45.12  75.51  14.72 
+
+Source File(s) : 
+
+/afs/umich.edu/user/j/i/jiachenj/Downloads/eecs-470-final-project/ROB/ROB.v
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE NAME          
+ 45.12  75.51  14.72 testbench.rob 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : ROB
+
+             Line No.   Total   Covered  Percent
+TOTAL                       49       37    75.51
+ALWAYS             76        2        2   100.00
+ALWAYS             90        9        6    66.67
+ALWAYS            120       38       29    76.32
+
+75                      always_comb begin
+76         1/1              for(int i=0;i<ROB_SIZE;i++)begin
+77         1/1                  rob_entry_test[i] = rob_entry[i];
+78                          end
+79                      end
+80                      
+81                      // rob remain size according to tail head which one is larger
+82                      // we use idx as dummy head that represents the state of reset
+83                       assign   rob_remain_size =     (head ==  0)    ?   SIZE:
+84                                                      (tail >= head)  ?   (SIZE - (tail - head + 1)) : (head - tail - 1);
+85                            
+86                      
+87                      // determine where next head is pointed at
+88                      always_comb begin
+89                          //  dispatch_num = min(3,rob_remain,valid_insn_num)
+90         1/1              dispatch_num_temp   =   (rob_remain_size < valid_insn_num) ? rob_remain_size : valid_insn_num;
+91         1/1              dispatch_num        =   (dispatch_num_temp < 3) ? dispatch_num_temp : 3;
+92                          // only head complete finish can retire
+93         1/1              retire_num  =   !rob_entry[head].complete      ? 0 :
+94                                          !rob_entry[head + 1].complete  ? 1 :
+95                                          !rob_entry[head + 2].complete  ? 2 : 3;
+96         1/1              next_head = (head ==0 && retire_num == 0)   ?   0:(head + retire_num - 1) % SIZE + 1;
+97         1/1              for(int i = 0; i < retire_num; i ++)begin
+98         1/1                  if(rob_entry[(head + i - 1) % SIZE + 1].exception == 1)begin
+99         0/1     ==>              next_head = (head + i - 1) % SIZE + 1;
+100        0/1     ==>              retire_num = i;
+101        0/1     ==>              break;
+102                             end
+                        MISSING_ELSE
+103                         end
+104                     end
+105                     
+106                     assign   next_tail = (dispatch_num == 0) ? tail: ((tail + dispatch_num - 1 ) % SIZE + 1);
+107                     
+108                     // always_comb begin
+109                     //     for(int i=0;i<3;i++) begin
+110                     // 		case (dest_reg_select[i])
+111                     // 			DEST_RD:    dest_reg_idx_in[i] = if_id_packet_in[i].inst.r.rd;
+112                     // 			DEST_NONE:  dest_reg_idx_in[i] = `ZERO_REG;
+113                     // 			default:    dest_reg_idx_in[i] = `ZERO_REG;
+114                     // 		endcase
+115                     //     end
+116                     // end
+117                     
+118                     always_ff @(posedge clk) begin
+119                         // reset
+120        1/1              if(reset)begin
+121                             // head tail zero means no rob_entry in rob
+122        1/1                  head <= 0;
+123        1/1                  tail <= 0;
+124                             // reset every row
+125                             // ? should we reset value for reg_idx and reg_val
+126        1/1                  for(int i = 0; i <  ROB_SIZE; i ++)begin
+127        1/1                      rob_entry[i].exception <= 0;
+128        1/1                      rob_entry[i].complete <= 0;
+129                             end
+130                         end
+131                         else begin
+132                             // ! remember to reset exception_en after one cycle
+133        1/1                  for(int i = 0; i < 2; i ++)begin
+134        1/2     ==>              if(exception_en[i] == 1 && exception_rob_tag[i] != 0) rob_entry[exception_rob_tag[i]].exception <= 1'b1;
+                        MISSING_ELSE
+135                             end
+136                     
+137        1/1                  if(dispatch_en)begin
+138                                 // head tail pointer move
+139        2/2                      if(head == 0 && dispatch_num !=0) head <= 1;
+                        MISSING_ELSE
+140        1/1                      tail <= next_tail;
+141                     
+142                                 // dest reg record in R
+143        1/1                      for (int i=1; i<= dispatch_num; i++)begin // i = 1:dispatch_num
+144        1/1                          rob_entry[(tail + i - 1 ) % SIZE + 1].reg_idx <= dest_reg_idx_in[i-1];
+145                                 end
+146                                 
+147                                 // when map table ready, output V to rob.v
+148        1/1                      for (int i = 0 ; i< dispatch_num; i++)begin
+149                                     // if (map_table_tag_ready [i])
+150        1/1                          dispatch_value_out[i] <= rob_entry[map_table_rob_num[i]].reg_val;
+151                                 end
+152                             end
+                        MISSING_ELSE
+153                     
+154        1/1                  if(complete_en)begin
+155                                 // receive CDB.value and save it in V[CDB.tag], set complete_finish[CDB.tag] = 1
+156        1/1                      for (int i = 0; i < 3 ; i++)begin
+157        1/1                          if(CDB_rob_num[i] != 0) begin
+158        1/1                              rob_entry[CDB_rob_num[i]].reg_val <= CDB_value[i];
+159        1/1                              rob_entry[CDB_rob_num[i]].complete <= 1'b1;
+160                                     end
+                   ==>  MISSING_ELSE
+161                                     // else begin
+162                                     //     V[CDB_rob_num[i]] <=  0;
+163                                     //     complete_finish[CDB_rob_num[i]] <= 1'b0;
+164                                     // end
+165                                 end
+166                             end
+                        MISSING_ELSE
+167                     
+168        1/1                  if(retire_en) begin
+169                                 // if head point to exception, clear all
+170        1/1                      if(rob_entry[head].exception == 1)begin
+171        0/1     ==>                  clear_all <= 1'b1;
+172                                     // reset every row
+173        0/1     ==>                  head <= 0;
+174        0/1     ==>                  tail <= 0;
+175        0/1     ==>                  for(int i = 0; i <  ROB_SIZE; i ++)begin
+176        0/1     ==>                      rob_entry[i].exception  <= 0;
+177        0/1     ==>                      rob_entry[i].complete   <= 0;
+178                                     end
+179        0/1     ==>                  for(int i = 0; i <  3; i ++)begin
+180        0/1     ==>                      retire_R_out [i] <= 0; // also no retire output
+181                                     end
+182                                 end
+183                                 else begin
+184                                     // head pointer move
+185        1/1                          head <= next_head;
+186                                     // retire value output
+187        1/1                          for (int i = 0; i < retire_num; i++)begin
+188        1/1                              retire_R_out [i] <= rob_entry[(head + i - 1) % SIZE + 1].reg_idx;
+189        1/1                              retire_V_out [i] <= rob_entry[(head + i - 1 ) % SIZE + 1].reg_val;
+190        1/1                              rob_entry[(head + i - 1) % SIZE + 1].complete <= 0; // clear rob
+191        1/1                              rob_entry[(head + i - 1) % SIZE + 1].exception <= 0;
+192                                     end
+193                                 end
+194                             end
+                        MISSING_ELSE
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : ROB
+                Total Covered Percent 
+Totals          26    12      46.15   
+Total Bits      788   116     14.72   
+Total Bits 0->1 394   61      15.48   
+Total Bits 1->0 394   55      13.96   
+
+                             
+Ports          18  6  33.33  
+Port Bits      736 70 9.51   
+Port Bits 0->1 368 37 10.05  
+Port Bits 1->0 368 33 8.97   
+
+                              
+Signals          8  6  75.00  
+Signal Bits      52 46 88.46  
+Signal Bits 0->1 26 24 92.31  
+Signal Bits 1->0 26 22 84.62  
+
+Port Details
+                                          Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk                                       Yes    Yes         Yes         INPUT     
+reset                                     Yes    Yes         Yes         INPUT     
+dispatch_en                               Yes    Yes         Yes         INPUT     
+dest_reg_idx_in[2:0][2:0]                 Yes    Yes         Yes         INPUT     
+Other bits of dest_reg_idx_in[4:0][2:0]   No     No          No          INPUT     
+valid_insn_num[1:0]                       No     No          Yes         INPUT     
+map_table_rob_num[0][1:0]                 No     No          Yes         INPUT     
+Other bits of map_table_rob_num[3:0][2:0] No     No          No          INPUT     
+complete_en                               Yes    Yes         Yes         INPUT     
+CDB_rob_num[0][0]                         No     Yes         No          INPUT     
+CDB_rob_num[0][1]                         No     No          Yes         INPUT     
+CDB_rob_num[1][1:0]                       No     Yes         No          INPUT     
+CDB_rob_num[1][2]                         No     No          Yes         INPUT     
+CDB_rob_num[2][0]                         No     Yes         No          INPUT     
+CDB_rob_num[2][1]                         No     No          Yes         INPUT     
+Other bits of CDB_rob_num[3:0][2:0]       No     No          No          INPUT     
+CDB_value[0][0]                           No     Yes         No          INPUT     
+CDB_value[0][2]                           No     Yes         No          INPUT     
+CDB_value[1][1:0]                         No     No          Yes         INPUT     
+CDB_value[2][0]                           No     Yes         No          INPUT     
+CDB_value[2][2]                           No     No          Yes         INPUT     
+Other bits of CDB_value[31:0][2:0]        No     No          No          INPUT     
+retire_en                                 Yes    Yes         Yes         INPUT     
+exception_en[1:0]                         No     No          No          INPUT     
+exception_rob_tag[3:0][1:0]               No     No          No          INPUT     
+dispatch_value_out[31:0][2:0]             No     No          No          OUTPUT    
+head_test[1:0]                            Yes    Yes         Yes         OUTPUT    
+head_test[2]                              No     No          Yes         OUTPUT    
+head_test[3]                              No     No          No          OUTPUT    
+tail_test[3:0]                            Yes    Yes         Yes         OUTPUT    
+retire_R_out[0][1:0]                      Yes    Yes         Yes         OUTPUT    
+retire_R_out[0][2]                        No     No          Yes         OUTPUT    
+retire_R_out[1][0]                        No     Yes         No          OUTPUT    
+retire_R_out[1][2]                        No     No          Yes         OUTPUT    
+Other bits of retire_R_out[4:0][2:0]      No     No          No          OUTPUT    
+retire_V_out[0][0]                        Yes    Yes         Yes         OUTPUT    
+retire_V_out[0][2:1]                      No     Yes         No          OUTPUT    
+retire_V_out[1][2]                        No     No          Yes         OUTPUT    
+Other bits of retire_V_out[31:0][2:0]     No     No          No          OUTPUT    
+clear_all                                 No     No          No          OUTPUT    
+
+Signal Details
+                       Toggle Toggle 1->0 Toggle 0->1 
+head[1:0]              Yes    Yes         Yes         
+head[2]                No     No          Yes         
+head[3]                No     No          No          
+tail[3:0]              Yes    Yes         Yes         
+rob_remain_size[3:0]   Yes    Yes         Yes         
+dispatch_num_temp[1:0] Yes    Yes         Yes         
+dispatch_num[1:0]      Yes    Yes         Yes         
+retire_num[1:0]        Yes    Yes         Yes         
+next_head[1:0]         Yes    Yes         Yes         
+next_head[2]           No     No          Yes         
+next_head[3]           No     No          No          
+next_tail[3:0]         Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : testbench.rob
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE 
+ 45.12  75.51  14.72 
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE 
+ 45.12  75.51  14.72 
+
+
+Module : 
+
+SCORE  LINE   TOGGLE NAME 
+ 45.12  75.51  14.72 ROB  
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE NAME      
+ 53.23  96.95   9.51 testbench 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : testbench
+===============================================================================
+SCORE  LINE   TOGGLE 
+ 53.23  96.95   9.51 
+
+Source File(s) : 
+
+/afs/umich.edu/user/j/i/jiachenj/Downloads/eecs-470-final-project/ROB/test_ROB.v
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE NAME      
+ 53.23  96.95   9.51 testbench 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : testbench
+
+             Line No.   Total   Covered  Percent
+TOTAL                      131      127    96.95
+ALWAYS             38        2        2   100.00
+ROUTINE            42        4        0     0.00
+INITIAL            50      125      125   100.00
+
+37                      	
+38         2/2          	always #5 clk = ~clk;
+39                      	
+40                      	task exit_on_error;
+41                      		begin
+42         0/2     ==>  			#1;
+43         0/1     ==>  			$display("@@@Failed at time %f", $time);
+44         0/1     ==>  			$finish;
+45                      		end
+46                      	endtask
+47                      	
+48                      	initial begin
+49                      		
+50         1/1          		$monitor("dispatch_en: %b, head:%d, tail:%d,rob_entry_test[1].R:%d,rob_entry_test[2].R:%d,rob_entry_test[3].R:%d", dispatch_en,head_test,tail_test,rob_entry_test[1].reg_idx,rob_entry_test[2].reg_idx,rob_entry_test[3].reg_idx);
+51                      	
+52         1/1          		clk = 0;
+53         1/1          		dispatch_en = 0;
+54         1/1          		complete_en = 0;
+55         1/1          		retire_en = 0;
+56                      		/***RESET***/
+57         1/1          		reset = 1;
+58         1/1          		@(negedge clk)
+59         1/1          		reset = 0;
+60         1/1          		dispatch_en = 1;
+61         1/1          		dest_reg_idx_in [0] = 5'b00001; //R1
+62         1/1          		dest_reg_idx_in [1] = 5'b00010; //R2
+63         1/1          		dest_reg_idx_in [2] = 5'b00011; //R3
+64         1/1          		valid_insn_num = 0;
+65         1/1          		@(negedge clk)
+66                      		assert(head_test == 0 && tail_test == 0) else #1 exit_on_error;
+67         1/1          		$display("@@@Dispatch_00 Passed");
+68                      
+69                      		/***RESET***/
+70         1/1          		reset = 1;
+71         1/1          		@(negedge clk)
+72         1/1          		reset = 0;
+73         1/1          		dispatch_en = 1;
+74         1/1          		dest_reg_idx_in [0] = 5'b00001; //R1
+75         1/1          		dest_reg_idx_in [1] = 5'b00010; //R2
+76         1/1          		dest_reg_idx_in [2] = 5'b00011; //R3
+77         1/1          		valid_insn_num = 1;
+78         1/1          		@(negedge clk)
+79                      		assert(head_test == 1 && tail_test == 1) else #1 exit_on_error;
+80         1/1          		$display("@@@Dispatch_01 Passed");
+81                      		
+82                      		/***RESET***/
+83         1/1          		reset = 1;
+84         1/1          		@(negedge clk)
+85         1/1          		reset = 0;
+86                      		
+87                      		/***CHECK DISPATCH WORKS WELL***/
+88                      		//assert(head_test == 0 && tail_test == 0) else #1 exit_on_error;
+89                      		
+90         1/1          		dispatch_en = 1;
+91         1/1          		dest_reg_idx_in [0] = 5'b00001; //R1
+92         1/1          		dest_reg_idx_in [1] = 5'b00010; //R2
+93         1/1          		dest_reg_idx_in [2] = 5'b00011; //R3
+94         1/1          		valid_insn_num = 3;
+95                      		
+96                      
+97         1/1          		map_table_rob_num[0] = 0;
+98         1/1          		map_table_rob_num[1] = 0;
+99         1/1          		map_table_rob_num[2] = 0;
+100                     
+101        2/2          		@(negedge clk);
+102                     		assert(head_test == 1 && tail_test == 3) else #1 exit_on_error;
+103        1/1          		$display("@@@Dispatch1 Passed");
+104                     
+105        1/1          		$monitor("dispatch_en: %b, head:%d, tail:%d,rob_entry_test[4].R:%d,rob_entry_test[5].R:%d,rob_entry_test[6].R:%d", dispatch_en,head_test,tail_test,rob_entry_test[4].reg_idx,rob_entry_test[5].reg_idx,rob_entry_test[6].reg_idx);
+106                     
+107        1/1          		dispatch_en = 1;
+108        1/1          		dest_reg_idx_in [0] = 5'b00100; //R4
+109        1/1          		dest_reg_idx_in [1] = 5'b00101; //R5
+110        1/1          		dest_reg_idx_in [2] = 5'b00110; //R6
+111        1/1          		valid_insn_num = 3;
+112                     		
+113        2/2          		@(negedge clk);
+114        1/1          		$display("@@@Dispatch2 Passed");
+115                     
+116        1/1          		$monitor("dispatch_en: %b, head:%d, tail:%d,rob_entry_test[4].R:%d,rob_entry_test[5].R:%d", dispatch_en,head_test,tail_test,rob_entry_test[7].reg_idx,rob_entry_test[8].reg_idx);
+117                     		assert(head_test == 1 && tail_test == 6) else #1 exit_on_error;
+118        1/1          		dest_reg_idx_in [0] = 5'b00111; //R7
+119        1/1          		dest_reg_idx_in [1] = 5'b01000; //R8
+120        1/1          		dest_reg_idx_in [2] = 5'b01001; //R9
+121        1/1          		valid_insn_num = 3;
+122                     
+123        2/2          		@(negedge clk);
+124                     		
+125                     		assert(head_test == 1 && tail_test ==8) else #1 exit_on_error;
+126                     
+127        1/1          		$display("@@@Dispatch3 Passed");
+128                     
+129                     		/***CHECK COMPLETE WORKS WELL***/
+130        2/2          		@(negedge clk);
+131                     
+132        1/1          		$monitor("complete_en: %b, head:%d, tail:%d,complete[1]:%b,complete[3]:%b,complete[5]:%b,V[1]:%d,V[3]:%d,V[5]:%d",  
+133                     		complete_en,head_test,tail_test,
+134                     		rob_entry_test[1].complete,rob_entry_test[3].complete,rob_entry_test[5].complete,
+135                     		rob_entry_test[1].reg_val,rob_entry_test[3].reg_val,rob_entry_test[5].reg_val);
+136                     
+137        1/1          		dispatch_en = 0;
+138        1/1          		complete_en = 1;
+139        1/1          		CDB_rob_num[0] = 1;
+140        1/1          		CDB_rob_num[1] = 3;
+141        1/1          		CDB_rob_num[2] = 5;
+142        1/1          		CDB_value[0] = 15;
+143        1/1          		CDB_value[1] = 16;
+144        1/1          		CDB_value[2] = 17;
+145                     
+146        2/2          		@(negedge clk);
+147        1/1          		$display("@@@Complete Passed");
+148                     
+149                     
+150                     		/***CHECK RETIRE WORKS WELL***/
+151        2/2          		@(negedge clk);
+152        1/1          		$monitor("retire_en: %b, head:%d, tail:%d,retire_R_out[0]:%d,retire_R_out[1]:%d,retire_R_out[2]:%d,retire_V_out[0]:%d,retire_V_out[1]:%d,retire_V_out[2]:%d,",  
+153                     		retire_en,head_test,tail_test,
+154                     		retire_R_out[0],retire_R_out[1],retire_R_out[2],
+155                     		retire_V_out[0],retire_V_out[1],retire_V_out[2]);
+156        1/1          		complete_en = 0;
+157        1/1          		retire_en = 1;
+158        2/2          		@(negedge clk);
+159        1/1          		$display("@@@Retire Passed");
+160                     		
+161                     
+162                     		/***CHECK Tail return back WELL and dispatch value out well***/
+163        2/2          		@(negedge clk);
+164        1/1          		$monitor("dispatch_en: %b, head:%d, tail:%d,dispatch_value_out[0]:%d,dispatch_value_out[1]:%d,dispatch_value_out[2]:%d,",  
+165                     		dispatch_en,head_test,tail_test,
+166                     		dispatch_value_out[0],dispatch_value_out[1],dispatch_value_out[2]);
+167                     
+168        1/1          		retire_en = 0;
+169        1/1          		dispatch_en = 1;
+170        1/1          		dest_reg_idx_in [0] = 5'b01001; //R9
+171        1/1          		dest_reg_idx_in [1] = 5'b01010; //R10
+172        1/1          		dest_reg_idx_in [2] = 5'b01011; //R11
+173                     
+174        1/1          		map_table_rob_num[0] = 3;
+175        1/1          		map_table_rob_num[1] = 0;
+176        1/1          		map_table_rob_num[2] = 0;
+177        2/2          		@(negedge clk);
+178                     		
+179        1/1          		$display("@@@ Tail loop && dispatch_value_out  Passed");
+180                     
+181                     		/***CHECK Tail stall due to ROB structure hazard well***/
+182        2/2          		@(negedge clk);
+183        1/1          		$monitor("dispatch_en: %b, head:%d, tail:%d",  
+184                     		dispatch_en,head_test,tail_test);
+185        1/1          		retire_en = 0;
+186        1/1          		dispatch_en = 1;
+187        2/2          		@(negedge clk);
+188        1/1          		$display("@@@ Tail stall due to ROB structure hazard Passed");
+189                     
+190                     		/*** Exception Test ***/
+191        2/2          		@(negedge clk);
+192        1/1          		$monitor("complete_en: %b, head:%d, tail:%d,complete[2]:%b,complete[4]:%b,complete[6]:%b,V[2]:%d,V[4]:%d,V[6]:%d,exception[4]:%d",  
+193                     		complete_en,head_test,tail_test,
+194                     		rob_entry_test[2].complete,rob_entry_test[4].complete,rob_entry_test[6].complete,
+195                     		rob_entry_test[2].reg_val,rob_entry_test[4].reg_val,rob_entry_test[6].reg_val,
+196                     		rob_entry_test[4].exception);
+197                     		// First complte and set exception
+198        1/1          		dispatch_en = 0;
+199        1/1          		complete_en = 1;
+200        1/1          		CDB_rob_num[0] = 2;
+201        1/1          		CDB_rob_num[1] = 4;
+202        1/1          		CDB_rob_num[2] = 6;
+203        1/1          		CDB_value[0] = 18;
+204        1/1          		CDB_value[1] = 19;
+205        1/1          		CDB_value[2] = 20;
+206                     
+207        1/1          		exception_en = 2'b01;
+208        1/1          		exception_rob_tag[0] = 4;
+209        1/1          		exception_rob_tag[1] = 0;
+210        2/2          		@(negedge clk);
+211                     		// Then retire
+212        1/1          		$monitor("retire_en: %b, head:%d, tail:%d,retire_R_out[0]:%d,retire_R_out[1]:%d,retire_R_out[2]:%d,retire_V_out[0]:%d,retire_V_out[1]:%d,retire_V_out[2]:%d,clear_all:%d",  
+213                     		retire_en,head_test,tail_test,
+214                     		retire_R_out[0],retire_R_out[1],retire_R_out[2],
+215                     		retire_V_out[0],retire_V_out[1],retire_V_out[2], clear_all);
+216                     
+217        1/1          		complete_en = 0;
+218        1/1          		retire_en = 1;
+219                     		
+220        2/2          		@(negedge clk);
+221                     		// head should point to ROB#4 (due to excpetion in ROB#4)and retire ROB#2 and ROB#3
+222                     
+223        2/2          		@(negedge clk);
+224                     		// should clear all, head and tail point to 0
+225                     
+226        1/1          		$display("@@@ Exception test Passed");
+227        1/1          		$finish;
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : testbench
+                Total Covered Percent 
+Totals          18    6       33.33   
+Total Bits      736   70      9.51    
+Total Bits 0->1 368   37      10.05   
+Total Bits 1->0 368   33      8.97    
+
+                               
+Signals          18  6  33.33  
+Signal Bits      736 70 9.51   
+Signal Bits 0->1 368 37 10.05  
+Signal Bits 1->0 368 33 8.97   
+
+Signal Details
+                                          Toggle Toggle 1->0 Toggle 0->1 
+clk                                       Yes    Yes         Yes         
+reset                                     Yes    Yes         Yes         
+dispatch_en                               Yes    Yes         Yes         
+dest_reg_idx_in[2:0][2:0]                 Yes    Yes         Yes         
+Other bits of dest_reg_idx_in[4:0][2:0]   No     No          No          
+valid_insn_num[1:0]                       No     No          Yes         
+map_table_rob_num[0][1:0]                 No     No          Yes         
+Other bits of map_table_rob_num[3:0][2:0] No     No          No          
+complete_en                               Yes    Yes         Yes         
+CDB_rob_num[0][0]                         No     Yes         No          
+CDB_rob_num[0][1]                         No     No          Yes         
+CDB_rob_num[1][1:0]                       No     Yes         No          
+CDB_rob_num[1][2]                         No     No          Yes         
+CDB_rob_num[2][0]                         No     Yes         No          
+CDB_rob_num[2][1]                         No     No          Yes         
+Other bits of CDB_rob_num[3:0][2:0]       No     No          No          
+CDB_value[0][0]                           No     Yes         No          
+CDB_value[0][2]                           No     Yes         No          
+CDB_value[1][1:0]                         No     No          Yes         
+CDB_value[2][0]                           No     Yes         No          
+CDB_value[2][2]                           No     No          Yes         
+Other bits of CDB_value[31:0][2:0]        No     No          No          
+retire_en                                 Yes    Yes         Yes         
+exception_en[1:0]                         No     No          No          
+exception_rob_tag[3:0][1:0]               No     No          No          
+dispatch_value_out[31:0][2:0]             No     No          No          
+head_test[1:0]                            Yes    Yes         Yes         
+head_test[2]                              No     No          Yes         
+head_test[3]                              No     No          No          
+tail_test[3:0]                            Yes    Yes         Yes         
+retire_R_out[0][1:0]                      Yes    Yes         Yes         
+retire_R_out[0][2]                        No     No          Yes         
+retire_R_out[1][0]                        No     Yes         No          
+retire_R_out[1][2]                        No     No          Yes         
+Other bits of retire_R_out[4:0][2:0]      No     No          No          
+retire_V_out[0][0]                        Yes    Yes         Yes         
+retire_V_out[0][2:1]                      No     Yes         No          
+retire_V_out[1][2]                        No     No          Yes         
+Other bits of retire_V_out[31:0][2:0]     No     No          No          
+clear_all                                 No     No          No          
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : testbench
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE 
+ 53.23  96.95   9.51 
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE 
+ 51.66  91.11  12.20 
+
+
+Module : 
+
+SCORE  LINE   TOGGLE NAME      
+ 53.23  96.95   9.51 testbench 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   TOGGLE NAME 
+ 45.12  75.51  14.72 rob  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

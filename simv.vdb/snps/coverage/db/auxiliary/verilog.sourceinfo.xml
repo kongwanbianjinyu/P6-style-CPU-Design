@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
+  <srcinfo name="/afs/umich.edu/user/j/i/jiachenj/Downloads/470workspace/eecs-470-final-project"  >
+    <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="N-2017.12-SP2-1"  />
+      <fileinfo name="sys_defs.svh"  id="0"  />
+      <fileinfo name="ISA.svh"  id="1"  />
+      <fileinfo name="Pipeline/regfile.sv"  id="2"  />
+      <fileinfo name="Pipeline/ic_stage.sv"  id="3"  />
+      <fileinfo name="Pipeline/if_stage.sv"  id="4"  />
+      <fileinfo name="Pipeline/pipeline.sv"  id="5"  />
+      <fileinfo name="Pipeline/id_stage.sv"  id="6"  />
+      <fileinfo name="Pipeline/ex_stage.sv"  id="7"  />
+      <fileinfo name="ROB/ROB.sv"  id="8"  />
+      <fileinfo name="RS/RS.sv"  id="9"  />
+      <fileinfo name="MapTable/Map_Table.sv"  id="10"  />
+      <fileinfo name="psel_gen/psel_gen.v"  id="11"  />
+      <fileinfo name="psel_gen/wand_sel.v"  id="12"  />
+      <fileinfo name="num_ones/num_ones.sv"  id="13"  />
+      <fileinfo name="testbench/naive_testbench.sv"  id="14"  />
+      <fileinfo name="testbench/mem.sv"  id="15"  />
+    </srcinfo>

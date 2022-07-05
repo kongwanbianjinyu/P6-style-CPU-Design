@@ -1,0 +1,36 @@
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version R-2020.12-SP2-1_Full64; Runtime version R-2020.12-SP2-1_Full64;  Apr 13 02:35 2022
+VCD+ Writer R-2020.12-SP2-1_Full64 Copyright (c) 1991-2020 by Synopsys Inc.
+@@
+@@
+@@                     0  Asserting System reset......
+@@
+@@                     0 : System STILL at reset, can't show anything
+@@
+@@
+@@                   100 : System STILL at reset, can't show anything
+@@
+@@
+@@                   200 : System STILL at reset, can't show anything
+@@
+@@
+@@                   300 : System STILL at reset, can't show anything
+@@
+@@                   360  Deasserting System reset......
+@@
+
+@@                 83920 : System halted
+@@
+@@@ System halted on WFI instruction
+@@@
+@@
+@@  8350.00 ns total time to execute
+@@
+
+$finish called from file "testbench/naive_testbench.sv", line 213.
+$finish at simulation time                84920
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 8492000 ps
+CPU Time:      0.770 seconds;       Data structure size:   0.1Mb
+Wed Apr 13 02:35:11 2022

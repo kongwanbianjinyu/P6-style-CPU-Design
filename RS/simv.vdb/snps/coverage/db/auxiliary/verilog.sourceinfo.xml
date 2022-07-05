@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
+  <srcinfo name="/afs/umich.edu/user/j/i/jiachenj/Downloads/eecs-470-final-project/RS"  >
+    <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="R-2020.12-SP2-1"  />
+      <fileinfo name="sys_defs.svh"  id="0"  timestamp="1647370486"  />
+      <fileinfo name="ISA.svh"  id="1"  timestamp="1644182958"  />
+      <fileinfo name="test_RS.v"  id="2"  timestamp="1647378819"  />
+      <fileinfo name="RS.v"  id="3"  timestamp="1647380044"  />
+    </srcinfo>
