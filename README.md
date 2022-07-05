@@ -27,13 +27,7 @@ To run the code, open the terminal in the folder and run:
 ```
 Then the processor would run all assembly files and generate the output result in program.out.
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Jiachen Jiang jiachenj@umich.edu
