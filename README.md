@@ -1,7 +1,7 @@
 # README #
 
 
-A 3-way superscalar Out-of-Order machine with P6 style register renaming.
+## A 3-way superscalar Out-of-Order Processor with P6 style register renaming. ##
 
 ### Introduction ###
 
@@ -25,7 +25,7 @@ To run the code, open the terminal in the folder and run:
 ```
 ./run.sh
 ```
-
+Then the processor would run all assembly files and generate the output result in program.out.
 
 ### Contribution guidelines ###
 
