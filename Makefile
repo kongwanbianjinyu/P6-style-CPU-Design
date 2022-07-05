@@ -13,13 +13,27 @@
 #
 #
 
-#SOURCE = test_progs/rv32_mult_no_lsq.s
-#SOURCE = test_progs/haha.s
-SOURCE = test_progs/rv32_copy.s
-#SOURCE = test_progs/rv32_mult.s
-#SOURCE = test_progs/rv32_copy_long.s
-#SOURCE = test_progs/rv32_evens.s
-#SOURCE = test_progs/rv32_evens_long.s
+
+#SOURCE = test_progs/rv32_mult_no_lsq.s #pass syn
+SOURCE = test_progs/haha.s             #pass syn
+#SOURCE = test_progs/rv32_copy.s        #pass syn
+#SOURCE = test_progs/rv32_mult.s        #pass syn
+#SOURCE = test_progs/rv32_copy_long.s   #pass syn
+#SOURCE = test_progs/rv32_evens.s       #pass syn
+#SOURCE = test_progs/rv32_evens_long.s  #pass syn
+#SOURCE = test_progs/rv32_fib.s			#pass syn
+#SOURCE = test_progs/rv32_fib_long.s
+#SOURCE = test_progs/rv32_fib_rec.s
+# SOURCE = test_progs/rv32_insertion.s   
+#SOURCE = test_progs/sampler.s          #pass syn
+#SOURCE = test_progs/rv32_btest1.s      #pass syn
+#SOURCE = test_progs/rv32_btest2.s      #pass syn
+#SOURCE = test_progs/rv32_parallel.s    #pass syn
+#SOURCE = test_progs/rv32_saxpy.s       #pass syn
+#SOURCE = test_progs/rv32_halt.s        #pass syn
+
+
+
 
 CRT = crt.s
 LINKERS = linker.lds
@@ -49,9 +63,10 @@ else
 endif
 
 #VCS = SW_VCS=2017.12-SP2-1 vcs -sverilog +vc -Mupdate -line -full64 -cm line+tgl
-
+#add -xprop=tmerge tag to make simulation like synthesis -xprop=unifiedInference -xprop=tmerge -xprop=tmerge 
 VCS = vcs -V -sverilog +vc -Mupdate -line -full64 +vcs+vcdpluson -debug_acc+pp+dmptf -debug_region+cell+encrypt#-debug_pp#
 LIB = /afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v
+
 
 # For visual debugger
 VISFLAGS = -lncurses
@@ -66,11 +81,11 @@ PIPEFILES  += $(wildcard ROB/*.sv)
 PIPEFILES  += $(wildcard RS/*.sv)
 PIPEFILES  += $(wildcard MapTable/*.sv)
 PIPEFILES  += $(wildcard psel_gen/*.v)
-PIPEFILES  += $(wildcard num_ones/*.sv)
-PIPEFILES  += $(wildcard Mult/*.v)
-PIPEFILES  += $(wildcard LSQ/*.sv)
 PIPEFILES  += $(wildcard Cache/*.sv)
-
+PIPEFILES  += $(wildcard LSQ/*.sv)
+PIPEFILES  += $(wildcard Mult/*.sv)
+PIPEFILES  += $(wildcard num_ones/*.sv)
+PIPEFILES  += $(wildcard pe/*.sv)
 
 SIMFILES    = $(PIPEFILES)
 
@@ -81,6 +96,28 @@ VTUBER = sys_defs.svh	\
 		testbench/visual_c_hooks.cpp \
 		testbench/pipe_print.c
 
+
+## vg files used to synth pipeline
+# VGFILES = $(wildcard ../MapTable/*.vg)
+# VGFILES += $(wildcard ../ROB/*.vg)
+# VGFILES += $(wildcard ../RS/RS.vg)
+# VGFILES += $(wildcard ../Pipeline/*.sv)
+VGFILES = MapTable/Map_Table.vg \
+		ROB/ROB.vg \
+		RS/RS.vg \
+		Cache/Dcache.vg \
+		LSQ/LSQ.vg \
+		Mult/mult.vg \
+		psel_gen/psel_gen_REQS3_WIDTH6.vg \
+		pe/pe_OUTWIDTH3_INWIDTH8.vg \
+		Pipeline/ex_stage.sv \
+		Pipeline/ic_stage.sv \
+		Pipeline/id_stage.sv \
+		Pipeline/if_stage.sv \
+		Pipeline/pipeline.sv \
+		Pipeline/regfile.sv \
+# SYNTHFILES = $(VGFILES)
+
 # SYNTHESIS CONFIG
 SYNTH_DIR = ./synth
 	
@@ -90,12 +127,12 @@ export PIPEFILES
 export PIPELINE_NAME = pipeline
 
 PIPELINE  = $(SYNTH_DIR)/$(PIPELINE_NAME).vg
-SYNFILES  = $(PIPELINE) $(SYNTH_DIR)/$(PIPELINE_NAME)_svsim.sv
+SYNFILES  = $(PIPELINE) #$(SYNTH_DIR)/$(PIPELINE_NAME)_svsim.sv
 
 # Passed through to .tcl scripts:
-export CLOCK_NET_NAME = clock
+export CLOCK_NET_NAME = clk
 export RESET_NET_NAME = reset
-export CLOCK_PERIOD   = 10	# TODO: You will need to make match SYNTH_CLOCK_PERIOD in sys_defs
+export CLOCK_PERIOD   = 15	# TODO: You will need to make match SYNTH_CLOCK_PERIOD in sys_defs
                                 #       and make this more aggressive
 
 ################################################################################
@@ -115,6 +152,14 @@ sim:	simv
 
 simv:	$(HEADERS) $(SIMFILES) $(TESTBENCH)
 	$(VCS) $^ -o simv
+
+#simv:	$(HEADERS) $(PIPELINE) $(TESTBENCH)
+#	$(VCS) $^ -o simv
+
+# For visual debugger
+vis_simv:	$(SIMFILES) $(VTUBER)
+			$(VCS) $(VISFLAGS) $(VTUBER) $(SIMFILES) -o vis_simv
+			./vis_simv
 
 .PHONY: sim
 
@@ -142,16 +187,18 @@ assembly: assemble disassemble hex
 	@:
 
 
-
-# For visual debugger
-vis_simv:	$(SIMFILES) $(VTUBER)
-			$(VCS) $(VISFLAGS) $(VTUBER) $(SIMFILES) -o vis_simv 
-			./vis_simv
 # Synthesis
 
-$(PIPELINE): $(SIMFILES) $(SYNTH_DIR)/$(PIPELINE_NAME).tcl
+#$(PIPELINE): $(SIMFILES) $(SYNTH_DIR)/$(PIPELINE_NAME).tcl
+#	cd $(SYNTH_DIR) && dc_shell-t -f ./$(PIPELINE_NAME).tcl | tee $(PIPELINE_NAME)_synth.out
+#	echo -e -n 'H\n1\ni\n`timescale 1ns/100ps\n.\nw\nq\n' | ed $(PIPELINE)
+
+
+$(PIPELINE): $(VGFILES) $(SYNTH_DIR)/$(PIPELINE_NAME).tcl
 	cd $(SYNTH_DIR) && dc_shell-t -f ./$(PIPELINE_NAME).tcl | tee $(PIPELINE_NAME)_synth.out
 	echo -e -n 'H\n1\ni\n`timescale 1ns/100ps\n.\nw\nq\n' | ed $(PIPELINE)
+#synth/pipeline.vg:        $(VGFILES) synth/pipeline.tcl
+#	cd synth && dc_shell-t -f ./pipeline.tcl | tee synth.out 
 
 syn:	syn_simv
 	./syn_simv | tee syn_program.out
@@ -166,7 +213,7 @@ syn_simv:	$(HEADERS) $(SYNFILES) $(TESTBENCH)
 dve:	sim
 	./simv -gui &
 
-dve_syn: syn_sim
+dve_syn: syn_simv
 	./syn_simv -gui &
 
 .PHONY: dve dve_syn

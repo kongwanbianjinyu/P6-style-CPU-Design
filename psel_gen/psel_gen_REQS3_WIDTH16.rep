@@ -1,0 +1,349 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : design
+Design : psel_gen_REQS3_WIDTH16
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:05:27 2022
+****************************************
+
+Design allows ideal nets on clock nets.
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Local Link Library:
+
+    {lec25dscc25_TT.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : nom_pvt
+    Library : lec25dscc25_TT
+    Process :   1.00
+    Temperature :  25.00
+    Voltage :   2.50
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    Selected manually by the user.
+
+Name           :   tsmcwire
+Location       :   lec25dscc25_TT
+Resistance     :   0.2642
+Capacitance    :   0.000132782
+Area           :   0.27
+Slope          :   0.74
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1     0.89
+     2     1.48
+     3     2.44
+     4     3.18
+     5     3.92
+
+
+
+Wire Loading Model Mode: top.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    REQS => 3
+    WIDTH => 16
+1
+ 
+****************************************
+Report : area
+Design : psel_gen_REQS3_WIDTH16
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:05:27 2022
+****************************************
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Number of ports:                           81
+Number of nets:                           184
+Number of cells:                          168
+Number of combinational cells:            165
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         67
+Number of references:                      28
+
+Combinational area:               8186.571041
+Buf/Inv area:                     2247.782455
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:              85.246294
+
+Total cell area:                  8186.571041
+Total area:                       8271.817335
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 2
+        -transition_time
+Design : psel_gen_REQS3_WIDTH16
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:05:27 2022
+****************************************
+
+Operating Conditions: nom_pvt   Library: lec25dscc25_TT
+Wire Load Model Mode: top
+
+  Startpoint: req[14] (input port)
+  Endpoint: gnt_bus[33]
+            (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  psel_gen_REQS3_WIDTH16 tsmcwire          lec25dscc25_TT
+
+  Point                        Fanout     Trans      Incr       Path
+  ---------------------------------------------------------------------
+  input external delay                               0.00       0.00 f
+  req[14] (in)                             0.21      0.03       0.03 f
+  req[14] (net)                  2                   0.00       0.03 f
+  U290/DIN (ib1s1)                         0.21      0.00       0.04 f
+  U290/Q (ib1s1)                           0.17      0.08       0.12 r
+  n46 (net)                      2                   0.00       0.12 r
+  U285/DIN1 (nor2s1)                       0.17      0.00       0.12 r
+  U285/Q (nor2s1)                          0.99      0.47       0.59 f
+  gnt_bus[14] (net)              3                   0.00       0.59 f
+  U264/DIN2 (nor2s1)                       0.99      0.00       0.59 f
+  U264/Q (nor2s1)                          0.81      0.38       0.98 r
+  n84 (net)                      5                   0.00       0.98 r
+  U231/DIN2 (or3s1)                        0.81      0.00       0.98 r
+  U231/Q (or3s1)                           0.29      0.34       1.32 r
+  n114 (net)                     3                   0.00       1.32 r
+  U167/DIN3 (or3s2)                        0.29      0.00       1.32 r
+  U167/Q (or3s2)                           0.22      0.21       1.54 r
+  n94 (net)                      4                   0.00       1.54 r
+  U185/DIN3 (nor3s2)                       0.22      0.01       1.54 r
+  U185/Q (nor3s2)                          0.42      0.14       1.68 f
+  n134 (net)                     4                   0.00       1.68 f
+  U60/DIN1 (nnd3s2)                        0.42      0.00       1.69 f
+  U60/Q (nnd3s2)                           0.24      0.12       1.81 r
+  n107 (net)                     2                   0.00       1.81 r
+  U166/DIN1 (nor2s1)                       0.24      0.00       1.81 r
+  U166/Q (nor2s1)                          0.34      0.19       2.00 f
+  n80 (net)                      3                   0.00       2.00 f
+  U229/DIN2 (nnd4s1)                       0.34      0.00       2.01 f
+  U229/Q (nnd4s1)                          0.48      0.21       2.21 r
+  n81 (net)                      2                   0.00       2.21 r
+  U163/DIN (i1s2)                          0.48      0.00       2.22 r
+  U163/Q (i1s2)                            0.46      0.25       2.47 f
+  gnt_bus[33] (net)              1                   0.00       2.47 f
+  gnt_bus[33] (out)                        0.46      0.02       2.49 f
+  data arrival time                                             2.49
+
+  max_delay                                          2.50       2.50
+  output external delay                              0.00       2.50
+  data required time                                            2.50
+  ---------------------------------------------------------------------
+  data required time                                            2.50
+  data arrival time                                            -2.49
+  ---------------------------------------------------------------------
+  slack (MET)                                                   0.01
+
+
+  Startpoint: req[14] (input port)
+  Endpoint: gnt[1] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  psel_gen_REQS3_WIDTH16 tsmcwire          lec25dscc25_TT
+
+  Point                        Fanout     Trans      Incr       Path
+  ---------------------------------------------------------------------
+  input external delay                               0.00       0.00 f
+  req[14] (in)                             0.21      0.03       0.03 f
+  req[14] (net)                  2                   0.00       0.03 f
+  U290/DIN (ib1s1)                         0.21      0.00       0.04 f
+  U290/Q (ib1s1)                           0.17      0.08       0.12 r
+  n46 (net)                      2                   0.00       0.12 r
+  U285/DIN1 (nor2s1)                       0.17      0.00       0.12 r
+  U285/Q (nor2s1)                          0.99      0.47       0.59 f
+  gnt_bus[14] (net)              3                   0.00       0.59 f
+  U264/DIN2 (nor2s1)                       0.99      0.00       0.59 f
+  U264/Q (nor2s1)                          0.81      0.38       0.98 r
+  n84 (net)                      5                   0.00       0.98 r
+  U231/DIN2 (or3s1)                        0.81      0.00       0.98 r
+  U231/Q (or3s1)                           0.29      0.34       1.32 r
+  n114 (net)                     3                   0.00       1.32 r
+  U167/DIN3 (or3s2)                        0.29      0.00       1.32 r
+  U167/Q (or3s2)                           0.22      0.21       1.54 r
+  n94 (net)                      4                   0.00       1.54 r
+  U185/DIN3 (nor3s2)                       0.22      0.01       1.54 r
+  U185/Q (nor3s2)                          0.42      0.14       1.68 f
+  n134 (net)                     4                   0.00       1.68 f
+  U60/DIN1 (nnd3s2)                        0.42      0.00       1.69 f
+  U60/Q (nnd3s2)                           0.24      0.12       1.81 r
+  n107 (net)                     2                   0.00       1.81 r
+  U166/DIN1 (nor2s1)                       0.24      0.00       1.81 r
+  U166/Q (nor2s1)                          0.34      0.19       2.00 f
+  n80 (net)                      3                   0.00       2.00 f
+  U229/DIN2 (nnd4s1)                       0.34      0.00       2.01 f
+  U229/Q (nnd4s1)                          0.48      0.21       2.21 r
+  n81 (net)                      2                   0.00       2.21 r
+  U252/DIN2 (nnd3s2)                       0.48      0.00       2.22 r
+  U252/Q (nnd3s2)                          0.54      0.25       2.47 f
+  gnt[1] (net)                   1                   0.00       2.47 f
+  gnt[1] (out)                             0.54      0.02       2.49 f
+  data arrival time                                             2.49
+
+  max_delay                                          2.50       2.50
+  output external delay                              0.00       2.50
+  data required time                                            2.50
+  ---------------------------------------------------------------------
+  data required time                                            2.50
+  data arrival time                                            -2.49
+  ---------------------------------------------------------------------
+  slack (MET)                                                   0.01
+
+
+1
+ 
+****************************************
+Report : constraint
+        -verbose
+        -max_delay
+Design : psel_gen_REQS3_WIDTH16
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:05:27 2022
+****************************************
+
+
+  Startpoint: req[14] (input port)
+  Endpoint: gnt_bus[33]
+            (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  psel_gen_REQS3_WIDTH16 tsmcwire          lec25dscc25_TT
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  req[14] (in)                             0.03       0.03 f
+  U290/Q (ib1s1)                           0.08       0.12 r
+  U285/Q (nor2s1)                          0.47       0.59 f
+  U264/Q (nor2s1)                          0.39       0.98 r
+  U231/Q (or3s1)                           0.34       1.32 r
+  U167/Q (or3s2)                           0.22       1.54 r
+  U185/Q (nor3s2)                          0.15       1.68 f
+  U60/Q (nnd3s2)                           0.13       1.81 r
+  U166/Q (nor2s1)                          0.19       2.00 f
+  U229/Q (nnd4s1)                          0.21       2.21 r
+  U163/Q (i1s2)                            0.25       2.47 f
+  gnt_bus[33] (out)                        0.02       2.49 f
+  data arrival time                                   2.49
+
+  max_delay                                2.50       2.50
+  output external delay                    0.00       2.50
+  data required time                                  2.50
+  -----------------------------------------------------------
+  data required time                                  2.50
+  data arrival time                                  -2.49
+  -----------------------------------------------------------
+  slack (MET)                                         0.01
+
+
+1
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : reference
+Design : psel_gen_REQS3_WIDTH16
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:05:27 2022
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s1             lec25dscc25_TT    49.766399       3   149.299198
+and2s2             lec25dscc25_TT    58.060799       3   174.182396
+and3s1             lec25dscc25_TT    66.355202       4   265.420807
+and3s2             lec25dscc25_TT    99.532799       5   497.663994
+and3s3             lec25dscc25_TT   174.182007       3   522.546021
+and4s3             lec25dscc25_TT   124.416000       2   248.832001
+hi1s1              lec25dscc25_TT    33.177601      12   398.131210
+i1s1               lec25dscc25_TT    33.177601       3    99.532803
+i1s2               lec25dscc25_TT    41.472000       1    41.472000
+ib1s1              lec25dscc25_TT    33.177601      50  1658.880043
+nb1s2              lec25dscc25_TT    49.766399       1    49.766399
+nnd2s1             lec25dscc25_TT    41.472000       3   124.416000
+nnd2s2             lec25dscc25_TT    41.472000       7   290.304001
+nnd2s3             lec25dscc25_TT    58.060799       1    58.060799
+nnd3s1             lec25dscc25_TT    49.766399      10   497.663994
+nnd3s2             lec25dscc25_TT    49.766399       9   447.897594
+nnd4s1             lec25dscc25_TT    58.060799       8   464.486389
+nnd4s2             lec25dscc25_TT    91.238403       1    91.238403
+nor2s1             lec25dscc25_TT    41.472000      22   912.384003
+nor2s2             lec25dscc25_TT    58.060799       3   174.182396
+nor2s3             lec25dscc25_TT    74.649597       1    74.649597
+nor3s2             lec25dscc25_TT    99.532799       1    99.532799
+nor5s2             lec25dscc25_TT   149.298996       1   149.298996
+oai21s2            lec25dscc25_TT    49.766399       4   199.065598
+or2s1              lec25dscc25_TT    49.766399       1    49.766399
+or2s2              lec25dscc25_TT    58.060799       1    58.060799
+or3s1              lec25dscc25_TT    58.060799       3   174.182396
+or3s2              lec25dscc25_TT   107.827003       2   215.654007
+-----------------------------------------------------------------------------
+Total 28 references                                  8186.571041
+1

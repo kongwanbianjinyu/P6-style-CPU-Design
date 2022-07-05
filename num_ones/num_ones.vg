@@ -1,0 +1,106 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Expert(TM) in wire load mode
+// Version   : S-2021.06-SP1
+// Date      : Fri Apr 15 23:36:12 2022
+/////////////////////////////////////////////////////////////
+
+
+module num_ones ( A, ones );
+  input [15:0] A;
+  output [4:0] ones;
+  wire   N9, N6, N5, N31, N30, N3, N29, N27, N26, N25, N24, N20, N2, N19, N15,
+         N14, N11, N10, N1, N0, \add_0_root_add_6_root_add_12_I16/carry[1] ,
+         \add_0_root_add_6_root_add_12_I16/carry[2] ,
+         \add_0_root_add_6_root_add_12_I16/carry[3] ,
+         \add_3_root_add_6_root_add_12_I16/carry[1] ,
+         \add_1_root_add_6_root_add_12_I16/carry[1] ,
+         \add_1_root_add_6_root_add_12_I16/carry[2] ,
+         \add_2_root_add_6_root_add_12_I16/carry[1] , n1, n2, n3, n4, n5, n6,
+         n7, n8, n9, n10, n11, n12, n13, n14, n15, n16, n17, n18, n19, n20,
+         n21, n22, n23, n24, n25, n26, n27, n28, n29;
+
+  fadd1s3 \add_3_root_add_6_root_add_12_I16/U1_1  ( .AIN(N1), .BIN(N3), .CIN(
+        \add_3_root_add_6_root_add_12_I16/carry[1] ), .OUTC(N31), .OUTS(N30)
+         );
+  nnd2s1 U1 ( .DIN1(N6), .DIN2(N10), .Q(n3) );
+  nnd2s1 U2 ( .DIN1(A[9]), .DIN2(A[12]), .Q(n19) );
+  fadd1s3 U3 ( .AIN(N0), .BIN(N2), .CIN(A[10]), .OUTC(
+        \add_3_root_add_6_root_add_12_I16/carry[1] ), .OUTS(N29) );
+  xor2s1 U4 ( .DIN1(A[14]), .DIN2(n12), .Q(N14) );
+  xor2s1 U5 ( .DIN1(A[13]), .DIN2(A[11]), .Q(n12) );
+  xor2s1 U6 ( .DIN1(A[1]), .DIN2(A[2]), .Q(n25) );
+  xor2s1 U7 ( .DIN1(A[4]), .DIN2(A[5]), .Q(n27) );
+  xor2s1 U8 ( .DIN1(A[3]), .DIN2(n27), .Q(N2) );
+  xor2s1 U9 ( .DIN1(A[0]), .DIN2(n25), .Q(N0) );
+  and2s1 U10 ( .DIN1(N24), .DIN2(N29), .Q(
+        \add_0_root_add_6_root_add_12_I16/carry[1] ) );
+  xor2s2 U11 ( .DIN1(N24), .DIN2(N29), .Q(ones[0]) );
+  xor3s1 U12 ( .DIN1(N10), .DIN2(\add_1_root_add_6_root_add_12_I16/carry[1] ), 
+        .DIN3(N6), .Q(N25) );
+  nnd2s2 U13 ( .DIN1(N10), .DIN2(\add_1_root_add_6_root_add_12_I16/carry[1] ), 
+        .Q(n1) );
+  nnd2s2 U14 ( .DIN1(N6), .DIN2(\add_1_root_add_6_root_add_12_I16/carry[1] ), 
+        .Q(n2) );
+  nnd3s2 U15 ( .DIN1(n2), .DIN2(n3), .DIN3(n1), .Q(
+        \add_1_root_add_6_root_add_12_I16/carry[2] ) );
+  and2s1 U16 ( .DIN1(N5), .DIN2(N9), .Q(
+        \add_1_root_add_6_root_add_12_I16/carry[1] ) );
+  xor2s1 U17 ( .DIN1(N15), .DIN2(N20), .Q(n4) );
+  xor2s1 U18 ( .DIN1(\add_2_root_add_6_root_add_12_I16/carry[1] ), .DIN2(n4), 
+        .Q(N10) );
+  nnd2s2 U19 ( .DIN1(N15), .DIN2(\add_2_root_add_6_root_add_12_I16/carry[1] ), 
+        .Q(n5) );
+  nnd2s2 U20 ( .DIN1(N20), .DIN2(\add_2_root_add_6_root_add_12_I16/carry[1] ), 
+        .Q(n6) );
+  nnd2s2 U21 ( .DIN1(N20), .DIN2(N15), .Q(n7) );
+  nnd3s2 U22 ( .DIN1(n6), .DIN2(n7), .DIN3(n5), .Q(N11) );
+  xor2s1 U23 ( .DIN1(\add_1_root_add_6_root_add_12_I16/carry[2] ), .DIN2(N11), 
+        .Q(N26) );
+  xor3s2 U24 ( .DIN1(\add_0_root_add_6_root_add_12_I16/carry[1] ), .DIN2(N25), 
+        .DIN3(N30), .Q(ones[1]) );
+  nnd2s3 U25 ( .DIN1(\add_0_root_add_6_root_add_12_I16/carry[1] ), .DIN2(N25), 
+        .Q(n8) );
+  nnd2s2 U26 ( .DIN1(N30), .DIN2(N25), .Q(n9) );
+  nnd2s2 U27 ( .DIN1(N30), .DIN2(\add_0_root_add_6_root_add_12_I16/carry[1] ), 
+        .Q(n10) );
+  nnd3s3 U28 ( .DIN1(n9), .DIN2(n10), .DIN3(n8), .Q(
+        \add_0_root_add_6_root_add_12_I16/carry[2] ) );
+  nnd2s2 U29 ( .DIN1(N26), .DIN2(\add_0_root_add_6_root_add_12_I16/carry[2] ), 
+        .Q(n21) );
+  xor2s1 U30 ( .DIN1(N26), .DIN2(N31), .Q(n11) );
+  xor2s2 U31 ( .DIN1(n20), .DIN2(n11), .Q(ones[2]) );
+  nnd2s1 U32 ( .DIN1(A[13]), .DIN2(A[14]), .Q(n13) );
+  nnd2s2 U33 ( .DIN1(A[11]), .DIN2(A[14]), .Q(n14) );
+  nnd2s1 U34 ( .DIN1(A[11]), .DIN2(A[13]), .Q(n15) );
+  nnd3s2 U35 ( .DIN1(n14), .DIN2(n15), .DIN3(n13), .Q(N15) );
+  xor2s2 U36 ( .DIN1(A[12]), .DIN2(A[9]), .Q(n16) );
+  xor2s2 U37 ( .DIN1(n16), .DIN2(A[15]), .Q(N19) );
+  nnd2s2 U38 ( .DIN1(A[12]), .DIN2(A[15]), .Q(n17) );
+  nnd2s2 U39 ( .DIN1(A[9]), .DIN2(A[15]), .Q(n18) );
+  nnd3s2 U40 ( .DIN1(n18), .DIN2(n19), .DIN3(n17), .Q(N20) );
+  nb1s1 U41 ( .DIN(\add_0_root_add_6_root_add_12_I16/carry[2] ), .Q(n20) );
+  nnd2s2 U42 ( .DIN1(N31), .DIN2(\add_0_root_add_6_root_add_12_I16/carry[2] ), 
+        .Q(n22) );
+  nnd2s1 U43 ( .DIN1(N31), .DIN2(N26), .Q(n23) );
+  nnd3s3 U44 ( .DIN1(n22), .DIN2(n21), .DIN3(n23), .Q(
+        \add_0_root_add_6_root_add_12_I16/carry[3] ) );
+  and2s2 U45 ( .DIN1(\add_0_root_add_6_root_add_12_I16/carry[3] ), .DIN2(N27), 
+        .Q(ones[4]) );
+  ib1s1 U46 ( .DIN(n28), .Q(N6) );
+  aoi22s2 U47 ( .DIN1(A[8]), .DIN2(A[7]), .DIN3(n29), .DIN4(A[6]), .Q(n28) );
+  ib1s1 U48 ( .DIN(n24), .Q(N1) );
+  ib1s1 U49 ( .DIN(n26), .Q(N3) );
+  aoi22s1 U50 ( .DIN1(A[2]), .DIN2(A[1]), .DIN3(n25), .DIN4(A[0]), .Q(n24) );
+  aoi22s1 U51 ( .DIN1(A[5]), .DIN2(A[4]), .DIN3(n27), .DIN4(A[3]), .Q(n26) );
+  xor2s1 U52 ( .DIN1(A[7]), .DIN2(A[8]), .Q(n29) );
+  xor2s1 U53 ( .DIN1(A[6]), .DIN2(n29), .Q(N5) );
+  and2s2 U54 ( .DIN1(N14), .DIN2(N19), .Q(
+        \add_2_root_add_6_root_add_12_I16/carry[1] ) );
+  xor2s3 U55 ( .DIN1(N27), .DIN2(\add_0_root_add_6_root_add_12_I16/carry[3] ), 
+        .Q(ones[3]) );
+  and2s1 U56 ( .DIN1(N11), .DIN2(\add_1_root_add_6_root_add_12_I16/carry[2] ), 
+        .Q(N27) );
+  xor2s1 U57 ( .DIN1(N9), .DIN2(N5), .Q(N24) );
+  xor2s1 U58 ( .DIN1(N14), .DIN2(N19), .Q(N9) );
+endmodule
+

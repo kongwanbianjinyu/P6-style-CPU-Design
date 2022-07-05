@@ -13,7 +13,7 @@
 `timescale 1ns/100ps
 
 module if_stage(
-	input         				clock,                  // system clock
+	input         				clk,                  // system clk
 	input         				reset,                  // system reset
 	input 	[1:0]				dispatch_num,  			// come back from ID stage, fetch should know how many insns are dispatched successfully
 	input   	      			clear_all,     // taken-branch signal
@@ -73,7 +73,7 @@ module if_stage(
 
 	// This register holds the PC value
 	// synopsys sync_set_reset "reset"
-	always_ff @(posedge clock) begin
+	always_ff @(posedge clk) begin
 		if(reset)
 			PC_prev <= `SD 0;       // initial PC value is 0
 		else if(PC_enable) begin

@@ -11,7 +11,7 @@
 # similar to the information in those scripts but that seems hard to avoid.
 #
 
-VCS = SW_VCS=2017.12-SP2-1 vcs -sverilog +vc -Mupdate -line -full64 -cm line+tgl
+VCS = SW_VCS=2017.12-SP2-1 vcs -sverilog +vc -Mupdate -line -full64 -cm line+tgl +define+TEST_SIZE=$(SIZE) 
 
 all:    simv
 	./simv | tee program.out
@@ -20,13 +20,13 @@ all:    simv
 # Modify starting here
 #####
 
-TESTBENCH = sys_defs.svh ISA.svh test_RS.v
-SIMFILES = RS.v
+TESTBENCH = ISA.svh sys_defs.svh 
+SIMFILES = ../num_ones/num_ones.sv ../psel_gen/psel_gen.v ../pe/pe.sv RS.sv 
 SYNFILES = RS.vg
 LIB = /afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v
 
-# CAM.vg:	cam.v cam.tcl
-# 	dc_shell-t -f cam.tcl | tee synth.out
+RS.vg:	RS.sv ../num_ones/num_ones.vg ../psel_gen/psel_gen_REQS3_WIDTH16.vg ../pe/pe_OUTWIDTH4_INWIDTH16.vg RS.tcl
+	dc_shell-t -f RS.tcl | tee synth.out
 
 #####
 # Should be no need to modify after here
@@ -54,3 +54,6 @@ clean:
 
 nuke:	clean
 	rm -rvf *.vg *.rep *.db *.chk *.log *.out DVEfiles/ *.ddc *.res *_svsim.sv default.svf *.vdb
+
+#nuke:	clean
+#	rm -rvf *.rep *.db *.chk *.log *.out DVEfiles/ *.res *_svsim.sv default.svf *.vdb

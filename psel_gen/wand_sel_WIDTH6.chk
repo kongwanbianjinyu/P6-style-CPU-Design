@@ -1,0 +1,19 @@
+ 
+****************************************
+check_design summary:
+Version:     S-2021.06-SP1
+Date:        Sat Apr 16 22:35:11 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Nets                                                                5
+    Net has multiple drivers (LINT-4)                               5
+--------------------------------------------------------------------------------
+
+Information: In design 'wand_sel_WIDTH6', net 'gnt_r[1]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH6', net 'gnt_r[2]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH6', net 'gnt_r[3]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH6', net 'gnt_r[4]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH6', net 'gnt_r[5]' has multiple drivers.  Wired AND assumed. (LINT-4)
+1

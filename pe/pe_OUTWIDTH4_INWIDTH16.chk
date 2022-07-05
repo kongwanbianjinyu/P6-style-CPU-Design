@@ -1,0 +1,22 @@
+ 
+****************************************
+check_design summary:
+Version:     S-2021.06-SP1
+Date:        Sat Apr 16 23:00:52 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      1
+    Unconnected ports (LINT-28)                                     1
+
+Nets                                                                4
+    Net is wired or (LINT-35)                                       4
+--------------------------------------------------------------------------------
+
+Warning: In design 'pe_OUTWIDTH4_INWIDTH16', port 'gnt[0]' is not connected to any nets. (LINT-28)
+Information: In design 'pe_OUTWIDTH4_INWIDTH16', net 'enc[0]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'pe_OUTWIDTH4_INWIDTH16', net 'enc[1]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'pe_OUTWIDTH4_INWIDTH16', net 'enc[2]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'pe_OUTWIDTH4_INWIDTH16', net 'enc[3]' has multiple drivers.  Wired OR assumed. (LINT-35)
+1

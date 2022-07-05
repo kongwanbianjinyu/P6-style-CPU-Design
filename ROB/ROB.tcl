@@ -13,11 +13,11 @@ suppress_message {"VER-130"}
 #/***********************************************************/
 lappend search_path ../
 
-read_file -f sverilog [list sys_defs.vh ROB.v]
+read_file -f sverilog [list ISA.svh sys_defs.svh ROB.sv]
 set design_name ROB
 set clock_name clk
 set reset_name reset
-set CLK_PERIOD 10
+set CLK_PERIOD 7.5
 
 
 #/***********************************************************/

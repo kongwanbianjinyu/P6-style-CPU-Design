@@ -1,0 +1,26 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Expert(TM) in wire load mode
+// Version   : S-2021.06-SP1
+// Date      : Sat Apr 16 23:00:53 2022
+/////////////////////////////////////////////////////////////
+
+
+module pe_OUTWIDTH4_INWIDTH16 ( gnt, enc );
+  input [15:0] gnt;
+  output [3:0] enc;
+  wire   n1, n2;
+
+  or5s2 U7 ( .DIN1(gnt[5]), .DIN2(gnt[4]), .DIN3(gnt[13]), .DIN4(gnt[12]), 
+        .DIN5(n2), .Q(enc[2]) );
+  or5s2 U8 ( .DIN1(gnt[3]), .DIN2(gnt[2]), .DIN3(gnt[11]), .DIN4(gnt[10]), 
+        .DIN5(n2), .Q(enc[1]) );
+  or4s1 U9 ( .DIN1(gnt[15]), .DIN2(gnt[14]), .DIN3(gnt[7]), .DIN4(gnt[6]), .Q(
+        n2) );
+  or5s2 U10 ( .DIN1(gnt[8]), .DIN2(gnt[14]), .DIN3(gnt[12]), .DIN4(gnt[10]), 
+        .DIN5(n1), .Q(enc[3]) );
+  or5s2 U11 ( .DIN1(gnt[7]), .DIN2(gnt[5]), .DIN3(gnt[3]), .DIN4(gnt[1]), 
+        .DIN5(n1), .Q(enc[0]) );
+  or4s1 U12 ( .DIN1(gnt[13]), .DIN2(gnt[11]), .DIN3(gnt[9]), .DIN4(gnt[15]), 
+        .Q(n1) );
+endmodule
+

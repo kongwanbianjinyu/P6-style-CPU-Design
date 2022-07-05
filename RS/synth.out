@@ -1,0 +1,918 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version S-2021.06-SP1 for linux64 - Jul 13, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+read_file -f ddc [list "num_ones/num_ones.ddc"]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Reading ddc file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/num_ones/num_ones.ddc'.
+Loaded 1 design.
+Current design is 'num_ones'.
+num_ones
+set_dont_touch num_ones
+1
+read_file -f ddc [list "psel_gen/psel_gen_REQS3_WIDTH16.ddc"]
+Reading ddc file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/psel_gen/psel_gen_REQS3_WIDTH16.ddc'.
+Loaded 1 design.
+Current design is 'psel_gen_REQS3_WIDTH16'.
+psel_gen_REQS3_WIDTH16
+set_dont_touch psel_gen_REQS3_WIDTH16
+1
+read_file -f ddc [list "pe/pe_OUTWIDTH4_INWIDTH16.ddc"]
+Reading ddc file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/pe/pe_OUTWIDTH4_INWIDTH16.ddc'.
+Loaded 1 design.
+Current design is 'pe_OUTWIDTH4_INWIDTH16'.
+pe_OUTWIDTH4_INWIDTH16
+set_dont_touch pe_OUTWIDTH4_INWIDTH16
+1
+#read_file -f ddc [list "wand_sel_WIDTH64.ddc"]
+#set_dont_touch wand_sel_WIDTH64
+read_file -f sverilog [list "ISA.svh" "sys_defs.svh" "RS.sv"]
+Loading sverilog files: '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/ISA.svh' '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh' '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/ISA.svh
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh:379: Using default enum base size of 32. (VER-533)
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv:91: signed to unsigned assignment occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv:179: signed to unsigned assignment occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv:190: signed to unsigned assignment occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv:240: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine RS line 148 in file
+		'/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|  rs_packet_out_reg  | Latch |  612  |  Y  | N  | N  | N  | -  | -  | -  |
+| V1_in_CDB_index_reg | Latch |   6   |  Y  | N  | N  | N  | -  | -  | -  |
+|  dispatch_req_reg   | Latch |  16   |  Y  | N  | N  | N  | -  | -  | -  |
+| find_V2_in_CDB_reg  | Latch |   3   |  Y  | N  | N  | N  | -  | -  | -  |
+| V2_in_CDB_index_reg | Latch |   6   |  Y  | N  | N  | N  | -  | -  | -  |
+| find_V1_in_CDB_reg  | Latch |   3   |  Y  | N  | N  | N  | -  | -  | -  |
+|    issue_req_reg    | Latch |  16   |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine RS line 237 in file
+		'/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    rs_entry_reg     | Flip-flop | 2208  |  Y  | N  | N  | N  | Y  | N  | N  |
+|    rs_entry_reg     | Flip-flop |  32   |  Y  | N  | N  | N  | N  | Y  | N  |
+|    rs_entry_reg     | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|      RS/229      |   16   |   204   |      4       |
+|      RS/229      |   16   |   204   |      4       |
+|      RS/229      |   16   |   204   |      4       |
+======================================================
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.sv:148: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.db:RS'
+Loaded 1 design.
+Current design is 'RS'.
+RS
+set design_name RS
+RS
+set clock_name clk
+clk
+set reset_name reset
+reset
+set CLK_PERIOD 3
+3
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clk
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./RS.vg
+set svsim_file [format "%s%s%s" $SYN_DIR $design_name "_svsim.sv"]
+./RS_svsim.sv
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./RS.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./RS.rep
+set res_file [format "%s%s%s" $SYN_DIR $design_name ".res"]
+./RS.res
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./RS.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+  current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all -flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  write -format svsim -output $svsim_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  redirect $res_file { report_resources -hier }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+  quit
+}
+Current design is 'RS'.
+
+  Linking design 'RS'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (4 designs)               /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.db, etc
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Current design is 'RS'.
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: All hierarchical cells are don't touched. No cells can be ungrouped. (UID-229)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+
+Information: There are 1001 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'RS'
+Information: The register 'rs_entry_reg[15][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[15][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[15][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[15][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[15][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[14][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[14][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[14][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[14][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[14][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[13][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[13][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[13][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[13][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[13][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[12][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[12][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[12][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[12][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[12][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[11][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[11][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[11][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[11][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[11][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[10][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[10][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[10][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[10][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[10][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[9][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[9][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[9][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[9][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[9][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[8][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[8][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[8][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[8][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[8][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[7][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[7][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[7][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[7][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[7][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[6][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[6][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[6][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[6][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[6][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[5][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[5][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[5][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[5][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[5][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[4][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[4][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[4][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[4][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[4][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[3][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[3][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[3][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[3][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[3][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[2][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[2][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[2][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[2][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[2][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[1][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[1][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[1][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[1][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[1][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[0][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[0][RS_tag][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[0][RS_tag][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[0][RS_tag][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_entry_reg[0][RS_tag][0]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'RS_DW01_cmp6_0'
+  Processing 'RS_DW01_cmp6_1'
+  Processing 'RS_DW01_cmp6_2'
+  Processing 'RS_DW01_cmp6_3'
+  Processing 'RS_DW01_cmp6_4'
+  Processing 'RS_DW01_cmp6_5'
+  Processing 'RS_DW01_cmp6_6'
+  Processing 'RS_DW01_cmp6_7'
+  Processing 'RS_DW01_cmp6_8'
+  Processing 'RS_DW01_cmp6_9'
+  Processing 'RS_DW01_cmp6_10'
+  Processing 'RS_DW01_cmp6_11'
+  Processing 'RS_DW01_cmp6_12'
+  Processing 'RS_DW01_cmp6_13'
+  Processing 'RS_DW01_cmp6_14'
+  Processing 'RS_DW01_cmp6_15'
+  Processing 'RS_DW01_cmp6_16'
+  Processing 'RS_DW01_cmp6_17'
+  Processing 'RS_DW01_cmp6_18'
+  Processing 'RS_DW01_cmp6_19'
+  Processing 'RS_DW01_cmp6_20'
+  Processing 'RS_DW01_cmp6_21'
+  Processing 'RS_DW01_cmp6_22'
+  Processing 'RS_DW01_cmp6_23'
+  Processing 'RS_DW01_cmp6_24'
+  Processing 'RS_DW01_cmp6_25'
+  Processing 'RS_DW01_cmp6_26'
+  Processing 'RS_DW01_cmp6_27'
+  Processing 'RS_DW01_cmp6_28'
+  Processing 'RS_DW01_cmp6_29'
+  Processing 'RS_DW01_cmp6_30'
+  Processing 'RS_DW01_cmp6_31'
+  Processing 'RS_DW01_cmp6_32'
+  Processing 'RS_DW01_cmp6_33'
+  Processing 'RS_DW01_cmp6_34'
+  Processing 'RS_DW01_cmp6_35'
+  Processing 'RS_DW01_cmp6_36'
+  Processing 'RS_DW01_cmp6_37'
+  Processing 'RS_DW01_cmp6_38'
+  Processing 'RS_DW01_cmp6_39'
+  Processing 'RS_DW01_cmp6_40'
+  Processing 'RS_DW01_cmp6_41'
+  Processing 'RS_DW01_cmp6_42'
+  Processing 'RS_DW01_cmp6_43'
+  Processing 'RS_DW01_cmp6_44'
+  Processing 'RS_DW01_cmp6_45'
+  Processing 'RS_DW01_cmp6_46'
+  Processing 'RS_DW01_cmp6_47'
+  Processing 'RS_DW01_cmp6_48'
+  Processing 'RS_DW01_cmp6_49'
+  Processing 'RS_DW01_cmp6_50'
+  Processing 'RS_DW01_cmp6_51'
+  Processing 'RS_DW01_cmp6_52'
+  Processing 'RS_DW01_cmp6_53'
+  Processing 'RS_DW01_cmp6_54'
+  Processing 'RS_DW01_cmp6_55'
+  Processing 'RS_DW01_cmp6_56'
+  Processing 'RS_DW01_cmp6_57'
+  Processing 'RS_DW01_cmp6_58'
+  Processing 'RS_DW01_cmp6_59'
+  Processing 'RS_DW01_cmp6_60'
+  Processing 'RS_DW01_cmp6_61'
+  Processing 'RS_DW01_cmp6_62'
+  Processing 'RS_DW01_cmp6_63'
+  Processing 'RS_DW01_cmp6_64'
+  Processing 'RS_DW01_cmp6_65'
+  Processing 'RS_DW01_cmp6_66'
+  Processing 'RS_DW01_cmp6_67'
+  Processing 'RS_DW01_cmp6_68'
+  Processing 'RS_DW01_cmp6_69'
+  Processing 'RS_DW01_cmp6_70'
+  Processing 'RS_DW01_cmp6_71'
+  Processing 'RS_DW01_cmp6_72'
+  Processing 'RS_DW01_cmp6_73'
+  Processing 'RS_DW01_cmp6_74'
+  Processing 'RS_DW01_cmp6_75'
+  Processing 'RS_DW01_cmp6_76'
+  Processing 'RS_DW01_cmp6_77'
+  Processing 'RS_DW01_cmp6_78'
+  Processing 'RS_DW01_cmp6_79'
+  Processing 'RS_DW01_cmp6_80'
+  Processing 'RS_DW01_cmp6_81'
+  Processing 'RS_DW01_cmp6_82'
+  Processing 'RS_DW01_cmp6_83'
+  Processing 'RS_DW01_cmp6_84'
+  Processing 'RS_DW01_cmp6_85'
+  Processing 'RS_DW01_cmp6_86'
+  Processing 'RS_DW01_cmp6_87'
+  Processing 'RS_DW01_cmp6_88'
+  Processing 'RS_DW01_cmp6_89'
+  Processing 'RS_DW01_cmp6_90'
+  Processing 'RS_DW01_cmp6_91'
+  Processing 'RS_DW01_cmp6_92'
+  Processing 'RS_DW01_cmp6_93'
+  Processing 'RS_DW01_cmp6_94'
+  Processing 'RS_DW01_cmp6_95'
+  Processing 'RS_DW01_cmp6_96'
+  Processing 'RS_DW01_cmp6_97'
+  Processing 'RS_DW01_cmp6_98'
+  Processing 'RS_DW01_cmp6_99'
+  Processing 'RS_DW01_cmp6_100'
+  Processing 'RS_DW01_cmp6_101'
+  Processing 'RS_DW01_cmp6_102'
+  Processing 'RS_DW01_cmp6_103'
+  Processing 'RS_DW01_cmp6_104'
+  Processing 'RS_DW01_cmp6_105'
+  Processing 'RS_DW01_cmp6_106'
+  Processing 'RS_DW01_cmp6_107'
+  Processing 'RS_DW01_cmp6_108'
+  Processing 'RS_DW01_cmp6_109'
+  Processing 'RS_DW01_cmp6_110'
+  Processing 'RS_DW01_cmp6_111'
+  Processing 'RS_DW01_cmp6_112'
+  Processing 'RS_DW01_cmp6_113'
+  Processing 'RS_DW01_cmp2_0'
+  Processing 'RS_DW01_cmp2_1'
+  Processing 'RS_DW01_cmp2_2'
+  Processing 'RS_DW01_cmp2_3'
+  Processing 'RS_DW01_cmp2_4'
+  Processing 'RS_DW01_cmp2_5'
+  Processing 'RS_DW01_cmp2_6'
+  Processing 'RS_DW01_cmp2_7'
+  Processing 'RS_DW01_cmp2_8'
+  Processing 'RS_DW01_cmp2_9'
+  Processing 'RS_DW01_cmp2_10'
+  Processing 'RS_DW01_cmp2_11'
+  Processing 'RS_DW01_cmp2_12'
+  Processing 'RS_DW01_cmp2_13'
+  Processing 'RS_DW01_cmp2_14'
+  Processing 'RS_DW01_cmp2_15'
+  Processing 'RS_DW01_cmp2_16'
+  Processing 'RS_DW01_cmp2_17'
+  Processing 'RS_DW01_cmp2_18'
+  Processing 'RS_DW01_cmp2_19'
+  Processing 'RS_DW01_cmp2_20'
+  Processing 'RS_DW01_cmp2_21'
+  Processing 'RS_DW01_cmp2_22'
+  Processing 'RS_DW01_cmp2_23'
+  Processing 'RS_DW01_cmp2_24'
+  Processing 'RS_DW01_cmp2_25'
+  Processing 'RS_DW01_cmp2_26'
+  Processing 'RS_DW01_cmp2_27'
+  Processing 'RS_DW01_cmp2_28'
+  Processing 'RS_DW01_cmp2_29'
+  Processing 'RS_DW01_cmp2_30'
+  Processing 'RS_DW01_cmp2_31'
+  Processing 'RS_DW01_cmp2_32'
+  Processing 'RS_DW01_cmp2_33'
+  Processing 'RS_DW01_cmp2_34'
+  Processing 'RS_DW01_cmp2_35'
+  Processing 'RS_DW01_cmp2_36'
+  Processing 'RS_DW01_cmp2_37'
+  Processing 'RS_DW01_cmp2_38'
+  Processing 'RS_DW01_cmp2_39'
+  Processing 'RS_DW01_cmp2_40'
+  Processing 'RS_DW01_cmp2_41'
+  Processing 'RS_DW01_cmp2_42'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:22 2706808.4      3.50    9197.6  181496.5                                0.00  
+    0:01:22 2706808.4      3.50    9197.6  181496.5                                0.00  
+    0:01:22 2956179.3      3.50    6946.7  176027.4                                0.00  
+Information: The register 'rs_packet_out_reg[0][rs_entry][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_packet_out_reg[1][rs_entry][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rs_packet_out_reg[2][rs_entry][RS_tag][4]' is a constant and will be removed. (OPT-1206)
+    0:01:41 2995634.0      1.30    2904.6     544.8                                0.00  
+    0:01:42 2983309.1      1.29    2886.4     548.8                                0.00  
+    0:01:42 2983309.1      1.29    2886.4     548.8                                0.00  
+    0:01:42 2982886.1      1.29    2883.9     548.8                                0.00  
+    0:01:42 2982886.1      1.29    2883.9     548.8                                0.00  
+    0:01:48 2066068.2      1.48    2844.0     528.2                                0.00  
+    0:01:50 2056206.2      1.20    2221.1     522.5                                0.00  
+    0:01:51 2057707.4      1.02    2220.5     522.5                                0.00  
+    0:01:52 2057359.1      1.01    2201.7     522.4                                0.00  
+    0:01:53 2060328.5      0.96    2188.3     522.4                                0.00  
+    0:01:54 2057541.6      0.99    2093.7     522.4                                0.00  
+    0:01:54 2060262.1      0.99    2127.8     522.4                                0.00  
+    0:01:55 2059988.4      0.99    2092.1     522.4                                0.00  
+    0:01:55 2060411.4      0.90    2119.0     522.4                                0.00  
+    0:01:56 2060428.0      0.87    2040.8     522.4                                0.00  
+    0:01:56 2060593.9      0.87    2034.3     522.4                                0.00  
+    0:01:56 2060602.2      0.82    2014.5     522.4                                0.00  
+    0:01:57 2060809.5      0.81    2005.3     522.4                                0.00  
+    0:01:57 2060809.5      0.81    2005.3     522.4                                0.00  
+    0:01:57 2060809.5      0.81    2005.3     522.4                                0.00  
+    0:01:57 2060693.4      0.81    2005.3     518.4                                0.00  
+    0:01:57 2060693.4      0.81    2005.3     518.4                                0.00  
+    0:01:57 2060693.4      0.81    2005.3     518.4                                0.00  
+    0:01:57 2060693.4      0.81    2005.3     518.4                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:57 2060693.4      0.81    2005.3     518.4                                0.00  
+    0:01:58 2065562.2      0.79    1953.6     518.4 rs_entry_reg[5][V1][6]/DIN      0.00  
+    0:01:59 2068382.3      0.78    1923.7     519.2 rs_entry_reg[1][V1][11]/DIN      0.00  
+    0:01:59 2071326.8      0.76    1879.8     520.6 rs_entry_reg[4][T1][4]/CLRB      0.00  
+    0:01:59 2073732.2      0.76    1860.1     520.6 rs_entry_reg[4][V1][20]/DIN      0.00  
+    0:02:00 2076792.9      0.76    1842.6     520.6 rs_entry_reg[10][V1][10]/DIN      0.00  
+    0:02:00 2077597.4      0.76    1838.6     521.5 rs_entry_reg[1][V1][19]/DIN      0.00  
+    0:02:01 2079007.5      0.69    1729.3     546.2 rs_entry_reg[1][V1][17]/DIN      0.00  
+    0:02:02 2081694.8      0.58    1585.7     549.0 rs_entry_reg[1][V1][17]/DIN      0.00  
+    0:02:02 2084680.8      0.54    1525.6     549.2 rs_entry_reg[2][V2][8]/DIN      0.00  
+    0:02:03 2086779.3      0.50    1395.8     557.9 rs_entry_reg[1][V1][17]/DIN      0.00  
+    0:02:03 2088852.9      0.45    1361.2     557.9 rs_entry_reg[3][V1][5]/DIN      0.00  
+    0:02:04 2090511.8      0.44    1311.7     560.3 rs_entry_reg[1][V1][17]/DIN      0.00  
+    0:02:04 2092394.6      0.41    1173.0     564.7 rs_entry_reg[7][V1][11]/DIN      0.00  
+    0:02:05 2093846.1      0.41    1154.0     637.0 rs_entry_reg[0][V2][7]/DIN      0.00  
+    0:02:06 2096774.1      0.41    1121.7     637.0 rs_entry_reg[0][V2][0]/DIN      0.00  
+    0:02:06 2099196.0      0.41    1092.0     634.4 rs_entry_reg[7][V2][23]/DIN      0.00  
+    0:02:07 2100315.8      0.38    1061.8     636.8 rs_entry_reg[9][V2][26]/DIN      0.00  
+    0:02:08 2101261.3      0.35    1020.2     642.4 rs_entry_reg[2][V2][14]/DIN      0.00  
+    0:02:08 2102157.1      0.34    1009.0     640.9 rs_entry_reg[11][V1][6]/DIN      0.00  
+    0:02:08 2102994.9      0.33     924.5     641.7 rs_entry_reg[4][V2][1]/DIN      0.00  
+    0:02:09 2105201.2      0.32     902.3     641.7 rs_entry_reg[12][T1][0]/CLRB      0.00  
+    0:02:09 2106395.6      0.31     883.7     641.7 rs_entry_reg[13][V2][19]/DIN      0.00  
+    0:02:09 2108436.0      0.30     876.6     641.1 rs_entry_reg[6][V1][1]/DIN      0.00  
+    0:02:10 2108626.8      0.30     871.6     641.7 rs_entry_reg[9][V1][22]/DIN      0.00  
+    0:02:10 2110111.5      0.30     867.2     642.9 rs_entry_reg[6][V2][13]/DIN      0.00  
+    0:02:10 2110542.8      0.30     860.8     643.2 rs_entry_reg[10][V2][23]/DIN      0.00  
+    0:02:11 2112666.1      0.30     843.1     643.7 rs_entry_reg[12][V1][17]/DIN      0.00  
+    0:02:11 2113910.3      0.30     833.9     642.9 rs_entry_reg[2][V1][22]/DIN      0.00  
+    0:02:11 2114847.6      0.30     825.5     641.6 rs_entry_reg[13][V1][10]/DIN      0.00  
+    0:02:12 2115353.5      0.30     823.2     640.0 rs_entry_reg[2][V1][20]/DIN      0.00  
+    0:02:12 2116191.3      0.30     811.2     639.2 rs_entry_reg[13][V1][17]/DIN      0.00  
+    0:02:12 2117427.1      0.30     805.3     639.1 rs_entry_reg[14][V2][29]/DIN      0.00  
+    0:02:12 2118762.5      0.30     798.7     638.5 rs_entry_reg[11][V1][0]/DIN      0.00  
+    0:02:13 2119633.4      0.30     790.7     639.0 rs_entry_reg[5][V1][25]/DIN      0.00  
+    0:02:13 2120471.2      0.30     782.0     639.3 rs_entry_reg[5][V2][0]/DIN      0.00  
+    0:02:13 2121416.7      0.30     775.3     637.9 rs_entry_reg[4][V2][20]/DIN      0.00  
+    0:02:13 2122387.2      0.30     762.4     637.2 rs_entry_reg[2][V1][24]/DIN      0.00  
+    0:02:14 2123316.2      0.30     754.6     636.4 rs_entry_reg[4][V2][24]/DIN      0.00  
+    0:02:14 2123938.2      0.30     746.1     635.2 rs_entry_reg[15][V2][29]/DIN      0.00  
+    0:02:14 2125315.1      0.30     743.6     633.5 rs_entry_reg[12][V2][0]/DIN      0.00  
+    0:02:15 2125738.1      0.30     738.1     633.5 rs_entry_reg[13][V1][6]/DIN      0.00  
+    0:02:15 2126285.6      0.29     729.6     633.2 rs_entry_reg[15][T2][1]/CLRB      0.00  
+    0:02:16 2127363.8      0.28     685.6     635.6 rs_entry_reg[13][T1][3]/CLRB      0.00  
+    0:02:16 2127720.5      0.27     658.6     631.7 rs_entry_reg[3][V2][4]/DIN      0.00  
+    0:02:16 2128757.3      0.26     625.8     631.9 rs_entry_reg[4][V2][22]/DIN      0.00  
+    0:02:16 2129545.3      0.26     601.3     632.2 rs_entry_reg[0][V1][29]/DIN      0.00  
+    0:02:17 2129893.6      0.26     594.2     635.2 rs_entry_reg[8][V1][29]/DIN      0.00  
+    0:02:17 2130300.0      0.25     549.9     635.1 rs_entry_reg[11][T1][5]/CLRB      0.00  
+    0:02:17 2130897.2      0.24     500.7     635.5 rs_entry_reg[13][V2][9]/DIN      0.00  
+    0:02:18 2132058.5      0.24     499.2     635.5 rs_entry_reg[0][V1][16]/DIN      0.00  
+    0:02:18 2133385.6      0.24     495.1     636.1 rs_entry_reg[0][V1][6]/DIN      0.00  
+    0:02:18 2133758.8      0.24     492.1     635.7 rs_entry_reg[6][V2][13]/DIN      0.00  
+    0:02:18 2134115.5      0.24     485.3     636.1 rs_entry_reg[11][V1][1]/DIN      0.00  
+    0:02:19 2135052.7      0.24     482.6     637.7 rs_entry_reg[6][V2][1]/DIN      0.00  
+    0:02:19 2134978.1      0.24     475.1     637.7 rs_entry_reg[11][V1][13]/DIN      0.00  
+    0:02:19 2135484.1      0.24     461.0     638.4 rs_entry_reg[12][V2][16]/DIN      0.00  
+    0:02:19 2136263.7      0.24     457.2     639.1 rs_entry_reg[2][V1][22]/DIN      0.00  
+    0:02:19 2136885.8      0.24     451.6     638.7 rs_entry_reg[12][V2][15]/DIN      0.00  
+    0:02:20 2137491.3      0.24     446.4     639.3 rs_entry_reg[13][T1][2]/CLRB      0.00  
+    0:02:20 2137906.0      0.24     443.7     639.3 rs_entry_reg[6][V2][1]/DIN      0.00  
+    0:02:20 2138652.5      0.24     439.1     639.7 rs_entry_reg[3][T1][2]/CLRB      0.00  
+    0:02:20 2139506.8      0.24     436.4     640.5 rs_entry_reg[12][V2][6]/DIN      0.00  
+    0:02:21 2140294.8      0.24     430.5     640.3 rs_entry_reg[6][V2][1]/DIN      0.00  
+    0:02:21 2140825.6      0.24     428.3     639.6 rs_entry_reg[12][V2][9]/DIN      0.00  
+    0:02:21 2141563.9      0.24     425.3     638.2 rs_entry_reg[15][V2][30]/DIN      0.00  
+    0:02:21 2141638.5      0.24     421.6     637.9 rs_entry_reg[14][V2][31]/DIN      0.00  
+    0:02:21 2142285.5      0.24     420.4     636.6 rs_entry_reg[13][T1][2]/CLRB      0.00  
+    0:02:22 2142990.5      0.24     418.6     636.5 rs_entry_reg[0][V2][31]/DIN      0.00  
+    0:02:22 2143222.7      0.24     412.4     638.7 rs_entry_reg[11][V2][6]/DIN      0.00  
+    0:02:22 2143828.2      0.24     408.5     638.0 rs_entry_reg[1][T1][2]/CLRB      0.00  
+    0:02:22 2143770.2      0.24     405.7     638.0 rs_entry_reg[11][V2][11]/DIN      0.00  
+    0:02:23 2144317.6      0.24     403.7     638.4 rs_entry_reg[3][V2][15]/DIN      0.00  
+    0:02:23 2144707.4      0.24     399.4     639.6 rs_entry_reg[7][V1][11]/DIN      0.00  
+    0:02:23 2145113.9      0.24     397.6     638.9 rs_entry_reg[8][V1][22]/DIN      0.00  
+    0:02:23 2145495.4      0.24     396.6     638.5 rs_entry_reg[8][V2][1]/DIN      0.00  
+    0:02:23 2146051.1      0.24     394.8     637.7 rs_entry_reg[0][V1][11]/DIN      0.00  
+    0:02:23 2146391.2      0.24     391.7     636.9 rs_entry_reg[8][V2][1]/DIN      0.00  
+    0:02:23 2147253.8      0.24     388.9     636.2 rs_entry_reg[15][V2][22]/DIN      0.00  
+    0:02:24 2147925.7      0.24     357.7     635.8 rs_entry_reg[3][V1][2]/DIN      0.00  
+    0:02:24 2148282.3      0.22     355.4     636.0 rs_entry_reg[0][T1][2]/CLRB      0.00  
+    0:02:24 2149028.8      0.20     354.2     635.8 rs_entry_reg[11][T1][1]/CLRB      0.00  
+    0:02:24 2149144.9      0.19     354.0     635.8 rs_entry_reg[5][V1][6]/DIN      0.00  
+    0:02:25 2148730.2      0.19     329.6     715.8 rs_entry_reg[5][V1][6]/DIN      0.00  
+    0:02:25 2148605.8      0.18     317.9     716.5 rs_entry_reg[10][T1][3]/CLRB      0.00  
+    0:02:25 2148788.3      0.18     314.5     716.5 rs_entry_reg[0][V2][11]/DIN      0.00  
+    0:02:25 2148688.8      0.17     305.9     716.4 rs_entry_reg[8][T2][0]/CLRB      0.00  
+    0:02:26 2148804.9      0.17     307.7     716.4 rs_entry_reg[12][T1][2]/CLRB      0.00  
+    0:02:26 2149393.8      0.16     275.9     941.3 rs_entry_reg[10][T2][5]/CLRB      0.00  
+    0:02:26 2149932.9      0.16     266.4     941.2 rs_entry_reg[15][V2][25]/DIN      0.00  
+    0:02:26 2150032.4      0.15     244.5     942.2 rs_entry_reg[11][V2][26]/DIN      0.00  
+    0:02:27 2150538.4      0.15     238.9     942.2 rs_entry_reg[0][T][0]/CLRB      0.00  
+    0:02:27 2150447.2      0.15     237.7     941.6 rs_entry_reg[8][V1][1]/DIN      0.00  
+    0:02:27 2150223.2      0.15     233.4     942.6 rs_entry_reg[10][T2][5]/CLRB      0.00  
+    0:02:27 2150264.7      0.14     230.5     944.1 rs_entry_reg[5][T1][0]/CLRB      0.00  
+    0:02:27 2150662.8      0.14     240.5     944.1 rs_entry_reg[8][T2][0]/CLRB      0.00  
+    0:02:28 2150414.0      0.14     233.3     944.1 rs_entry_reg[15][T2][3]/CLRB      0.00  
+    0:02:28 2150720.9      0.14     222.0     944.1 rs_entry_reg[8][T1][6]/CLRB      0.00  
+    0:02:28 2150870.2      0.14     211.7     940.0 rs_entry_reg[3][V2][19]/DIN      0.00  
+    0:02:28 2151683.0      0.13     207.2     938.5 rs_entry_reg[2][T2][3]/CLRB      0.00  
+    0:02:29 2152404.6      0.13     198.5     938.2 rs_entry_reg[0][T2][5]/CLRB      0.00  
+    0:02:29 2153259.0      0.12     193.8     937.9 rs_entry_reg[3][V2][15]/DIN      0.00  
+    0:02:29 2154030.3      0.12     192.1     938.0 rs_entry_reg[6][T2][3]/CLRB      0.00  
+    0:02:29 2154652.4      0.12     182.2     938.1 rs_entry_reg[14][V2][18]/DIN      0.00  
+    0:02:30 2155457.0      0.12     178.6     937.3 rs_entry_reg[1][V1][2]/DIN      0.00  
+    0:02:30 2155647.8      0.12     170.8     937.3 rs_entry_reg[15][V1][13]/DIN      0.00  
+    0:02:30 2156145.4      0.11     167.3     936.9 rs_entry_reg[3][T1][6]/CLRB      0.00  
+    0:02:30 2157115.9      0.11     155.2     936.6 rs_entry_reg[3][V1][19]/DIN      0.00  
+    0:02:31 2157580.4      0.10     146.7     937.4 rs_entry_reg[5][T1][0]/CLRB      0.00  
+    0:02:31 2157688.2      0.10     145.4     937.5 rs_entry_reg[10][T2][1]/CLRB      0.00  
+    0:02:31 2158260.5      0.10     136.0     935.4 rs_entry_reg[1][T1][2]/CLRB      0.00  
+    0:02:31 2158252.2      0.10     131.8     935.4 rs_entry_reg[7][T2][3]/CLRB      0.00  
+    0:02:32 2158459.6      0.09     128.4     935.4 rs_entry_reg[9][T2][3]/CLRB      0.00  
+    0:02:32 2159031.9      0.09     117.3     999.7 rs_entry_reg[14][V1][8]/DIN      0.00  
+    0:02:32 2159529.5      0.09     116.5     999.5 rs_entry_reg[0][T1][2]/CLRB      0.00  
+    0:02:32 2159396.8      0.08     113.5     999.5 rs_entry_reg[12][V2][0]/DIN      0.00  
+    0:02:33 2159819.8      0.08      98.4     998.7 rs_entry_reg[2][T2][5]/CLRB      0.00  
+    0:02:33 2159886.2      0.08      91.1     998.7 rs_entry_reg[0][T1][2]/CLRB      0.00  
+    0:02:33 2160682.5      0.08      88.8     997.3 rs_entry_reg[7][V1][4]/DIN      0.00  
+    0:02:33 2161213.3      0.07      90.5     997.4 rs_entry_reg[7][T2][2]/CLRB      0.00  
+    0:02:34 2161536.8      0.07      89.2     998.2 rs_entry_reg[0][T1][2]/CLRB      0.00  
+    0:02:34 2161976.4      0.07      86.2     998.0 rs_entry_reg[7][V1][3]/DIN      0.00  
+    0:02:34 2161968.1      0.07      84.0     998.4 rs_entry_reg[5][T1][0]/CLRB      0.00  
+    0:02:35 2162275.0      0.07      82.0     998.3 rs_entry_reg[5][T1][0]/CLRB      0.00  
+    0:02:35 2162872.2      0.07      78.5     998.4 rs_entry_reg[3][V2][16]/DIN      0.00  
+    0:02:35 2163353.3      0.06      78.9     998.5 rs_entry_reg[15][V1][4]/DIN      0.00  
+    0:02:36 2164439.8      0.06      68.8     998.1 rs_entry_reg[9][V2][26]/DIN      0.00  
+    0:02:36 2164721.8      0.06      60.7    1078.0 rs_entry_reg[15][V2][13]/DIN      0.00  
+    0:02:36 2165053.6      0.05      51.1    1077.9 rs_entry_reg[5][V2][29]/DIN      0.00  
+    0:02:36 2165103.4      0.05      49.1    1077.9 rs_entry_reg[10][T2][3]/CLRB      0.00  
+    0:02:36 2165410.3      0.05      47.9    1077.3 rs_entry_reg[5][V2][29]/DIN      0.00  
+    0:02:37 2165343.9      0.05      44.2    1157.3 rs_entry_reg[5][V2][29]/DIN      0.00  
+    0:02:37 2165833.3      0.04      43.0    1157.7 rs_entry_reg[1][T1][3]/CLRB      0.00  
+    0:02:37 2165941.1      0.04      41.0    1157.2 rs_entry_reg[15][V2][16]/DIN      0.00  
+    0:02:38 2166646.1      0.04      38.1    1158.8 rs_entry_reg[12][V2][30]/DIN      0.00  
+    0:02:38 2167293.1      0.04      29.0    1159.1 rs_entry_reg[10][inst][11]/CLRB      0.00  
+    0:02:38 2168023.0      0.03      20.7    1159.4 rs_entry_reg[5][V2][29]/DIN      0.00  
+    0:02:38 2168106.0      0.03      18.9    1159.4 rs_entry_reg[1][V2][14]/DIN      0.00  
+    0:02:38 2168081.1      0.03      17.8    1159.4 rs_entry_reg[1][T2][5]/CLRB      0.00  
+    0:02:39 2168446.0      0.03      14.2    1158.5 rs_entry_reg[2][V2][29]/DIN      0.00  
+    0:02:39 2168479.2      0.02      12.0    1158.2 rs_entry_reg[11][T1][2]/CLRB      0.00  
+    0:02:39 2167268.2      0.02       9.2    1318.0 rs_entry_reg[12][PC][13]/CLRB      0.00  
+    0:02:39 2167450.7      0.02       8.0    1317.8 rs_entry_reg[3][V2][16]/DIN      0.00  
+    0:02:39 2167857.1      0.02       6.2    1317.9 rs_entry_reg[7][T2][5]/CLRB      0.00  
+    0:02:39 2168064.5      0.01       4.6    1317.2 rs_entry_reg[5][V1][9]/DIN      0.00  
+    0:02:40 2168072.8      0.01       3.7    1317.2 rs_entry_reg[9][V2][16]/DIN      0.00  
+    0:02:40 2168064.5      0.01       2.4    1317.2 rs_entry_reg[4][V2][23]/DIN      0.00  
+    0:02:40 2167724.4      0.01       1.9    1315.3 rs_entry_reg[15][V2][4]/DIN      0.00  
+    0:02:40 2166704.2      0.01       1.2    1315.4 rs_entry_reg[4][V2][27]/DIN      0.00  
+    0:02:40 2166911.6      0.01       1.0    1315.4 rs_entry_reg[14][T1][1]/CLRB      0.00  
+    0:02:40 2166754.0      0.00       0.5    1315.7 rs_entry_reg[4][V2][27]/DIN      0.00  
+    0:02:41 2166687.6      0.00       0.1    1315.1 rs_entry_reg[7][T][6]/CLRB      0.00  
+    0:02:41 2166787.1      0.00       0.0    1315.4 rs_entry_reg[14][V2][14]/DIN      0.00  
+    0:02:41 2166803.7      0.00       0.0    1315.7                                0.00  
+    0:02:41 2106312.7      0.00       0.0    1376.7                                0.00  
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:02:42 2106312.7      0.00       0.0    1376.7                                0.00  
+    0:02:42 2107498.8      0.00       0.0    1008.0 id_packet_in[2][rs2_value][28]      0.00  
+    0:02:43 2107697.8      0.00       0.0     995.0 id_packet_in[1][rs1_value][19]      0.00  
+    0:02:43 2107830.5      0.00       0.0     980.6 net259070                      0.00  
+    0:02:43 2108444.3      0.00       0.0     788.6 net253414                      0.00  
+    0:02:43 2109423.1      0.00       0.0     565.6 net285185                      0.00  
+    0:02:44 2110899.5      0.00       0.0     507.1 id_packet_in[1][rs2_value][18]      0.00  
+    0:02:44 2111297.6      0.00       0.0     472.1 id_packet_in[1][rs1_value][8]      0.00  
+    0:02:45 2111695.7      0.00       0.0     437.5 id_packet_in[1][rs1_value][22]      0.00  
+    0:02:45 2112093.9      0.00       0.0     403.3 id_packet_in[1][rs2_value][12]      0.00  
+    0:02:45 2112923.3      0.00       0.0     302.3 net254704                      0.00  
+    0:02:45 2112956.5      0.02       0.0     302.0 id_packet_in[1][rs2_value][6]      0.00  
+    0:02:46 2113014.6      0.00       0.0     297.3 id_packet_in[1][rs2_value][25]      0.00  
+    0:02:46 2113412.7      0.00       0.0     264.3 id_packet_in[1][rs2_value][30]      0.00  
+    0:02:46 2113810.8      0.00       0.0     232.1 id_packet_in[1][rs2_value][24]      0.00  
+    0:02:46 2114208.9      0.00       0.0     200.7 id_packet_in[2][rs2_value][30]      0.00  
+    0:02:47 2114474.4      0.03       0.7     167.5 net251694                      0.00  
+    0:02:47 2114847.6      0.01       0.3     163.5 rs_entry_reg[13][V1][14]/DIN      0.00  
+    0:02:47 2115146.2      0.00       0.1     163.3 rs_entry_reg[13][V1][14]/DIN      0.00  
+    0:02:48 2115220.9      0.00       0.1     163.3 rs_entry_reg[3][T2][5]/CLRB      0.00  
+    0:02:48 2115361.9      0.00       0.0     163.2 rs_entry_reg[0][T2][5]/CLRB      0.00  
+    0:02:48 2115220.9      0.00       0.0     163.2 rs_entry_reg[13][V2][11]/DIN      0.00  
+    0:02:48 2115610.7      0.00       0.0     133.2 id_packet_in[2][rs2_value][2]      0.00  
+    0:02:49 2115992.2      0.00       0.0     104.0 id_packet_in[2][rs2_value][20]      0.00  
+    0:02:49 2116390.4      0.00       0.0      75.1 id_packet_in[2][rs1_value][18]      0.00  
+    0:02:49 2116689.0      0.00       0.0      53.4                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:02:49 2116689.0      0.00       0.0      53.4                                0.00  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:02:49 2116689.0      0.00       0.0      53.4                                0.00  
+    0:02:49 2116689.0      0.00       0.0      53.4                                0.00  
+    0:02:51 2093058.2      0.35      18.6      53.4                                0.00  
+    0:02:53 2081089.4      0.24      16.3      53.4                                0.00  
+    0:02:54 2073367.3      0.07      15.6      53.4                                0.00  
+    0:02:54 2070016.3      0.07      15.5      53.4                                0.00  
+    0:02:55 2068349.2      0.07      15.0      53.4                                0.00  
+    0:02:55 2067071.8      0.07      15.0      53.4                                0.00  
+    0:02:56 2066350.2      0.07      15.5      53.4                                0.00  
+    0:02:56 2065877.4      0.07      14.8      53.4                                0.00  
+    0:02:56 2065529.1      0.07      14.5      53.4                                0.00  
+    0:02:56 2065247.1      0.07      14.5      53.4                                0.00  
+    0:02:56 2064907.0      0.07      14.5      53.4                                0.00  
+    0:02:56 2064674.8      0.07      14.5      53.4                                0.00  
+    0:02:56 2064442.5      0.07      14.5      53.4                                0.00  
+    0:02:56 2064309.8      0.07      14.5      53.4                                0.00  
+    0:02:57 2064177.1      0.07      14.5      53.4                                0.00  
+    0:02:57 2064044.4      0.07      14.5      53.4                                0.00  
+    0:02:57 2063812.1      0.07      14.5      53.4                                0.00  
+    0:02:57 2063679.4      0.07      14.5      53.4                                0.00  
+    0:02:57 2063646.2      0.07      14.5      53.4                                0.00  
+    0:02:57 2063646.2      0.07      14.5      53.4                                0.00  
+    0:02:58 2064873.8      0.05       4.6      53.4 rs_entry_reg[9][V2][26]/DIN      0.00  
+    0:02:58 2065670.1      0.02       1.4      53.4 rs_entry_reg[2][V1][16]/DIN      0.00  
+    0:03:00 2065736.4      0.02       1.2      53.4 rs_entry_reg[0][V1][17]/DIN      0.00  
+    0:03:00 2065728.1      0.01       0.4      53.4                                0.00  
+    0:03:00 2066532.7      0.01       0.1      53.4                                0.00  
+    0:03:00 2066889.4      0.01       0.0      53.4                                0.00  
+    0:03:01 2066914.2      0.00       0.0      53.4                                0.00  
+    0:03:02 2021892.2      0.21      69.8      53.1                                0.00  
+    0:03:03 2014949.8      0.23      69.6      52.8                                0.00  
+    0:03:03 2013423.6      0.23      67.9      52.7                                0.00  
+    0:03:03 2013390.5      0.23      67.9      52.7                                0.00  
+    0:03:03 2013390.5      0.23      67.9      52.7                                0.00  
+    0:03:03 2013390.5      0.23      67.9      52.7                                0.00  
+    0:03:03 2013390.5      0.23      67.9      52.7                                0.00  
+    0:03:03 2013390.5      0.23      67.9      52.7                                0.00  
+    0:03:04 2015804.1      0.08      32.4      52.7 rs_entry_reg[10][V1][18]/DIN      0.00  
+    0:03:05 2017695.3      0.07      28.3      52.7 rs_entry_reg[9][V2][26]/DIN      0.00  
+    0:03:05 2018632.5      0.07      25.0      52.7 rs_entry_reg[6][V2][11]/DIN      0.00  
+    0:03:06 2020183.6      0.05      21.5      52.7 rs_entry_reg[15][V2][0]/DIN      0.00  
+    0:03:07 2020896.9      0.04      17.3      52.7 rs_entry_reg[15][opb_select][1]/CLRB      0.00  
+    0:03:07 2021452.6      0.03      13.5      52.7 rs_entry_reg[0][V2][1]/DIN      0.00  
+    0:03:08 2022116.2      0.03      10.9      52.7                                0.00  
+    0:03:08 2022613.8      0.03       9.2      52.7                                0.00  
+    0:03:08 2023028.6      0.03       9.2      52.7                                0.00  
+    0:03:08 2023401.8      0.03       9.1      52.7                                0.00  
+    0:03:09 2023775.1      0.02       7.9      52.7                                0.00  
+    0:03:09 2024272.7      0.02       6.5      52.7                                0.00  
+    0:03:09 2025251.5      0.01       4.0      52.7                                0.00  
+    0:03:10 2026188.7      0.01       2.1      52.7                                0.00  
+    0:03:10 2027167.5      0.01       1.5      52.7                                0.00  
+    0:03:10 2027714.9      0.01       0.8      52.7                                0.00  
+    0:03:11 2028469.7      0.00       0.4      52.7                                0.00  
+    0:03:11 2028718.5      0.00       0.2      52.7                                0.00  
+    0:03:11 2028859.5      0.00       0.2      52.7                                0.00  
+    0:03:11 2028967.4      0.00       0.1      52.7                                0.00  
+    0:03:11 2029083.5      0.00       0.0      52.7                                0.00  
+    0:03:12 2029033.7      0.00       0.0      52.7                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:03:12 2029033.7      0.00       0.0      52.7                                0.00  
+    0:03:12 2029133.3      0.00       0.0      52.7                                0.00  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'RS' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'clk': 3184 load(s), 1 driver(s)
+Writing verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.vg'.
+Warning: Verilog writer has added 6 nets to module RS using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Writing ddc file './RS.ddc'.
+Writing svsim file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS_svsim.sv'.
+Removing design 'num_ones'
+Removing design 'psel_gen_REQS3_WIDTH16'
+Removing design 'pe_OUTWIDTH4_INWIDTH16'
+Removing design 'RS'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/RS.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/RS/psel_gen_REQS3_WIDTH16.db:psel_gen_REQS3_WIDTH16'
+Loaded 4 designs.
+Current design is 'psel_gen_REQS3_WIDTH16'.
+Current design is 'RS'.
+
+Memory usage for this session 966 Mbytes.
+Memory usage for this session including child processes 966 Mbytes.
+CPU usage for this session 204 seconds ( 0.06 hours ).
+Elapsed time for this session 208 seconds ( 0.06 hours ).
+
+Thank you...

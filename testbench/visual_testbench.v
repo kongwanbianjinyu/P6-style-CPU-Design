@@ -71,7 +71,7 @@ module testbench();
 	// Instantiate the Pipeline
 	pipeline pipeline_0(
 		// Inputs
-		.clock             (clock),
+		.clk             (clock),
 		.reset             (reset),
 		//.mem2proc_response (mem2proc_response),
 		.Imem2proc_data     (Imem2proc_data),
@@ -152,7 +152,7 @@ module testbench();
     // *Note that after this, all stdout output goes to visual debugger*
     // each argument is number of registers/signals for the group
     // (IF, IF/ID, ID, ID/EX, EX, EX/MEM, MEM, MEM/WB, WB, Misc)
-    initcurses(13,10,39,18,12,37,4,6,9,5,16,1);
+    initcurses(13,10,39,16,12,31,4,6,9,5,16,1);
 
     // Pulse the reset signal
     reset = 1'b1;
@@ -317,7 +317,7 @@ module testbench();
     $display("dillegal[2] 1:%h",       pipeline_0.id_packet[2].illegal);
     $display("dvalid[2] 1:%h",         pipeline_0.id_packet[2].valid);
 
-    // IS/EX signals (18) - prefix 'h'
+    // IS/EX signals (16) - prefix 'h'
     $display("henable 1:%h",        pipeline_0.id_ex_enable);
     $display("hRS_tag 1:%h",        pipeline_0.is_ex_packet[0].RS_tag);
     $display("hrob_tag 3:%h",       pipeline_0.is_ex_packet[0].rob_tag);
@@ -334,8 +334,8 @@ module testbench();
     $display("huncond_br 1:%h",     pipeline_0.is_ex_packet[0].uncond_branch);
     $display("hhalt 1:%h",          pipeline_0.is_ex_packet[0].halt);
     $display("hvalid 1:%h",         pipeline_0.is_ex_packet[0].issue_valid);
-    $display("hload_pos 1:%h",        pipeline_0.is_ex_packet[0].load_pos);
-    $display("hstore_pos 1:%h",         pipeline_0.is_ex_packet[0].store_pos); 
+    //$display("hload_pos 1:%h",        pipeline_0.is_ex_packet[0].load_pos);
+    //$display("hstore_pos 1:%h",         pipeline_0.is_ex_packet[0].store_pos); 
 
 
     // EX signals (12) - prefix 'e'
@@ -366,8 +366,8 @@ module testbench();
     $display("itake_branch[0] 1:%h",   pipeline_0.ex_ic_packet[0].take_branch);
     $display("ihalt[0] 1:%h",          pipeline_0.ex_ic_packet[0].halt);
     $display("ivalid[0] 1:%h",         pipeline_0.ex_ic_packet[0].exe_valid);
-    $display("iload_pos[0] 1:%h",      pipeline_0.ex_ic_packet[0].load_pos);
-    $display("istore_pos[0] 1:%h",     pipeline_0.ex_ic_packet[0].store_pos); 
+    //$display("iload_pos[0] 1:%h",      pipeline_0.ex_ic_packet[0].load_pos);
+    //$display("istore_pos[0] 1:%h",     pipeline_0.ex_ic_packet[0].store_pos); 
     
     $display("irob_tag[1] 3:%h",       pipeline_0.ex_ic_packet[1].rob_tag);
     $display("iNPC[1] 8:%h",          pipeline_0.ex_ic_packet[1].NPC);
@@ -379,8 +379,8 @@ module testbench();
     $display("itake_branch[1] 1:%h",   pipeline_0.ex_ic_packet[1].take_branch);
     $display("ihalt[1] 1:%h",          pipeline_0.ex_ic_packet[1].halt);
     $display("ivalid[1] 1:%h",         pipeline_0.ex_ic_packet[1].exe_valid);
-    $display("iload_pos[1] 1:%h",      pipeline_0.ex_ic_packet[1].load_pos);
-    $display("istore_pos[1] 1:%h",     pipeline_0.ex_ic_packet[1].store_pos); 
+    //$display("iload_pos[1] 1:%h",      pipeline_0.ex_ic_packet[1].load_pos);
+    //$display("istore_pos[1] 1:%h",     pipeline_0.ex_ic_packet[1].store_pos); 
 
     $display("irob_tag[2] 3:%h",       pipeline_0.ex_ic_packet[2].rob_tag);
     $display("iNPC[2] 8:%h",          pipeline_0.ex_ic_packet[2].NPC);
@@ -392,8 +392,8 @@ module testbench();
     $display("itake_branch[2] 1:%h",   pipeline_0.ex_ic_packet[2].take_branch);
     $display("ihalt[2] 1:%h",          pipeline_0.ex_ic_packet[2].halt);
     $display("ivalid[2] 1:%h",         pipeline_0.ex_ic_packet[2].exe_valid);
-    $display("iload_pos[2] 1:%h",      pipeline_0.ex_ic_packet[2].load_pos);
-    $display("istore_pos[2] 1:%h",     pipeline_0.ex_ic_packet[2].store_pos); 
+    //$display("iload_pos[2] 1:%h",      pipeline_0.ex_ic_packet[2].load_pos);
+    //$display("istore_pos[2] 1:%h",     pipeline_0.ex_ic_packet[2].store_pos); 
 
 
     // MEM signals (4) - prefix 'm'

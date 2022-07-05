@@ -1,0 +1,496 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version S-2021.06-SP1 for linux64 - Jul 13, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+read_file -f sverilog [list ISA.svh sys_defs.svh Map_Table.sv]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading sverilog files: '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ISA.svh' '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh' '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.sv' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ISA.svh
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh:379: Using default enum base size of 32. (VER-533)
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.sv
+
+Inferred memory devices in process
+	in routine Map_Table line 113 in file
+		'/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.sv'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|    mt_packet_reg    | Latch |  48   |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine Map_Table line 126 in file
+		'/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    mt_entry_reg     | Flip-flop |  256  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|   Map_Table/63   |   32   |    7    |      5       |
+|   Map_Table/64   |   32   |    7    |      5       |
+|   Map_Table/63   |   32   |    7    |      5       |
+|   Map_Table/64   |   32   |    7    |      5       |
+|   Map_Table/63   |   32   |    7    |      5       |
+|   Map_Table/64   |   32   |    7    |      5       |
+|  Map_Table/118   |   32   |    8    |      5       |
+|  Map_Table/119   |   32   |    8    |      5       |
+|  Map_Table/118   |   32   |    8    |      5       |
+|  Map_Table/119   |   32   |    8    |      5       |
+|  Map_Table/118   |   32   |    8    |      5       |
+|  Map_Table/119   |   32   |    8    |      5       |
+======================================================
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.sv:113: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.db:Map_Table'
+Loaded 1 design.
+Current design is 'Map_Table'.
+Map_Table
+set design_name Map_Table
+Map_Table
+set clock_name clk
+clk
+set reset_name reset
+reset
+set CLK_PERIOD 4.5
+4.5
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clk
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./Map_Table.vg
+set svsim_file [format "%s%s%s" $SYN_DIR $design_name "_svsim.sv"]
+./Map_Table_svsim.sv
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./Map_Table.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./Map_Table.rep
+set res_file [format "%s%s%s" $SYN_DIR $design_name ".res"]
+./Map_Table.res
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./Map_Table.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+  current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all -flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  write -format svsim -output $svsim_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  redirect $res_file { report_resources -hier }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+  quit
+}
+Current design is 'Map_Table'.
+
+  Linking design 'Map_Table'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  Map_Table                   /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.db
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Current design is 'Map_Table'.
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 1046 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Map_Table'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'Map_Table_DW01_cmp6_0'
+  Processing 'Map_Table_DW01_cmp6_1'
+  Processing 'Map_Table_DW01_cmp6_2'
+  Processing 'Map_Table_DW01_cmp6_3'
+  Processing 'Map_Table_DW01_cmp6_4'
+  Processing 'Map_Table_DW01_cmp6_5'
+  Processing 'Map_Table_DW01_cmp6_6'
+  Processing 'Map_Table_DW01_cmp6_7'
+  Processing 'Map_Table_DW01_cmp6_8'
+  Processing 'Map_Table_DW01_cmp6_9'
+  Processing 'Map_Table_DW01_cmp6_10'
+  Processing 'Map_Table_DW01_cmp6_11'
+  Processing 'Map_Table_DW01_cmp6_12'
+  Processing 'Map_Table_DW01_cmp6_13'
+  Processing 'Map_Table_DW01_cmp6_14'
+  Processing 'Map_Table_DW01_cmp6_15'
+  Processing 'Map_Table_DW01_cmp6_16'
+  Processing 'Map_Table_DW01_cmp6_17'
+  Processing 'Map_Table_DW01_cmp6_18'
+  Processing 'Map_Table_DW01_cmp6_19'
+  Processing 'Map_Table_DW01_cmp6_20'
+  Processing 'Map_Table_DW01_cmp6_21'
+  Processing 'Map_Table_DW01_cmp6_22'
+  Processing 'Map_Table_DW01_cmp6_23'
+  Processing 'Map_Table_DW01_cmp6_24'
+  Processing 'Map_Table_DW01_cmp6_25'
+  Processing 'Map_Table_DW01_cmp6_26'
+  Processing 'Map_Table_DW01_cmp6_27'
+  Processing 'Map_Table_DW01_cmp2_0'
+  Processing 'Map_Table_DW01_cmp6_28'
+  Processing 'Map_Table_DW01_cmp2_1'
+  Processing 'Map_Table_DW01_cmp2_2'
+  Processing 'Map_Table_DW01_cmp2_3'
+  Processing 'Map_Table_DW01_cmp6_29'
+  Processing 'Map_Table_DW01_cmp2_4'
+  Processing 'Map_Table_DW01_cmp6_30'
+  Processing 'Map_Table_DW01_cmp2_5'
+  Processing 'Map_Table_DW01_cmp2_6'
+  Processing 'Map_Table_DW01_cmp2_7'
+  Processing 'Map_Table_DW01_cmp6_31'
+  Processing 'Map_Table_DW01_cmp2_8'
+  Processing 'Map_Table_DW01_cmp6_32'
+  Processing 'Map_Table_DW01_cmp2_9'
+  Processing 'Map_Table_DW01_cmp2_10'
+  Processing 'Map_Table_DW01_cmp2_11'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:13  414149.3      0.05       9.0     315.2                                0.00  
+    0:00:13  413966.8      0.05       8.9     340.2                                0.00  
+    0:00:13  413966.8      0.05       8.9     340.2                                0.00  
+    0:00:13  413966.8      0.05       8.9     340.2                                0.00  
+    0:00:13  413966.8      0.05       8.9     340.2                                0.00  
+    0:00:14  330990.6      1.41     432.7     188.7                                0.00  
+    0:00:15  331081.9      0.65     177.4     179.9                                0.00  
+    0:00:15  330741.8      0.64     172.7     179.6                                0.00  
+    0:00:15  330642.3      0.63     164.4     179.3                                0.00  
+    0:00:15  330692.0      0.64     163.9     179.3                                0.00  
+    0:00:15  330625.7      0.58     154.1     179.3                                0.00  
+    0:00:15  330849.6      0.57     158.4     179.3                                0.00  
+    0:00:15  330708.6      0.57     151.0     179.3                                0.00  
+    0:00:15  330725.2      0.56     151.4     179.3                                0.00  
+    0:00:15  330758.4      0.55     143.0     179.3                                0.00  
+    0:00:15  330816.5      0.56     140.9     179.3                                0.00  
+    0:00:16  330874.5      0.56     138.8     179.3                                0.00  
+    0:00:16  330882.8      0.55     138.5     179.3                                0.00  
+    0:00:16  330940.9      0.55     136.0     179.3                                0.00  
+    0:00:16  330940.9      0.53     132.6     179.0                                0.00  
+    0:00:16  330998.9      0.53     130.1     179.0                                0.00  
+    0:00:16  330998.9      0.53     128.6     178.7                                0.00  
+    0:00:16  331007.2      0.53     127.3     178.7                                0.00  
+    0:00:16  331123.4      0.52     120.7     178.7                                0.00  
+    0:00:16  331123.4      0.52     120.7     178.7                                0.00  
+    0:00:16  331123.4      0.52     120.7     178.7                                0.00  
+    0:00:16  332143.5      0.52     120.4      82.3                                0.00  
+    0:00:16  332425.5      0.54     106.0      51.0                                0.00  
+    0:00:16  332525.1      0.55     105.2      37.6                                0.00  
+    0:00:16  332525.1      0.55     105.2      37.6                                0.00  
+    0:00:16  332525.1      0.55     105.2      37.6                                0.00  
+    0:00:16  332525.1      0.55     105.2      37.6                                0.00  
+    0:00:17  334084.4      0.41      78.2      45.9 mt_entry_reg[3][ready]/DIN      0.00  
+    0:00:17  335784.8      0.31      61.6      47.9 mt_entry_reg[28][rob_tag][0]/DIN      0.00  
+    0:00:17  336879.6      0.26      54.1      49.3 mt_entry_reg[28][rob_tag][3]/DIN      0.00  
+    0:00:17  337974.5      0.22      45.5      49.1 mt_entry_reg[9][rob_tag][0]/DIN      0.00  
+    0:00:18  338704.4      0.20      39.6      50.4 mt_entry_reg[28][rob_tag][0]/DIN      0.00  
+    0:00:18  339144.0      0.19      36.4      50.5 mt_entry_reg[28][rob_tag][0]/DIN      0.00  
+    0:00:18  339243.5      0.18      32.9      60.2 mt_entry_reg[28][rob_tag][0]/DIN      0.00  
+    0:00:18  339243.5      0.16      30.9      65.7 mt_entry_reg[15][rob_tag][0]/DIN      0.00  
+    0:00:19  340073.0      0.15      25.8      65.7 mt_entry_reg[2][rob_tag][0]/DIN      0.00  
+    0:00:19  340628.7      0.11      19.6      66.1 mt_entry_reg[4][rob_tag][0]/DIN      0.00  
+    0:00:19  340778.0      0.11      18.3      66.1 mt_entry_reg[7][rob_tag][0]/DIN      0.00  
+    0:00:19  341026.8      0.10      16.7      66.1 mt_entry_reg[7][rob_tag][0]/DIN      0.00  
+    0:00:19  341416.7      0.08      14.3      66.4 mt_entry_reg[12][rob_tag][0]/DIN      0.00  
+    0:00:20  341914.3      0.07      11.6      65.5 mt_entry_reg[18][rob_tag][5]/DIN      0.00  
+    0:00:20  342586.2      0.05       2.9      58.5                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:20  342586.2      0.05       2.9      58.5                                0.00  
+    0:00:20  342768.7      0.03       1.3      58.5 mt_entry_reg[26][rob_tag][1]/DIN      0.00  
+    0:00:20  342777.0      0.02       0.7      61.3 mt_entry_reg[8][rob_tag][0]/DIN      0.00  
+    0:00:20  342876.5      0.00       0.0      61.3                                0.00  
+    0:00:21  339110.9      0.00       0.0     323.6                                0.00  
+
+
+  Beginning Design Rule Fixing  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:21  339110.9      0.00       0.0     323.6                                0.00  
+    0:00:22  339799.3      0.00       0.0     262.4 mt_entry[12][rob_tag][0]       0.00  
+    0:00:22  340031.6      0.00       0.0     215.0 alt5425/net25558               0.00  
+    0:00:22  340413.1      0.00       0.0     128.9 alt5425/net25516               0.00  
+    0:00:22  340496.0      0.00       0.0     110.8 mt_entry[16][rob_tag][1]       0.00  
+    0:00:22  340612.1      0.00       0.0      95.1 mt_entry[20][rob_tag][2]       0.00  
+    0:00:22  340711.7      0.00       0.0      81.6 mt_entry[22][rob_tag][2]       0.00  
+    0:00:22  340827.8      0.00       0.0      65.9 mt_entry[12][rob_tag][1]       0.00  
+    0:00:22  341366.9      0.00       0.0       2.0 id_packet_in[0][dest_reg_idx][1]      0.00  
+    0:00:23  341408.4      0.08       4.4       0.0 id_packet_in[0][dest_reg_idx][4]      0.00  
+    0:00:23  341491.3      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:23  341491.3      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:23  341491.3      0.00       0.0       0.0                                0.00  
+    0:00:23  341491.3      0.00       0.0       0.0                                0.00  
+    0:00:23  334383.0      0.10       0.8       0.0                                0.00  
+    0:00:23  332035.7      0.02       0.2       0.0                                0.00  
+    0:00:23  330011.9      0.02       0.3       0.0                                0.00  
+    0:00:23  329058.0      0.02       0.3       0.0                                0.00  
+    0:00:23  328635.0      0.02       0.3       0.0                                0.00  
+    0:00:23  328635.0      0.02       0.3       0.0                                0.00  
+    0:00:23  328659.9      0.00       0.0       0.0                                0.00  
+    0:00:24  325403.0      0.22      38.3       0.0                                0.00  
+    0:00:24  324872.2      0.22      38.1       0.0                                0.00  
+    0:00:24  324814.1      0.22      38.3       0.0                                0.00  
+    0:00:24  324814.1      0.22      38.3       0.0                                0.00  
+    0:00:24  324814.1      0.22      38.3       0.0                                0.00  
+    0:00:24  324814.1      0.22      38.3       0.0                                0.00  
+    0:00:24  324814.1      0.22      38.3       0.0                                0.00  
+    0:00:24  324814.1      0.22      38.3       0.0                                0.00  
+    0:00:24  326699.6      0.05       5.8       0.0 mt_entry_reg[3][rob_tag][1]/DIN      0.00  
+    0:00:25  327189.0      0.00       0.0       0.0 mt_entry_reg[3][rob_tag][1]/DIN      0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:25  327189.0      0.00       0.0       0.0                                0.00  
+    0:00:25  327189.0      0.00       0.0       0.0                                0.00  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Writing verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Writing ddc file './Map_Table.ddc'.
+Writing svsim file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table_svsim.sv'.
+Removing design 'Map_Table'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/MapTable/Map_Table.db:Map_Table'
+Loaded 1 design.
+Current design is 'Map_Table'.
+Current design is 'Map_Table'.
+
+Memory usage for this session 223 Mbytes.
+Memory usage for this session including child processes 223 Mbytes.
+CPU usage for this session 28 seconds ( 0.01 hours ).
+Elapsed time for this session 30 seconds ( 0.01 hours ).
+
+Thank you...

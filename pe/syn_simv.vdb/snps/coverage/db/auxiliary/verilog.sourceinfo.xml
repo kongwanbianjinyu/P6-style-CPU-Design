@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
+  <srcinfo name="/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/pe"  >
+    <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="N-2017.12-SP2-1"  />
+      <fileinfo name="pe_OUTWIDTH3_INWIDTH8.vg"  id="0"  />
+      <fileinfo name="/afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v"  id="1"  />
+    </srcinfo>

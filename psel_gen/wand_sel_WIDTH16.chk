@@ -1,0 +1,29 @@
+ 
+****************************************
+check_design summary:
+Version:     S-2021.06-SP1
+Date:        Sat Apr 16 22:31:36 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Nets                                                               15
+    Net has multiple drivers (LINT-4)                              15
+--------------------------------------------------------------------------------
+
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[1]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[2]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[3]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[4]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[5]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[6]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[7]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[8]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[9]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[10]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[11]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[12]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[13]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[14]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'wand_sel_WIDTH16', net 'gnt_r[15]' has multiple drivers.  Wired AND assumed. (LINT-4)
+1

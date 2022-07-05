@@ -16,7 +16,7 @@
 
 module pipeline (
 
-	input         clock,                    // System clock
+	input         clk,                    // System clk
 	input         reset,                    // System reset
 	//input [3:0]   mem2proc_response,        // Tag from memory about current request
 	input [1:0][63:0]  Imem2proc_data,            // Data coming back from memory
@@ -24,36 +24,40 @@ module pipeline (
 	input [3:0]	  Dmem2proc_tag,
 	input [3:0]   Dmem2proc_response,
 	//input [3:0]   mem2proc_tag,              // Tag from memory about current reply
-	
+
+	output BUS_COMMAND 				proc2Dcache_command,
+	output	logic [`XLEN-1:0] 		proc2Dcache_addr,
+	output logic [31:0] 			proc2Dcache_data,
+
 	output logic [1:0][`XLEN-1:0] proc2Imem_addr,      // Address sent to memory
 	output logic [1:0]  proc2Dmem_command,    // command sent to memory
 	output logic [`XLEN-1:0] proc2Dmem_addr,      // Address sent to memory
 	output logic [63:0] proc2Dmem_data,     // Data sent to memory
 	//output MEM_SIZE proc2mem_size,         // data size sent to memory
 
-	// output logic [3:0]  pipeline_completed_insts,
+	output logic [3:0]  pipeline_completed_insts,
 	output EXCEPTION_CODE   pipeline_error_status,
 	output logic [2:0][4:0]  pipeline_commit_wr_idx,
 	output logic [2:0][`XLEN-1:0] pipeline_commit_wr_data,
 	output logic [2:0]       pipeline_commit_wr_en,
 	output logic [2:0][`XLEN-1:0] pipeline_commit_NPC,
-	
-	
+
+
 	// testing hooks (these must be exported so we can test
 	// the synthesized version) data is tested by looking at
 	// the final values in memory
-	
-	
+
+
 	// test outputs for Fetch Stage
 	output logic [2:0][`XLEN-1:0] if_NPC_out,
 	output logic [2:0][31:0] if_IR_out,
 	output logic [2:0]       if_valid_inst_out,
-	
+
 	// test outputs for Dispatch Stage from IF/ID Pipeline Register
 	output logic [2:0][`XLEN-1:0] if_id_NPC,
 	output logic [2:0][31:0] if_id_IR,
 	output logic [2:0]       if_id_valid_inst,
-	
+
 	// test outputs for Issue Stage from RS_entry
 	output logic [2:0][`XLEN-1:0] id_is_NPC_out,
 	output logic [2:0][31:0] id_is_IR_out,
@@ -64,14 +68,14 @@ module pipeline (
 	output logic [2:0][31:0] is_ex_IR_out,
 	output logic [2:0]       is_ex_valid_inst_out,
 
-	
+
 	//test outputs for Complete Stage from EX/IC Pipeline Register
 	output logic [2:0][`XLEN-1:0] ex_ic_NPC_out,
 	output logic [2:0][31:0]      ex_ic_IR_out,
 	output logic [2:0]       	  ex_ic_valid_inst_out,
 	//output logic [2:0][$clog2(`ROB_SIZE)-1:0]   rob_tag;
 	//output logic [2:0]take_branch;
-	
+
 	//TODO test outputs for Retire Stage from ROB retire
 	output logic [2:0][`XLEN-1:0] ic_rt_NPC_out,
 	output logic [2:0][31:0] ic_rt_IR_out,
@@ -79,6 +83,8 @@ module pipeline (
 
 
 );
+
+	assign pipeline_completed_insts = ic_rt_valid_inst_out[0] + ic_rt_valid_inst_out[1] + ic_rt_valid_inst_out[2];
 
 	//// Outputs from MEM/WB Pipeline Register
 	//output logic [`XLEN-1:0] mem_wb_NPC,
@@ -89,7 +95,7 @@ module pipeline (
 	logic   if_id_enable;
 	logic    id_ex_enable;
 	logic    ex_ic_enable;
-	
+
 	// Outputs from IF-Stage
 	//logic [1:0][`XLEN-1:0] proc2Imem_addr;
 	IF_ID_PACKET [2:0] if_packet;
@@ -107,19 +113,19 @@ module pipeline (
 	// Outputs from EX-Stage
 	EX_IC_PACKET [2:0] ex_packet;
 	logic ex_stage_stall;
-	
+
 	// Outputs from EX/IC Pipeline Register
 	EX_IC_PACKET [2:0] ex_ic_packet;
 
 	// Outputs from IC stage
 	logic [$clog2(`ROB_SIZE):0] exception_rob_tag;
 	logic [2:0][$clog2(`ROB_SIZE):0] CDB_rob_tag;
-    logic [2:0][31:0]                  CDB_value;
+    logic [2:0][`XLEN-1:0]                  CDB_value;
 	logic [2:0]							CDB_halt;
 	logic [1:0]                   complete_num;
-	logic [`XLEN-1:0]             branch_PC;
+	logic [2:0][`XLEN-1:0] alu_result;
 
- 
+
 	// Outputs from MEM-Stage
 	//logic [`XLEN-1:0] mem_result_out;
 	// logic [`XLEN-1:0] proc2Dmem_addr;
@@ -133,7 +139,7 @@ module pipeline (
 	logic  [4:0] mem_wb_dest_reg_idx;
 	logic [`XLEN-1:0] mem_wb_result;
 	logic        mem_wb_take_branch;
-	
+
 	// Outputs from WB-Stage  (These loop back to the register file in ID)
 	logic packet_2_1_same; //A
 	logic packet_2_0_same; //B
@@ -142,9 +148,9 @@ module pipeline (
 	logic [2:0][`XLEN-1:0] wb_reg_wr_data_out;
 	logic [2:0][4:0] wb_reg_wr_idx_out;
 	logic [2:0]       wb_reg_wr_en_out;
-	
-	
-	
+
+
+
 	logic dispatch_en;
 	logic issue_en;
 	logic complete_en;
@@ -159,8 +165,12 @@ module pipeline (
 	// Outputs from ROB
 	ROB_ENTRY [`ROB_SIZE-1:0]     rob_entry_test;//as a rob test
 	ROB_PACKET 	[2:0]		rob_packet_out;
+	ROB_PACKET 	[2:0]		rob_packet_test;
+	logic [$clog2(`ROB_SIZE)-1:0] rob_head;
+	logic [`XLEN-1:0]             branch_PC;
 
 	logic [1:0] dispatch_num;
+	logic [1:0] retire_num;
 	logic clear_all;
 
 
@@ -179,19 +189,20 @@ module pipeline (
 	logic [`XLEN-1:0]            lsq2dcache_addr;
 	BUS_COMMAND                  lsq2dcache_command;
 	logic [`XLEN-1:0]            lsq2dcache_data;
+	logic [2:0]					 lsq2dcache_mem_size;
 	logic [`XLEN-1:0]               lsq2cdb_value;
 	logic [$clog2(`ROB_SIZE):0]     lsq2cdb_rob;
+	//logic [$clog2(`LSQ_SIZE):0]	lsq_available_size;
 
-	BUS_COMMAND 				proc2Dcache_command;
+
 
 	// Outputs from Dcache
 	//logic [`XLEN-1:0] mem2SQ_data; // Mem[addr] return from Memory
 	// outpus to proc
-    logic [63:0]	dcache_data_in;
+    logic [31:0]	dcache_data_in;
     logic			dcache_valid_in;
 
-	logic [`XLEN-1:0] proc2Dcache_addr;
-	logic [63:0] proc2Dcache_data;
+
 
 	// TODO : delete below
 	//assign pipeline_completed_insts = {3'b0, mem_wb_valid_inst};
@@ -199,12 +210,12 @@ module pipeline (
 	//                                 mem_wb_halt                ? HALTED_ON_WFI :
 	//                                 (mem2proc_response==4'h0)  ? LOAD_ACCESS_FAULT :
 	//                                 NO_ERROR;
-	
+
 	assign pipeline_commit_wr_idx = wb_reg_wr_idx_out;
 	assign pipeline_commit_wr_data = wb_reg_wr_data_out;
 	assign pipeline_commit_wr_en = wb_reg_wr_en_out;
 	assign pipeline_commit_NPC = {rob_packet_out[2].NPC,rob_packet_out[1].NPC,rob_packet_out[0].NPC};
-	
+
 	assign pipeline_error_status =  (retire_halt[2]  | retire_halt[1] | retire_halt[0])  ? HALTED_ON_WFI :
 	                                NO_ERROR;
 
@@ -281,10 +292,10 @@ module pipeline (
 //                  IF-Stage                    //
 //                                              //
 //////////////////////////////////////////////////
-	
+
 	if_stage if_stage_0 (
 	//input
-	.clock(clock),
+	.clk(clk),
 	.reset(reset),
 	.dispatch_num(dispatch_num),
 	.clear_all(clear_all),// when need to clear all, if restart
@@ -303,15 +314,16 @@ module pipeline (
 //                                              //
 //////////////////////////////////////////////////
 
-	
+
 
 	assign if_id_enable = 1'b1; // always enabled
 	// synopsys sync_set_reset "reset"
-	always_ff @(posedge clock) begin
-		if (reset || 
-			(	(ex_ic_packet[2].exe_valid && ex_ic_packet[2].take_branch) || 
-				(ex_ic_packet[1].exe_valid && ex_ic_packet[1].take_branch) || 
-				(ex_ic_packet[0].exe_valid && ex_ic_packet[0].take_branch) )) begin
+	always_ff @(posedge clk) begin
+		// if (reset ||
+		// 	(	(ex_ic_packet[2].exe_valid && ex_ic_packet[2].take_branch) ||
+		// 		(ex_ic_packet[1].exe_valid && ex_ic_packet[1].take_branch) ||
+		// 		(ex_ic_packet[0].exe_valid && ex_ic_packet[0].take_branch) )) begin
+		if(reset || clear_all) begin
 			for(int i = 0; i < 3; i++) begin
 				if_id_packet[i].inst  <= `SD `NOP;
 				if_id_packet[i].valid <= `SD `FALSE;
@@ -331,9 +343,9 @@ module pipeline (
 //                  ID-Stage                    //
 //                                              //
 //////////////////////////////////////////////////
-	
+
 	id_stage id_stage_0 (// Inputs
-		.clock(clock),
+		.clk(clk),
 		.reset(reset),
 		.if_id_packet_in(if_id_packet),
 		.wb_reg_wr_en_out   (wb_reg_wr_en_out),
@@ -342,9 +354,9 @@ module pipeline (
 		// Outputs
 		.id_packet_out(id_packet)
 	);
-	
 
-	
+
+
 //////////////////////////////////////////////////
 //                                              //
 //                  IS-Stage                    //
@@ -372,29 +384,29 @@ module pipeline (
 
 	assign id_ex_enable = !ex_stage_stall; // always enabled
 	// synopsys sync_set_reset "reset"
-	always_ff @(posedge clock) begin
-		if(reset) begin
+	always_ff @(posedge clk) begin
+		if(reset || clear_all) begin
 			for(int i = 0; i < 3; i++) begin
-				is_ex_packet[i].RS_tag <= 0;
-				is_ex_packet[i].rob_tag <= 0;
-				is_ex_packet[i].rs1_value <= 0;
-				is_ex_packet[i].rs2_value <= 0;
-				is_ex_packet[i].opa_select <= OPA_IS_RS1;
-				is_ex_packet[i].opb_select <= OPB_IS_RS2;
-				is_ex_packet[i].alu_func <= ALU_ADD;
-				is_ex_packet[i].cond_branch <= 1'b0;
-				is_ex_packet[i].uncond_branch <= 1'b0;
-				is_ex_packet[i].inst <= `NOP;
-				is_ex_packet[i].halt <= 0;
-				is_ex_packet[i].NPC <= 0;
-				is_ex_packet[i].PC <= 0;
-				is_ex_packet[i].issue_valid <= 1'b0;
+				is_ex_packet[i].RS_tag <= `SD 0;
+				is_ex_packet[i].rob_tag <= `SD 0;
+				is_ex_packet[i].rs1_value <= `SD 0;
+				is_ex_packet[i].rs2_value <= `SD 0;
+				is_ex_packet[i].opa_select <= `SD OPA_IS_RS1;
+				is_ex_packet[i].opb_select <= `SD OPB_IS_RS2;
+				is_ex_packet[i].alu_func <= `SD ALU_ADD;
+				is_ex_packet[i].cond_branch <= `SD 1'b0;
+				is_ex_packet[i].uncond_branch <= `SD 1'b0;
+				is_ex_packet[i].inst <= `SD `NOP;
+				is_ex_packet[i].halt <= `SD 0;
+				is_ex_packet[i].NPC <= `SD 0;
+				is_ex_packet[i].PC <= `SD 0;
+				is_ex_packet[i].issue_valid <= `SD 1'b0;
 
 				//is_ex_packet[i].load_pos <= 0;
 				//is_ex_packet[i].store_pos <= 0;
-				is_ex_packet[i].rd_mem <= 0;
-				is_ex_packet[i].wr_mem <= 0; 
-				
+				is_ex_packet[i].rd_mem <= `SD 0;
+				is_ex_packet[i].wr_mem <= `SD 0;
+
 			end
 		end else begin // if (reset)
 			if (id_ex_enable) begin
@@ -432,7 +444,7 @@ module pipeline (
 //////////////////////////////////////////////////
 	ex_stage ex_stage_0 (
 		// Inputs
-		.clock(clock),
+		.clk(clk),
 		.reset(reset),
 		.is_ex_packet_in(is_ex_packet),
 		// Outputs
@@ -446,14 +458,14 @@ module pipeline (
 //           EX/IC Pipeline Register            //
 //                                              //
 //////////////////////////////////////////////////
-	
+
 	//assign ex_ic_rob_tag = ex_ic_packet.rob_tag;
 	//assign ex_ic_take_branch = ex_ic_packet.take_branch;
 
 	assign ex_ic_enable = 1'b1; // always enabled
 	// synopsys sync_set_reset "reset"
-	always_ff @(posedge clock) begin
-		if (reset) begin
+	always_ff @(posedge clk) begin
+		if (reset || clear_all) begin
 			ex_ic_packet <= `SD 0;
 		end else begin
 			if (ex_ic_enable)   begin
@@ -463,7 +475,7 @@ module pipeline (
 		end // else: !if(reset)
 	end // always
 
-   
+
 //////////////////////////////////////////////////
 //                                              //
 //                 IC-Stage                     //
@@ -471,7 +483,7 @@ module pipeline (
 //////////////////////////////////////////////////
 
 	ic_stage ic_stage_0(
-    .clock(clock),
+    .clk(clk),
     .reset(reset),
     .ex_ic_packet_in(ex_ic_packet),
 	.clear_all(clear_all),
@@ -487,11 +499,12 @@ module pipeline (
 
     // complete insns number
     .complete_num(complete_num),
-	.branch_PC(branch_PC)
+	.alu_result(alu_result)
+	// .branch_PC(branch_PC)
 );
 
 
-   
+
 //////////////////////////////////////////////////
 //                                              //
 //                 Retire-Stage                 //
@@ -512,14 +525,16 @@ always_comb begin
 	wb_reg_wr_en_out[2] = (rob_packet_out[2].retire_R_out != `ZERO_REG) && (rob_packet_out[2].retire_valid);
 	wb_reg_wr_en_out[1] = (rob_packet_out[1].retire_R_out != `ZERO_REG) && (rob_packet_out[1].retire_valid) && ((!packet_2_1_same & !packet_2_0_same) | (!packet_2_1_same & !packet_1_0_same));
 	wb_reg_wr_en_out[0] = (rob_packet_out[0].retire_R_out != `ZERO_REG) && (rob_packet_out[0].retire_valid) && ((!packet_2_0_same & !packet_1_0_same) );
-	
-	for(int i = 0; i < 3; i++) begin
+
+	for(int i = 0; i < retire_num; i++) begin
 		wb_reg_wr_idx_out[i] = rob_packet_out[i].retire_R_out;
 		wb_reg_wr_data_out[i] = rob_packet_out[i].retire_V_out;
-		retire_halt[i] = rob_packet_out[i].halt;
     end
 end
 
+always_ff @(posedge clk)begin
+	for(int i = 0; i < retire_num; i++) retire_halt[i] <= `SD rob_packet_out[i].halt;
+end
 
 
 
@@ -531,13 +546,14 @@ end
 //                                              //
 //////////////////////////////////////////////////
 ROB #(.SIZE(`ROB_SIZE -1)) rob (
-	.clk(clock),
+	.clk(clk),
 	.reset(reset),
 	.dispatch_en(dispatch_en),
 	.id_packet_in(id_packet),
 	.mt_packet_in(mt_packet),
 	.RS_available_size(RS_available_size),			//from rs
 	.complete_en(complete_en),
+	.alu_result_in(alu_result),
 	.CDB_rob_tag(CDB_rob_tag), //from ex packet
 	.CDB_value(CDB_value), //from ex packet
 	.CDB_halt(CDB_halt),
@@ -548,10 +564,13 @@ ROB #(.SIZE(`ROB_SIZE -1)) rob (
 	// fill after implment LSQ
 	// .exception_rob_tag(ex_ic_packet[1:0].rob_tag),//from ex stage LSQ or branch predict
 	.dispatch_num(dispatch_num),
+	.retire_num(retire_num),
 	.clear_all(clear_all),
 	.rob_packet_out(rob_packet_out),
-	.rob_entry_test(rob_entry_test));//as a rob test
-	
+	.rob_entry_test(rob_entry_test),
+	.rob_head(rob_head),
+	.branch_PC(branch_PC));//as a rob test
+
 
 	// .rob_packet_out.dispatch_value_out_1(dispatch_value_out_1),//to RS
 	// .rob_packet_out.dispatch_value_out_2(dispatch_value_out_2),//to RS
@@ -560,7 +579,7 @@ ROB #(.SIZE(`ROB_SIZE -1)) rob (
 	// .rob_packet_out.retire_R_out(retire_R_out),//to retire stage
 	// .rob_packet_out.retire_V_out(retire_V_out),//to retire stage
 	// .rob_packet_out.clear_all(clear_all),//
-	
+
 
 
 //////////////////////////////////////////////////
@@ -570,7 +589,7 @@ ROB #(.SIZE(`ROB_SIZE -1)) rob (
 //////////////////////////////////////////////////
 
 Map_Table #(.SIZE(`MAP_TABLE_SIZE)) map_table(
-	.clk(clock),
+	.clk(clk),
 	.reset(reset),
 	.dispatch_en(dispatch_en),
     // .source_reg_idx_in1({id_packet[2].source_reg_idx_in1, id_packet[1].source_reg_idx_in1, id_packet[0].source_reg_idx_in1}),
@@ -599,7 +618,7 @@ Map_Table #(.SIZE(`MAP_TABLE_SIZE)) map_table(
 //////////////////////////////////////////////////
 
 RS rs (
-	.clk(clock),
+	.clk(clk),
 	.reset(reset),
 	.dispatch_en(dispatch_en),
 	// ? can we do that?
@@ -619,6 +638,7 @@ RS rs (
 	//.LQ_tail_in(LQ_tail_out),
 	//.SQ_tail_in(SQ_tail_out),
     .RS_available_size(RS_available_size),
+	//.lsq_available_size(lsq_available_size),
 	//.RS_idx_test(RS_idx_test), //from rs itself as test
 	.rs_packet_out(rs_packet_out),
 	.issue_num(issue_num)
@@ -634,7 +654,7 @@ RS rs (
 
 
 LSQ  lsq (
-    .clock(clock),
+    .clk(clk),
 	.reset(reset),
     //dispatch stage
     .dispatch_en(dispatch_en),
@@ -646,13 +666,17 @@ LSQ  lsq (
 	.retire_en(retire_en),
 	.dcache_data_in(dcache_data_in), //
 	.dcache_valid_in(dcache_valid_in),//
+	.clear_all(clear_all),
+	.rob_head(rob_head),
 	//.dcache_store_success(dcache_store_success),
 	//  output
 	.lsq2dcache_addr(lsq2dcache_addr),
 	.lsq2dcache_command(lsq2dcache_command),
 	.lsq2dcache_data(lsq2dcache_data),
+	.lsq2dcache_mem_size(lsq2dcache_mem_size),
 	.lsq2cdb_value(lsq2cdb_value),
 	.lsq2cdb_rob(lsq2cdb_rob)
+	//.lsq_available_size(lsq_available_size)
 );
 
 
@@ -674,9 +698,12 @@ end
 //                 Dcache module                //
 //                                              //
 //////////////////////////////////////////////////
-
+MEM_SIZE dcache_mem_size;
+assign dcache_mem_size = 	(lsq2dcache_mem_size[1:0]  == 2'h0) ? BYTE:
+							(lsq2dcache_mem_size[1:0]  == 2'h1) ? HALF:
+							(lsq2dcache_mem_size[1:0]  == 2'h2) ? WORD: DOUBLE;
 Dcache dcache(
-    .clock(clock),
+    .clk(clk),
     .reset(reset),
 	// inputs from memory (arbiter)
     .Dmem2proc_response(Dmem2proc_response),
@@ -686,7 +713,8 @@ Dcache dcache(
     .proc2Dcache_addr(proc2Dcache_addr),
 	.proc2Dcache_command(proc2Dcache_command), // TODO: how to decide the command sent to Dcache?
 	.proc2Dcache_data(proc2Dcache_data),
-	//.proc2Dcache_size(),
+	.mem_size(dcache_mem_size),
+	//.mem_size(WORD),
 	// outputs to memory (arbiter)
     .proc2Dmem_command(proc2Dmem_command),
     .proc2Dmem_addr(proc2Dmem_addr),

@@ -1,0 +1,382 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : design
+Design : psel_gen_REQS3_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:04:20 2022
+****************************************
+
+Design allows ideal nets on clock nets.
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Local Link Library:
+
+    {lec25dscc25_TT.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : nom_pvt
+    Library : lec25dscc25_TT
+    Process :   1.00
+    Temperature :  25.00
+    Voltage :   2.50
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    Selected manually by the user.
+
+Name           :   tsmcwire
+Location       :   lec25dscc25_TT
+Resistance     :   0.2642
+Capacitance    :   0.000132782
+Area           :   0.27
+Slope          :   0.74
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1     0.89
+     2     1.48
+     3     2.44
+     4     3.18
+     5     3.92
+
+
+
+Wire Loading Model Mode: top.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    REQS => 3
+    WIDTH => 6
+1
+ 
+****************************************
+Report : area
+Design : psel_gen_REQS3_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:04:20 2022
+****************************************
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Number of ports:                           67
+Number of nets:                           133
+Number of cells:                           94
+Number of combinational cells:             91
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         43
+Number of references:                      17
+
+Combinational area:               4470.681217
+Buf/Inv area:                     1509.580830
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:              39.068462
+
+Total cell area:                  4470.681217
+Total area:                       4509.749679
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 2
+        -transition_time
+Design : psel_gen_REQS3_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:04:20 2022
+****************************************
+
+Operating Conditions: nom_pvt   Library: lec25dscc25_TT
+Wire Load Model Mode: top
+
+  Startpoint: req[5] (input port)
+  Endpoint: gnt_bus[12]
+            (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  psel_gen_REQS3_WIDTH6 tsmcwire           lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  input external delay                                              0.00       0.00 r
+  req[5] (in)                                             0.26      0.04       0.04 r
+  req[5] (net)                                  2                   0.00       0.04 r
+  foo[0].psel/req[5] (wand_sel_WIDTH6)                              0.00       0.04 r
+  foo[0].psel/req[5] (net)                                          0.00       0.04 r
+  foo[0].psel/U13/DIN (ib1s1)                             0.26      0.00       0.04 r
+  foo[0].psel/U13/Q (ib1s1)                               0.13      0.06       0.10 f
+  foo[0].psel/n7 (net)                          1                   0.00       0.10 f
+  foo[0].psel/U12/DIN (ib1s1)                             0.13      0.00       0.10 f
+  foo[0].psel/U12/Q (ib1s1)                               0.74      0.29       0.39 r
+  foo[0].psel/gnt[5] (net)                      5                   0.00       0.39 r
+  foo[0].psel/U15/DIN2 (nor2s1)                           0.74      0.00       0.39 r
+  foo[0].psel/U15/Q (nor2s1)                              0.27      0.14       0.53 f
+  foo[0].psel/n10 (net)                         1                   0.00       0.53 f
+  foo[0].psel/U14/DIN (nb1s2)                             0.27      0.00       0.53 f
+  foo[0].psel/U14/Q (nb1s2)                               0.10      0.15       0.69 f
+  foo[0].psel/gnt[4] (net)                      3                   0.00       0.69 f
+  foo[0].psel/gnt[4] (wand_sel_WIDTH6)                              0.00       0.69 f
+  n38 (net)                                                         0.00       0.69 f
+  U52/DIN (ib1s1)                                         0.10      0.00       0.69 f
+  U52/Q (ib1s1)                                           0.16      0.07       0.76 r
+  n35 (net)                                     2                   0.00       0.76 r
+  U91/DIN1 (and2s2)                                       0.16      0.00       0.76 r
+  U91/Q (and2s2)                                          0.10      0.10       0.86 r
+  tmp_reqs[16] (net)                            1                   0.00       0.86 r
+  foo[2].psel/req[4] (wand_sel_WIDTH6)                              0.00       0.86 r
+  foo[2].psel/req[4] (net)                                          0.00       0.86 r
+  foo[2].psel/U16/DIN (ib1s1)                             0.10      0.00       0.87 r
+  foo[2].psel/U16/Q (ib1s1)                               0.09      0.05       0.91 f
+  foo[2].psel/n2 (net)                          1                   0.00       0.91 f
+  foo[2].psel/U15/DIN1 (nor2s1)                           0.09      0.00       0.91 f
+  foo[2].psel/U15/Q (nor2s1)                              0.20      0.09       1.00 r
+  foo[2].psel/n10 (net)                         1                   0.00       1.00 r
+  foo[2].psel/U14/DIN (nb1s2)                             0.20      0.00       1.00 r
+  foo[2].psel/U14/Q (nb1s2)                               0.10      0.11       1.11 r
+  foo[2].psel/gnt[4] (net)                      2                   0.00       1.11 r
+  foo[2].psel/U18/DIN1 (nor2s1)                           0.10      0.00       1.11 r
+  foo[2].psel/U18/Q (nor2s1)                              0.26      0.14       1.26 f
+  foo[2].psel/n5 (net)                          2                   0.00       1.26 f
+  foo[2].psel/U20/DIN (ib1s1)                             0.26      0.00       1.26 f
+  foo[2].psel/U20/Q (ib1s1)                               0.14      0.07       1.32 r
+  foo[2].psel/n1 (net)                          1                   0.00       1.32 r
+  foo[2].psel/U19/DIN1 (nor2s1)                           0.14      0.00       1.33 r
+  foo[2].psel/U19/Q (nor2s1)                              0.39      0.21       1.53 f
+  foo[2].psel/n6 (net)                          3                   0.00       1.53 f
+  foo[2].psel/U4/DIN2 (and4s3)                            0.39      0.00       1.54 f
+  foo[2].psel/U4/Q (and4s3)                               0.12      0.23       1.76 f
+  foo[2].psel/gnt[0] (net)                      2                   0.00       1.76 f
+  foo[2].psel/gnt[0] (wand_sel_WIDTH6)                              0.00       1.76 f
+  tmp_gnts[12] (net)                                                0.00       1.76 f
+  U70/DIN1 (and2s2)                                       0.12      0.00       1.77 f
+  U70/Q (and2s2)                                          0.22      0.20       1.97 f
+  gnt_bus[12] (net)                             1                   0.00       1.97 f
+  gnt_bus[12] (out)                                       0.22      0.02       1.99 f
+  data arrival time                                                            1.99
+
+  max_delay                                                         2.00       2.00
+  output external delay                                             0.00       2.00
+  data required time                                                           2.00
+  ------------------------------------------------------------------------------------
+  data required time                                                           2.00
+  data arrival time                                                           -1.99
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+  Startpoint: req[5] (input port)
+  Endpoint: gnt[0] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  psel_gen_REQS3_WIDTH6 tsmcwire           lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  input external delay                                              0.00       0.00 r
+  req[5] (in)                                             0.26      0.04       0.04 r
+  req[5] (net)                                  2                   0.00       0.04 r
+  foo[0].psel/req[5] (wand_sel_WIDTH6)                              0.00       0.04 r
+  foo[0].psel/req[5] (net)                                          0.00       0.04 r
+  foo[0].psel/U13/DIN (ib1s1)                             0.26      0.00       0.04 r
+  foo[0].psel/U13/Q (ib1s1)                               0.13      0.06       0.10 f
+  foo[0].psel/n7 (net)                          1                   0.00       0.10 f
+  foo[0].psel/U12/DIN (ib1s1)                             0.13      0.00       0.10 f
+  foo[0].psel/U12/Q (ib1s1)                               0.74      0.29       0.39 r
+  foo[0].psel/gnt[5] (net)                      5                   0.00       0.39 r
+  foo[0].psel/U15/DIN2 (nor2s1)                           0.74      0.00       0.39 r
+  foo[0].psel/U15/Q (nor2s1)                              0.27      0.14       0.53 f
+  foo[0].psel/n10 (net)                         1                   0.00       0.53 f
+  foo[0].psel/U14/DIN (nb1s2)                             0.27      0.00       0.53 f
+  foo[0].psel/U14/Q (nb1s2)                               0.10      0.15       0.69 f
+  foo[0].psel/gnt[4] (net)                      3                   0.00       0.69 f
+  foo[0].psel/gnt[4] (wand_sel_WIDTH6)                              0.00       0.69 f
+  n38 (net)                                                         0.00       0.69 f
+  U52/DIN (ib1s1)                                         0.10      0.00       0.69 f
+  U52/Q (ib1s1)                                           0.16      0.07       0.76 r
+  n35 (net)                                     2                   0.00       0.76 r
+  U91/DIN1 (and2s2)                                       0.16      0.00       0.76 r
+  U91/Q (and2s2)                                          0.10      0.10       0.86 r
+  tmp_reqs[16] (net)                            1                   0.00       0.86 r
+  foo[2].psel/req[4] (wand_sel_WIDTH6)                              0.00       0.86 r
+  foo[2].psel/req[4] (net)                                          0.00       0.86 r
+  foo[2].psel/U16/DIN (ib1s1)                             0.10      0.00       0.87 r
+  foo[2].psel/U16/Q (ib1s1)                               0.09      0.05       0.91 f
+  foo[2].psel/n2 (net)                          1                   0.00       0.91 f
+  foo[2].psel/U15/DIN1 (nor2s1)                           0.09      0.00       0.91 f
+  foo[2].psel/U15/Q (nor2s1)                              0.20      0.09       1.00 r
+  foo[2].psel/n10 (net)                         1                   0.00       1.00 r
+  foo[2].psel/U14/DIN (nb1s2)                             0.20      0.00       1.00 r
+  foo[2].psel/U14/Q (nb1s2)                               0.10      0.11       1.11 r
+  foo[2].psel/gnt[4] (net)                      2                   0.00       1.11 r
+  foo[2].psel/U18/DIN1 (nor2s1)                           0.10      0.00       1.11 r
+  foo[2].psel/U18/Q (nor2s1)                              0.26      0.14       1.26 f
+  foo[2].psel/n5 (net)                          2                   0.00       1.26 f
+  foo[2].psel/U20/DIN (ib1s1)                             0.26      0.00       1.26 f
+  foo[2].psel/U20/Q (ib1s1)                               0.14      0.07       1.32 r
+  foo[2].psel/n1 (net)                          1                   0.00       1.32 r
+  foo[2].psel/U19/DIN1 (nor2s1)                           0.14      0.00       1.33 r
+  foo[2].psel/U19/Q (nor2s1)                              0.39      0.21       1.53 f
+  foo[2].psel/n6 (net)                          3                   0.00       1.53 f
+  foo[2].psel/U4/DIN2 (and4s3)                            0.39      0.00       1.54 f
+  foo[2].psel/U4/Q (and4s3)                               0.12      0.23       1.76 f
+  foo[2].psel/gnt[0] (net)                      2                   0.00       1.76 f
+  foo[2].psel/gnt[0] (wand_sel_WIDTH6)                              0.00       1.76 f
+  tmp_gnts[12] (net)                                                0.00       1.76 f
+  U62/DIN1 (or2s3)                                        0.12      0.00       1.77 f
+  U62/Q (or2s3)                                           0.16      0.20       1.96 f
+  gnt[0] (net)                                  1                   0.00       1.96 f
+  gnt[0] (out)                                            0.16      0.02       1.99 f
+  data arrival time                                                            1.99
+
+  max_delay                                                         2.00       2.00
+  output external delay                                             0.00       2.00
+  data required time                                                           2.00
+  ------------------------------------------------------------------------------------
+  data required time                                                           2.00
+  data arrival time                                                           -1.99
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.01
+
+
+1
+ 
+****************************************
+Report : constraint
+        -verbose
+        -max_delay
+Design : psel_gen_REQS3_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:04:20 2022
+****************************************
+
+
+  Startpoint: req[5] (input port)
+  Endpoint: gnt_bus[12]
+            (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  psel_gen_REQS3_WIDTH6 tsmcwire           lec25dscc25_TT
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  req[5] (in)                              0.04       0.04 r
+  foo[0].psel/U13/Q (ib1s1)                0.06       0.10 f
+  foo[0].psel/U12/Q (ib1s1)                0.29       0.39 r
+  foo[0].psel/U15/Q (nor2s1)               0.14       0.53 f
+  foo[0].psel/U14/Q (nb1s2)                0.16       0.69 f
+  U52/Q (ib1s1)                            0.07       0.76 r
+  U91/Q (and2s2)                           0.10       0.86 r
+  foo[2].psel/U16/Q (ib1s1)                0.05       0.91 f
+  foo[2].psel/U15/Q (nor2s1)               0.09       1.00 r
+  foo[2].psel/U14/Q (nb1s2)                0.11       1.11 r
+  foo[2].psel/U18/Q (nor2s1)               0.15       1.26 f
+  foo[2].psel/U20/Q (ib1s1)                0.07       1.32 r
+  foo[2].psel/U19/Q (nor2s1)               0.21       1.53 f
+  foo[2].psel/U4/Q (and4s3)                0.23       1.76 f
+  U70/Q (and2s2)                           0.21       1.97 f
+  gnt_bus[12] (out)                        0.02       1.99 f
+  data arrival time                                   1.99
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -1.99
+  -----------------------------------------------------------
+  slack (MET)                                         0.01
+
+
+1
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : reference
+Design : psel_gen_REQS3_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sun Apr 17 03:04:21 2022
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s1             lec25dscc25_TT    49.766399       3   149.299198
+and2s2             lec25dscc25_TT    58.060799       7   406.425591
+hi1s1              lec25dscc25_TT    33.177601       2    66.355202
+i1s3               lec25dscc25_TT    41.472000       3   124.416000
+ib1s1              lec25dscc25_TT    33.177601      16   530.841614
+nb1s1              lec25dscc25_TT    41.472000       1    41.472000
+nnd2s1             lec25dscc25_TT    41.472000       1    41.472000
+nnd2s2             lec25dscc25_TT    41.472000       3   124.416000
+nnd3s1             lec25dscc25_TT    49.766399       2    99.532799
+nnd3s2             lec25dscc25_TT    49.766399       1    49.766399
+nor2s1             lec25dscc25_TT    41.472000       2    82.944000
+nor2s2             lec25dscc25_TT    58.060799       2   116.121597
+nor6s1             lec25dscc25_TT   107.827003       1   107.827003
+or2s1              lec25dscc25_TT    49.766399       2    99.532799
+or2s3              lec25dscc25_TT    91.238403       2   182.476807
+or3s2              lec25dscc25_TT   107.827003       1   107.827003
+wand_sel_WIDTH6                 713.318401       3   2139.955204  h
+-----------------------------------------------------------------------------
+Total 17 references                                  4470.681217
+1

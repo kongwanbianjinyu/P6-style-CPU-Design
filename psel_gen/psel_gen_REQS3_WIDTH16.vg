@@ -1,0 +1,195 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Expert(TM) in wire load mode
+// Version   : S-2021.06-SP1
+// Date      : Sun Apr 17 03:05:27 2022
+/////////////////////////////////////////////////////////////
+
+
+module psel_gen_REQS3_WIDTH16 ( req, gnt, gnt_bus, empty );
+  input [15:0] req;
+  output [15:0] gnt;
+  output [47:0] gnt_bus;
+  output empty;
+  wire   n140, n26, n27, n28, n29, n30, n31, n32, n33, n35, n36, n37, n38, n39,
+         n40, n41, n42, n43, n44, n45, n46, n47, n48, n49, n50, n51, n52, n53,
+         n54, n55, n56, n57, n58, n59, n62, n63, n64, n65, n66, n67, n68, n69,
+         n70, n71, n72, n73, n74, n75, n76, n77, n78, n79, n80, n81, n82, n83,
+         n84, n85, n86, n87, n88, n89, n90, n91, n92, n93, n94, n95, n96, n97,
+         n98, n99, n100, n101, n102, n103, n104, n105, n106, n107, n108, n109,
+         n110, n111, n112, n113, n114, n115, n116, n117, n118, n119, n120,
+         n127, n128, n129, n131, n134, n135, n137;
+wor  \req[15] ;
+
+  and3s2 U4 ( .DIN1(n45), .DIN2(n64), .DIN3(n65), .Q(gnt_bus[45]) );
+  and3s2 U6 ( .DIN1(n67), .DIN2(n68), .DIN3(n41), .Q(gnt_bus[43]) );
+  and3s2 U8 ( .DIN1(n70), .DIN2(n71), .DIN3(n39), .Q(gnt_bus[41]) );
+  and3s2 U10 ( .DIN1(n73), .DIN2(n74), .DIN3(n134), .Q(gnt_bus[39]) );
+  and3s2 U14 ( .DIN1(n78), .DIN2(n79), .DIN3(n80), .Q(gnt_bus[34]) );
+  and4s3 U30 ( .DIN1(gnt[0]), .DIN2(n92), .DIN3(n93), .DIN4(n59), .Q(
+        gnt_bus[0]) );
+  nnd4s2 U32 ( .DIN1(n70), .DIN2(n54), .DIN3(n95), .DIN4(n52), .Q(n71) );
+  nnd3s2 U33 ( .DIN1(n87), .DIN2(n72), .DIN3(n96), .Q(gnt[8]) );
+  nnd3s2 U38 ( .DIN1(n88), .DIN2(n75), .DIN3(n62), .Q(gnt[6]) );
+  nnd2s2 U40 ( .DIN1(n37), .DIN2(n54), .Q(n88) );
+  nnd3s2 U45 ( .DIN1(n30), .DIN2(n134), .DIN3(n103), .Q(n76) );
+  nnd3s2 U49 ( .DIN1(n101), .DIN2(n58), .DIN3(n106), .Q(n90) );
+  nnd2s2 U51 ( .DIN1(n78), .DIN2(n101), .Q(n79) );
+  and4s3 U55 ( .DIN1(req[2]), .DIN2(n93), .DIN3(n57), .DIN4(n56), .Q(
+        gnt_bus[2]) );
+  nnd3s2 U60 ( .DIN1(n134), .DIN2(n104), .DIN3(n103), .Q(n107) );
+  nnd2s2 U68 ( .DIN1(req[4]), .DIN2(n63), .Q(n104) );
+  and2s2 U76 ( .DIN1(req[9]), .DIN2(n111), .Q(gnt_bus[9]) );
+  nnd2s2 U77 ( .DIN1(n109), .DIN2(n131), .Q(n91) );
+  or2s2 U82 ( .DIN1(n84), .DIN2(gnt_bus[14]), .Q(gnt[14]) );
+  nnd3s2 U84 ( .DIN1(n82), .DIN2(n48), .DIN3(n65), .Q(n64) );
+  nnd2s2 U90 ( .DIN1(n67), .DIN2(n117), .Q(n68) );
+  and2s2 U103 ( .DIN1(req[13]), .DIN2(n120), .Q(gnt_bus[13]) );
+  nnd3s2 U109 ( .DIN1(n101), .DIN2(n55), .DIN3(n92), .Q(n99) );
+  ib1s1 U155 ( .DIN(1'b1), .Q(gnt_bus[31]) );
+  ib1s1 U157 ( .DIN(1'b1), .Q(gnt_bus[32]) );
+  ib1s1 U159 ( .DIN(1'b1), .Q(gnt_bus[47]) );
+  and2s2 U161 ( .DIN1(n120), .DIN2(n135), .Q(n111) );
+  nnd2s3 U162 ( .DIN1(n137), .DIN2(n79), .Q(gnt[2]) );
+  i1s2 U163 ( .DIN(n81), .Q(gnt_bus[33]) );
+  nor2s1 U164 ( .DIN1(n53), .DIN2(gnt_bus[7]), .Q(n73) );
+  nor2s2 U165 ( .DIN1(n47), .DIN2(gnt_bus[13]), .Q(n65) );
+  nor2s1 U166 ( .DIN1(n107), .DIN2(n106), .Q(n80) );
+  or3s2 U167 ( .DIN1(n113), .DIN2(n67), .DIN3(n114), .Q(n94) );
+  ib1s1 U168 ( .DIN(n128), .Q(gnt_bus[11]) );
+  nb1s2 U169 ( .DIN(gnt[15]), .Q(gnt_bus[15]) );
+  ib1s1 U170 ( .DIN(n131), .Q(gnt[0]) );
+  and2s1 U171 ( .DIN1(n105), .DIN2(n90), .Q(n127) );
+  nnd3s2 U172 ( .DIN1(n83), .DIN2(n120), .DIN3(req[11]), .Q(n128) );
+  ib1s1 U173 ( .DIN(req[0]), .Q(n131) );
+  i1s1 U174 ( .DIN(req[15]), .Q(n129) );
+  hi1s1 U175 ( .DIN(n129), .Q(gnt[15]) );
+  nor2s3 U176 ( .DIN1(req[12]), .DIN2(req[13]), .Q(n83) );
+  and3s3 U177 ( .DIN1(n82), .DIN2(n83), .DIN3(n84), .Q(gnt_bus[30]) );
+  and3s3 U178 ( .DIN1(n92), .DIN2(n101), .DIN3(n102), .Q(gnt_bus[21]) );
+  ib1s1 U179 ( .DIN(n77), .Q(gnt_bus[35]) );
+  nnd2s2 U180 ( .DIN1(n127), .DIN2(n77), .Q(gnt[3]) );
+  nor2s1 U181 ( .DIN1(n55), .DIN2(n112), .Q(n140) );
+  hi1s1 U182 ( .DIN(n71), .Q(gnt_bus[25]) );
+  ib1s1 U183 ( .DIN(n102), .Q(n33) );
+  and3s1 U184 ( .DIN1(n33), .DIN2(n100), .DIN3(n38), .Q(n103) );
+  nor3s2 U185 ( .DIN1(n70), .DIN2(n97), .DIN3(n94), .Q(n134) );
+  nor2s2 U186 ( .DIN1(n51), .DIN2(gnt_bus[9]), .Q(n70) );
+  nnd3s1 U187 ( .DIN1(n106), .DIN2(n90), .DIN3(n28), .Q(n77) );
+  i1s1 U188 ( .DIN(n78), .Q(n32) );
+  hi1s1 U189 ( .DIN(n107), .Q(n28) );
+  nnd2s1 U190 ( .DIN1(n116), .DIN2(n82), .Q(n85) );
+  hi1s1 U191 ( .DIN(n67), .Q(n44) );
+  i1s1 U192 ( .DIN(n84), .Q(n45) );
+  nnd3s1 U193 ( .DIN1(n54), .DIN2(n118), .DIN3(n113), .Q(n86) );
+  nnd2s2 U194 ( .DIN1(n118), .DIN2(n111), .Q(n112) );
+  nnd3s1 U195 ( .DIN1(n63), .DIN2(n89), .DIN3(n76), .Q(gnt[4]) );
+  nnd3s1 U196 ( .DIN1(n85), .DIN2(n66), .DIN3(n115), .Q(gnt[12]) );
+  nnd3s1 U197 ( .DIN1(n86), .DIN2(n69), .DIN3(n119), .Q(gnt[10]) );
+  nnd3s1 U198 ( .DIN1(n54), .DIN2(n95), .DIN3(n97), .Q(n87) );
+  hi1s1 U199 ( .DIN(n119), .Q(gnt_bus[10]) );
+  hi1s1 U200 ( .DIN(n115), .Q(gnt_bus[12]) );
+  nnd3s1 U201 ( .DIN1(n93), .DIN2(n56), .DIN3(req[3]), .Q(n105) );
+  nnd2s1 U202 ( .DIN1(req[4]), .DIN2(n93), .Q(n63) );
+  nnd3s1 U203 ( .DIN1(n92), .DIN2(n93), .DIN3(req[1]), .Q(n108) );
+  nnd2s1 U204 ( .DIN1(req[6]), .DIN2(n62), .Q(n100) );
+  hi1s1 U205 ( .DIN(req[13]), .Q(n47) );
+  hi1s1 U206 ( .DIN(req[12]), .Q(n48) );
+  hi1s1 U207 ( .DIN(req[9]), .Q(n51) );
+  hi1s1 U208 ( .DIN(req[7]), .Q(n53) );
+  hi1s1 U209 ( .DIN(req[8]), .Q(n52) );
+  ib1s1 U210 ( .DIN(req[2]), .Q(n58) );
+  and3s1 U211 ( .DIN1(n50), .DIN2(n49), .DIN3(n83), .Q(n135) );
+  nnd3s1 U212 ( .DIN1(n111), .DIN2(n51), .DIN3(req[8]), .Q(n96) );
+  and3s3 U213 ( .DIN1(n110), .DIN2(n111), .DIN3(req[7]), .Q(gnt_bus[7]) );
+  nor2s1 U214 ( .DIN1(n55), .DIN2(n112), .Q(gnt_bus[5]) );
+  or2s1 U215 ( .DIN1(n58), .DIN2(n27), .Q(n137) );
+  hi1s1 U216 ( .DIN(n80), .Q(n27) );
+  ib1s1 U217 ( .DIN(n75), .Q(gnt_bus[38]) );
+  ib1s1 U218 ( .DIN(n94), .Q(n39) );
+  ib1s1 U219 ( .DIN(n72), .Q(gnt_bus[40]) );
+  ib1s1 U220 ( .DIN(n66), .Q(gnt_bus[44]) );
+  ib1s1 U221 ( .DIN(n114), .Q(n41) );
+  ib1s1 U222 ( .DIN(n69), .Q(gnt_bus[42]) );
+  ib1s1 U223 ( .DIN(n85), .Q(gnt_bus[28]) );
+  ib1s1 U224 ( .DIN(n88), .Q(gnt_bus[22]) );
+  ib1s1 U225 ( .DIN(n68), .Q(gnt_bus[27]) );
+  ib1s1 U226 ( .DIN(n86), .Q(gnt_bus[26]) );
+  or3s2 U227 ( .DIN1(gnt_bus[21]), .DIN2(gnt_bus[37]), .DIN3(gnt_bus[5]), .Q(
+        gnt[5]) );
+  nor5s2 U228 ( .DIN1(gnt_bus[21]), .DIN2(n37), .DIN3(n73), .DIN4(n98), .DIN5(
+        n33), .Q(gnt_bus[37]) );
+  nnd4s1 U229 ( .DIN1(n109), .DIN2(n80), .DIN3(n32), .DIN4(n91), .Q(n81) );
+  or3s1 U230 ( .DIN1(n70), .DIN2(n97), .DIN3(n94), .Q(n98) );
+  or3s1 U231 ( .DIN1(n65), .DIN2(n84), .DIN3(n116), .Q(n114) );
+  ib1s1 U232 ( .DIN(n73), .Q(n38) );
+  nnd4s1 U233 ( .DIN1(n37), .DIN2(n134), .DIN3(n38), .DIN4(n88), .Q(n75) );
+  nor2s1 U234 ( .DIN1(n29), .DIN2(n76), .Q(gnt_bus[36]) );
+  ib1s1 U235 ( .DIN(n89), .Q(n29) );
+  ib1s1 U236 ( .DIN(n89), .Q(gnt_bus[20]) );
+  ib1s1 U237 ( .DIN(n79), .Q(gnt_bus[18]) );
+  ib1s1 U238 ( .DIN(n91), .Q(gnt_bus[17]) );
+  ib1s1 U239 ( .DIN(n90), .Q(gnt_bus[19]) );
+  nnd4s1 U240 ( .DIN1(n116), .DIN2(n42), .DIN3(n45), .DIN4(n85), .Q(n66) );
+  ib1s1 U241 ( .DIN(n65), .Q(n42) );
+  ib1s1 U242 ( .DIN(n99), .Q(n54) );
+  nnd4s1 U243 ( .DIN1(n97), .DIN2(n39), .DIN3(n35), .DIN4(n87), .Q(n72) );
+  ib1s1 U244 ( .DIN(n70), .Q(n35) );
+  nor2s1 U245 ( .DIN1(gnt_bus[30]), .DIN2(n45), .Q(gnt_bus[46]) );
+  nnd4s1 U246 ( .DIN1(n113), .DIN2(n41), .DIN3(n44), .DIN4(n86), .Q(n69) );
+  ib1s1 U247 ( .DIN(n64), .Q(gnt_bus[29]) );
+  ib1s1 U248 ( .DIN(n87), .Q(gnt_bus[24]) );
+  nor2s1 U249 ( .DIN1(n112), .DIN2(n99), .Q(empty) );
+  nor2s1 U250 ( .DIN1(n55), .DIN2(n140), .Q(n102) );
+  nor2s2 U251 ( .DIN1(n49), .DIN2(gnt_bus[11]), .Q(n67) );
+  nnd3s2 U252 ( .DIN1(n91), .DIN2(n81), .DIN3(n108), .Q(gnt[1]) );
+  nor2s1 U253 ( .DIN1(n48), .DIN2(n43), .Q(n116) );
+  ib1s1 U254 ( .DIN(n115), .Q(n43) );
+  nor2s1 U255 ( .DIN1(n59), .DIN2(n26), .Q(n109) );
+  ib1s1 U256 ( .DIN(n108), .Q(n26) );
+  nor2s1 U257 ( .DIN1(n50), .DIN2(n40), .Q(n113) );
+  ib1s1 U258 ( .DIN(n119), .Q(n40) );
+  nor2s1 U259 ( .DIN1(n52), .DIN2(n36), .Q(n97) );
+  ib1s1 U260 ( .DIN(n96), .Q(n36) );
+  nor2s1 U261 ( .DIN1(n57), .DIN2(n31), .Q(n106) );
+  ib1s1 U262 ( .DIN(n105), .Q(n31) );
+  nor2s1 U263 ( .DIN1(n58), .DIN2(gnt_bus[2]), .Q(n78) );
+  nor2s1 U264 ( .DIN1(n46), .DIN2(gnt_bus[14]), .Q(n84) );
+  nnd4s1 U265 ( .DIN1(n30), .DIN2(n101), .DIN3(n58), .DIN4(n57), .Q(n89) );
+  ib1s1 U266 ( .DIN(n104), .Q(n30) );
+  and2s1 U267 ( .DIN1(n95), .DIN2(n110), .Q(n118) );
+  ib1s1 U268 ( .DIN(n100), .Q(n37) );
+  and2s1 U269 ( .DIN1(n117), .DIN2(n49), .Q(n82) );
+  and3s1 U270 ( .DIN1(n118), .DIN2(n50), .DIN3(n54), .Q(n117) );
+  oai21s2 U271 ( .DIN1(n53), .DIN2(n98), .DIN3(n74), .Q(gnt[7]) );
+  oai21s2 U272 ( .DIN1(n51), .DIN2(n94), .DIN3(n71), .Q(gnt[9]) );
+  and3s1 U273 ( .DIN1(n57), .DIN2(n56), .DIN3(n58), .Q(n92) );
+  oai21s2 U274 ( .DIN1(n84), .DIN2(n47), .DIN3(n64), .Q(gnt[13]) );
+  nor2s1 U275 ( .DIN1(gnt_bus[0]), .DIN2(n131), .Q(gnt_bus[16]) );
+  oai21s2 U276 ( .DIN1(n49), .DIN2(n114), .DIN3(n68), .Q(gnt[11]) );
+  ib1s1 U277 ( .DIN(n74), .Q(gnt_bus[23]) );
+  ib1s1 U278 ( .DIN(n108), .Q(gnt_bus[1]) );
+  ib1s1 U279 ( .DIN(n105), .Q(gnt_bus[3]) );
+  ib1s1 U280 ( .DIN(n63), .Q(gnt_bus[4]) );
+  ib1s1 U281 ( .DIN(n62), .Q(gnt_bus[6]) );
+  ib1s1 U282 ( .DIN(n96), .Q(gnt_bus[8]) );
+  nor2s1 U283 ( .DIN1(req[15]), .DIN2(req[14]), .Q(n120) );
+  nor2s1 U284 ( .DIN1(n112), .DIN2(req[5]), .Q(n93) );
+  nor2s1 U285 ( .DIN1(n46), .DIN2(req[15]), .Q(gnt_bus[14]) );
+  nnd4s1 U286 ( .DIN1(req[6]), .DIN2(n110), .DIN3(n111), .DIN4(n53), .Q(n62)
+         );
+  ib1s1 U287 ( .DIN(req[11]), .Q(n49) );
+  ib1s1 U288 ( .DIN(req[10]), .Q(n50) );
+  nor2s1 U289 ( .DIN1(req[6]), .DIN2(req[7]), .Q(n95) );
+  ib1s1 U290 ( .DIN(req[14]), .Q(n46) );
+  nor2s1 U291 ( .DIN1(req[8]), .DIN2(req[9]), .Q(n110) );
+  nor2s1 U292 ( .DIN1(gnt[0]), .DIN2(req[1]), .Q(n101) );
+  or3s1 U293 ( .DIN1(n99), .DIN2(req[6]), .DIN3(n38), .Q(n74) );
+  ib1s1 U294 ( .DIN(req[4]), .Q(n56) );
+  ib1s1 U295 ( .DIN(req[3]), .Q(n57) );
+  ib1s1 U296 ( .DIN(req[5]), .Q(n55) );
+  ib1s1 U297 ( .DIN(req[1]), .Q(n59) );
+  nnd3s1 U298 ( .DIN1(n120), .DIN2(n47), .DIN3(req[12]), .Q(n115) );
+  nnd4s1 U299 ( .DIN1(req[10]), .DIN2(n83), .DIN3(n120), .DIN4(n49), .Q(n119)
+         );
+endmodule
+

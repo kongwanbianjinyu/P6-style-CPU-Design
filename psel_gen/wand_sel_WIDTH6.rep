@@ -1,0 +1,310 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : design
+Design : wand_sel_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sat Apr 16 22:35:12 2022
+****************************************
+
+Design allows ideal nets on clock nets.
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Local Link Library:
+
+    {lec25dscc25_TT.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : nom_pvt
+    Library : lec25dscc25_TT
+    Process :   1.00
+    Temperature :  25.00
+    Voltage :   2.50
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    Selected manually by the user.
+
+Name           :   tsmcwire
+Location       :   lec25dscc25_TT
+Resistance     :   0.2642
+Capacitance    :   0.000132782
+Area           :   0.27
+Slope          :   0.74
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1     0.89
+     2     1.48
+     3     2.44
+     4     3.18
+     5     3.92
+
+
+
+Wire Loading Model Mode: top.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    WIDTH => 6
+1
+ 
+****************************************
+Report : area
+Design : wand_sel_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sat Apr 16 22:35:12 2022
+****************************************
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Number of ports:                           12
+Number of nets:                            20
+Number of cells:                           14
+Number of combinational cells:             14
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          7
+Number of references:                       6
+
+Combinational area:                713.318401
+Buf/Inv area:                      248.832005
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:               6.598260
+
+Total cell area:                   713.318401
+Total area:                        719.916662
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 2
+        -transition_time
+Design : wand_sel_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sat Apr 16 22:35:12 2022
+****************************************
+
+Operating Conditions: nom_pvt   Library: lec25dscc25_TT
+Wire Load Model Mode: top
+
+  Startpoint: req[5] (input port)
+  Endpoint: gnt[0] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wand_sel_WIDTH6    tsmcwire              lec25dscc25_TT
+
+  Point                        Fanout     Trans      Incr       Path
+  ---------------------------------------------------------------------
+  input external delay                               0.00       0.00 f
+  req[5] (in)                              0.19      0.02       0.02 f
+  req[5] (net)                   1                   0.00       0.02 f
+  U13/DIN (ib1s1)                          0.19      0.00       0.02 f
+  U13/Q (ib1s1)                            0.13      0.06       0.08 r
+  n7 (net)                       1                   0.00       0.08 r
+  U12/DIN (ib1s1)                          0.13      0.00       0.08 r
+  U12/Q (ib1s1)                            0.55      0.26       0.34 f
+  gnt[5] (net)                   3                   0.00       0.34 f
+  U15/DIN2 (nor2s1)                        0.55      0.00       0.34 f
+  U15/Q (nor2s1)                           0.28      0.12       0.46 r
+  n10 (net)                      1                   0.00       0.46 r
+  U14/DIN (nb1s2)                          0.28      0.00       0.46 r
+  U14/Q (nb1s2)                            0.32      0.21       0.67 r
+  gnt[4] (net)                   2                   0.00       0.67 r
+  U18/DIN1 (nor2s1)                        0.32      0.00       0.67 r
+  U18/Q (nor2s1)                           0.32      0.18       0.85 f
+  n5 (net)                       2                   0.00       0.85 f
+  U20/DIN (ib1s1)                          0.32      0.00       0.85 f
+  U20/Q (ib1s1)                            0.16      0.07       0.93 r
+  n1 (net)                       1                   0.00       0.93 r
+  U19/DIN1 (nor2s1)                        0.16      0.00       0.93 r
+  U19/Q (nor2s1)                           0.40      0.21       1.14 f
+  n6 (net)                       3                   0.00       1.14 f
+  U4/DIN2 (and4s3)                         0.40      0.00       1.14 f
+  U4/Q (and4s3)                            0.21      0.29       1.43 f
+  gnt[0] (net)                   1                   0.00       1.43 f
+  gnt[0] (out)                             0.21      0.02       1.46 f
+  data arrival time                                             1.46
+
+  max_delay                                          1.50       1.50
+  output external delay                              0.00       1.50
+  data required time                                            1.50
+  ---------------------------------------------------------------------
+  data required time                                            1.50
+  data arrival time                                            -1.46
+  ---------------------------------------------------------------------
+  slack (MET)                                                   0.04
+
+
+  Startpoint: req[5] (input port)
+  Endpoint: gnt[1] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wand_sel_WIDTH6    tsmcwire              lec25dscc25_TT
+
+  Point                        Fanout     Trans      Incr       Path
+  ---------------------------------------------------------------------
+  input external delay                               0.00       0.00 f
+  req[5] (in)                              0.19      0.02       0.02 f
+  req[5] (net)                   1                   0.00       0.02 f
+  U13/DIN (ib1s1)                          0.19      0.00       0.02 f
+  U13/Q (ib1s1)                            0.13      0.06       0.08 r
+  n7 (net)                       1                   0.00       0.08 r
+  U12/DIN (ib1s1)                          0.13      0.00       0.08 r
+  U12/Q (ib1s1)                            0.55      0.26       0.34 f
+  gnt[5] (net)                   3                   0.00       0.34 f
+  U15/DIN2 (nor2s1)                        0.55      0.00       0.34 f
+  U15/Q (nor2s1)                           0.28      0.12       0.46 r
+  n10 (net)                      1                   0.00       0.46 r
+  U14/DIN (nb1s2)                          0.28      0.00       0.46 r
+  U14/Q (nb1s2)                            0.32      0.21       0.67 r
+  gnt[4] (net)                   2                   0.00       0.67 r
+  U18/DIN1 (nor2s1)                        0.32      0.00       0.67 r
+  U18/Q (nor2s1)                           0.32      0.18       0.85 f
+  n5 (net)                       2                   0.00       0.85 f
+  U20/DIN (ib1s1)                          0.32      0.00       0.85 f
+  U20/Q (ib1s1)                            0.16      0.07       0.93 r
+  n1 (net)                       1                   0.00       0.93 r
+  U19/DIN1 (nor2s1)                        0.16      0.00       0.93 r
+  U19/Q (nor2s1)                           0.40      0.21       1.14 f
+  n6 (net)                       3                   0.00       1.14 f
+  U3/DIN1 (and3s2)                         0.40      0.00       1.14 f
+  U3/Q (and3s2)                            0.21      0.26       1.40 f
+  gnt[1] (net)                   1                   0.00       1.40 f
+  gnt[1] (out)                             0.21      0.02       1.42 f
+  data arrival time                                             1.42
+
+  max_delay                                          1.50       1.50
+  output external delay                              0.00       1.50
+  data required time                                            1.50
+  ---------------------------------------------------------------------
+  data required time                                            1.50
+  data arrival time                                            -1.42
+  ---------------------------------------------------------------------
+  slack (MET)                                                   0.08
+
+
+1
+ 
+****************************************
+Report : constraint
+        -verbose
+        -max_delay
+Design : wand_sel_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sat Apr 16 22:35:12 2022
+****************************************
+
+
+  Startpoint: req[5] (input port)
+  Endpoint: gnt[0] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wand_sel_WIDTH6    tsmcwire              lec25dscc25_TT
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  req[5] (in)                              0.02       0.02 f
+  U13/Q (ib1s1)                            0.06       0.08 r
+  U12/Q (ib1s1)                            0.26       0.34 f
+  U15/Q (nor2s1)                           0.12       0.46 r
+  U14/Q (nb1s2)                            0.21       0.67 r
+  U18/Q (nor2s1)                           0.18       0.85 f
+  U20/Q (ib1s1)                            0.08       0.93 r
+  U19/Q (nor2s1)                           0.21       1.14 f
+  U4/Q (and4s3)                            0.29       1.43 f
+  gnt[0] (out)                             0.02       1.46 f
+  data arrival time                                   1.46
+
+  max_delay                                1.50       1.50
+  output external delay                    0.00       1.50
+  data required time                                  1.50
+  -----------------------------------------------------------
+  data required time                                  1.50
+  data arrival time                                  -1.46
+  -----------------------------------------------------------
+  slack (MET)                                         0.04
+
+
+1
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : reference
+Design : wand_sel_WIDTH6
+Version: S-2021.06-SP1
+Date   : Sat Apr 16 22:35:13 2022
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s2             lec25dscc25_TT    58.060799       2   116.121597
+and3s2             lec25dscc25_TT    99.532799       1    99.532799
+and4s3             lec25dscc25_TT   124.416000       1   124.416000
+ib1s1              lec25dscc25_TT    33.177601       6   199.065605
+nb1s2              lec25dscc25_TT    49.766399       1    49.766399
+nor2s1             lec25dscc25_TT    41.472000       3   124.416000
+-----------------------------------------------------------------------------
+Total 6 references                                    713.318401
+1

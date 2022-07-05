@@ -1,0 +1,28 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Expert(TM) in wire load mode
+// Version   : S-2021.06-SP1
+// Date      : Sat Apr 16 22:35:12 2022
+/////////////////////////////////////////////////////////////
+
+
+module wand_sel_WIDTH6 ( req, gnt );
+  input [5:0] req;
+  output [5:0] gnt;
+  wire   n10, n1, n2, n3, n4, n5, n6, n7;
+
+  and2s2 U1 ( .DIN1(n5), .DIN2(req[3]), .Q(gnt[3]) );
+  and2s2 U2 ( .DIN1(n6), .DIN2(req[2]), .Q(gnt[2]) );
+  and3s2 U3 ( .DIN1(n6), .DIN2(n3), .DIN3(req[1]), .Q(gnt[1]) );
+  and4s3 U4 ( .DIN1(req[0]), .DIN2(n6), .DIN3(n4), .DIN4(n3), .Q(gnt[0]) );
+  ib1s1 U12 ( .DIN(n7), .Q(gnt[5]) );
+  ib1s1 U13 ( .DIN(req[5]), .Q(n7) );
+  nb1s2 U14 ( .DIN(n10), .Q(gnt[4]) );
+  nor2s1 U15 ( .DIN1(n2), .DIN2(gnt[5]), .Q(n10) );
+  ib1s1 U16 ( .DIN(req[4]), .Q(n2) );
+  ib1s1 U17 ( .DIN(req[1]), .Q(n4) );
+  nor2s1 U18 ( .DIN1(gnt[4]), .DIN2(gnt[5]), .Q(n5) );
+  nor2s1 U19 ( .DIN1(n1), .DIN2(req[3]), .Q(n6) );
+  ib1s1 U20 ( .DIN(n5), .Q(n1) );
+  ib1s1 U21 ( .DIN(req[2]), .Q(n3) );
+endmodule
+

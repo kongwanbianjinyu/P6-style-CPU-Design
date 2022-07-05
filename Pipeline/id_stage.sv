@@ -25,7 +25,7 @@ module decoder(
 	                      // reflect noop (except valid_inst)
 	//see sys_defs.svh for definition
 	input IF_ID_PACKET  if_packet,
-	
+
 	output ALU_OPA_SELECT opa_select,
 	output ALU_OPB_SELECT opb_select,
 	output DEST_REG_SEL   dest_reg, // mux selects
@@ -45,11 +45,11 @@ module decoder(
 
 	INST inst;
 	logic valid_inst_in;
-	
+
 	assign inst          = if_packet.inst;
 	assign valid_inst_in = if_packet.valid;
 	assign valid_inst    = valid_inst_in & ~illegal;
-	
+
 	always_comb begin
 		// default control values:
 		// - valid instructions must override these defaults as necessary.
@@ -222,17 +222,17 @@ endmodule // decoder
 
 
 module id_stage(
-	input         clock,              // system clock
+	input         clk,              // system clk
 	input         reset,              // system reset
 	input  [2:0]       wb_reg_wr_en_out,    // Reg write enable from WB Stage// ! where should the signal come from
 	input  [2:0][4:0] wb_reg_wr_idx_out,  // Reg write index from WB Stage// ! where should the signal come from
 	input  [2:0][31:0] wb_reg_wr_data_out,  // Reg write data from WB Stage// ! where should the signal come from
 	input  IF_ID_PACKET [2:0] if_id_packet_in,
-	
+
 	output ID_IP_PACKET [2:0] id_packet_out
 );
 	logic [2:0] valid_decoder;
-	
+
 	// pass through
 	always_comb begin
 		for(int i = 0; i < 3; i++) begin
@@ -253,13 +253,13 @@ module id_stage(
 
 		.rdb_idx({if_id_packet_in[2].inst.r.rs2,if_id_packet_in[1].inst.r.rs2,if_id_packet_in[0].inst.r.rs2}),
 		.rdb_out({id_packet_out[2].rs2_value, id_packet_out[1].rs2_value, id_packet_out[0].rs2_value}),
-		.wr_clk(clock),
+		.wr_clk(clk),
 		.wr_en(wb_reg_wr_en_out),
 		.wr_idx({wb_reg_wr_idx_out[2],wb_reg_wr_idx_out[1],wb_reg_wr_idx_out[0]}),
 		.wr_data({wb_reg_wr_data_out[2],wb_reg_wr_data_out[1],wb_reg_wr_data_out[0]})
 	);
-	
-	
+
+
 	// instantiate the instruction decoder
 	decoder decoder_0 (
 		.if_packet(if_id_packet_in[0]),
@@ -325,22 +325,34 @@ module id_stage(
 	end
 	always_comb begin
 		id_packet_out[0].valid = valid_decoder[0];
-		for(int i = 1; i < 3; i++) begin
-			id_packet_out[i].valid = valid_decoder[i];
-			for(int j = 0; j < i; j++) begin
-				id_packet_out[i].valid = id_packet_out[j].valid &&
+		id_packet_out[1].valid = valid_decoder[0] && valid_decoder[1] &&
 										// WAW
-										(id_packet_out[i].dest_reg_idx != id_packet_out[j].dest_reg_idx) &&
+										(id_packet_out[0].dest_reg_idx != id_packet_out[1].dest_reg_idx) &&
 										// WAR
-										(id_packet_out[i].dest_reg_idx != id_packet_out[j].source_reg_idx_in_1 &&
-										id_packet_out[i].dest_reg_idx != id_packet_out[j].source_reg_idx_in_2) &&
+										(id_packet_out[0].dest_reg_idx != id_packet_out[1].source_reg_idx_in_1 &&
+										id_packet_out[0].dest_reg_idx != id_packet_out[1].source_reg_idx_in_2) &&
 										// RAW
-										(id_packet_out[i].source_reg_idx_in_1 != id_packet_out[j].dest_reg_idx &&
-										id_packet_out[i].source_reg_idx_in_2 != id_packet_out[j].dest_reg_idx);
-			end
-		end
+										(id_packet_out[0].source_reg_idx_in_1 != id_packet_out[1].dest_reg_idx &&
+										id_packet_out[0].source_reg_idx_in_2 != id_packet_out[1].dest_reg_idx);
+		id_packet_out[2].valid = valid_decoder[0] && valid_decoder[1] && valid_decoder[2] &&
+										// WAW
+										(id_packet_out[0].dest_reg_idx != id_packet_out[2].dest_reg_idx) &&
+										// WAR
+										(id_packet_out[0].dest_reg_idx != id_packet_out[2].source_reg_idx_in_1 &&
+										id_packet_out[0].dest_reg_idx != id_packet_out[2].source_reg_idx_in_2) &&
+										// RAW
+										(id_packet_out[0].source_reg_idx_in_1 != id_packet_out[2].dest_reg_idx &&
+										id_packet_out[0].source_reg_idx_in_2 != id_packet_out[2].dest_reg_idx) &&
+										// WAW
+										(id_packet_out[1].dest_reg_idx != id_packet_out[2].dest_reg_idx) &&
+										// WAR
+										(id_packet_out[1].dest_reg_idx != id_packet_out[2].source_reg_idx_in_1 &&
+										id_packet_out[1].dest_reg_idx != id_packet_out[2].source_reg_idx_in_2) &&
+										// RAW
+										(id_packet_out[1].source_reg_idx_in_1 != id_packet_out[2].dest_reg_idx &&
+										id_packet_out[1].source_reg_idx_in_2 != id_packet_out[2].dest_reg_idx);
 	end
-	
-	
-	
+
+
+
 endmodule // module id_stage

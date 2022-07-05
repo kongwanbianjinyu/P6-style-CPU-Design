@@ -20,12 +20,12 @@ all:    simv
 # Modify starting here
 #####
 
-TESTBENCH = sys_defs_deprecated.vh
-SIMFILES = ROB.v
+TESTBENCH = ISA.svh sys_defs.svh 
+SIMFILES = ROB.sv
 SYNFILES = ROB.vg
 LIB = /afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v
 
-ROB.vg:	ROB.v ROB.tcl
+ROB.vg:	ROB.sv ROB.tcl
 	dc_shell-t -f ROB.tcl | tee synth.out
 
 #####

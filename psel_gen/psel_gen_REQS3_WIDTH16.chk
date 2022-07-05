@@ -1,0 +1,63 @@
+ 
+****************************************
+check_design summary:
+Version:     S-2021.06-SP1
+Date:        Sun Apr 17 03:05:26 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Nets                                                               48
+    Net has multiple drivers (LINT-4)                              32
+    Net is wired or (LINT-35)                                      16
+--------------------------------------------------------------------------------
+
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[16]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[17]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[18]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[19]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[20]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[21]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[22]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[23]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[24]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[25]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[26]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[27]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[28]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[29]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[30]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[31]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[32]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[33]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[34]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[35]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[36]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[37]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[38]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[39]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[40]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[41]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[42]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[43]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[44]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[45]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[46]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt_bus[47]' has multiple drivers.  Wired AND assumed. (LINT-4)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[0]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[1]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[2]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[3]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[4]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[5]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[6]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[7]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[8]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[9]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[10]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[11]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[12]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[13]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[14]' has multiple drivers.  Wired OR assumed. (LINT-35)
+Information: In design 'psel_gen_REQS3_WIDTH16', net 'gnt[15]' has multiple drivers.  Wired OR assumed. (LINT-35)
+1

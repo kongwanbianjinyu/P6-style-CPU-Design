@@ -20,13 +20,13 @@ all:    simv
 # Modify starting here
 #####
 
-TESTBENCH = sys_defs.vh test_Map_Table.v
+#TESTBENCH = sys_defs.vh test_Map_Table.v
 SIMFILES = Map_Table.v
 SYNFILES = Map_Table.vg
 LIB = /afs/umich.edu/class/eecs470/lib/verilog/lec25dscc25.v
 
-# CAM.vg:	cam.v cam.tcl 
-# 	dc_shell-t -f cam.tcl | tee synth.out
+Map_Table.vg:	Map_Table.sv Map_Table.tcl
+	dc_shell-t -f Map_Table.tcl | tee synth.out
 
 #####
 # Should be no need to modify after here

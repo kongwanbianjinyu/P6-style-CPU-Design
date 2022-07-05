@@ -42,9 +42,9 @@ module alu(
 		for(int i = 0; i < 3; i++) begin
 			signed_opa[i] = opa[i];
 			signed_opb[i] = opb[i];
-			signed_mul[i] = signed_opa[i] * signed_opb[i];
+			signed_mul[i] = $signed(signed_opa[i]) * $signed(signed_opb[i]);
 			unsigned_mul[i] = opa[i] * opb[i];
-			mixed_mul[i] = signed_opa[i] * opb[i];
+			mixed_mul[i] = $signed(signed_opa[i]) * opb[i];
 		end
 	end
 
@@ -54,16 +54,16 @@ module alu(
 				ALU_ADD:      result[i] = opa[i] + opb[i];
 				ALU_SUB:      result[i] = opa[i] - opb[i];
 				ALU_AND:      result[i] = opa[i] & opb[i];
-				ALU_SLT:      result[i] = signed_opa[i] < signed_opb[i];
+				ALU_SLT:      result[i] = $signed(signed_opa[i]) < $signed(signed_opb[i]);
 				ALU_SLTU:     result[i] = opa[i] < opb[i];
 				ALU_OR:       result[i] = opa[i] | opb[i];
 				ALU_XOR:      result[i] = opa[i] ^ opb[i];
 				ALU_SRL:      result[i] = opa[i] >> opb[i][4:0];
 				ALU_SLL:      result[i] = opa[i] << opb[i][4:0];
-				ALU_SRA:      result[i] = signed_opa[i] >>> opb[i][4:0]; // arithmetic from logical shift
-				ALU_MUL:      result[i] = signed_mul[i][`XLEN-1:0];
-				ALU_MULH:     result[i] = signed_mul[i][2*`XLEN-1:`XLEN];
-				ALU_MULHSU:   result[i] = mixed_mul[i][2*`XLEN-1:`XLEN];
+				ALU_SRA:      result[i] = $signed(signed_opa[i]) >>> opb[i][4:0]; // arithmetic from logical shift
+				ALU_MUL:      result[i] = $signed(signed_mul[i][`XLEN-1:0]);
+				ALU_MULH:     result[i] = $signed(signed_mul[i][2*`XLEN-1:`XLEN]);
+				ALU_MULHSU:   result[i] = $signed(mixed_mul[i][2*`XLEN-1:`XLEN]);
 				ALU_MULHU:    result[i] = unsigned_mul[i][2*`XLEN-1:`XLEN];
 
 				default:      result[i] = `XLEN'hfacebeec;  // here to prevent latches
@@ -98,10 +98,10 @@ module brcond(// Inputs
 			signed_rs2[i] = rs2[i];
 			cond[i] = 0;
 			case (func[i])
-				3'b000: cond[i] = signed_rs1[i] == signed_rs2[i];  // BEQ
-				3'b001: cond[i] = signed_rs1[i] != signed_rs2[i];  // BNE
-				3'b100: cond[i] = signed_rs1[i] < signed_rs2[i];   // BLT
-				3'b101: cond[i] = signed_rs1[i] >= signed_rs2[i];  // BGE
+				3'b000: cond[i] = $signed(signed_rs1[i]) == $signed(signed_rs2[i]);  // BEQ
+				3'b001: cond[i] = $signed(signed_rs1[i]) != $signed(signed_rs2[i]);  // BNE
+				3'b100: cond[i] = $signed(signed_rs1[i]) < $signed(signed_rs2[i]);   // BLT
+				3'b101: cond[i] = $signed(signed_rs1[i]) >= $signed(signed_rs2[i]);  // BGE
 				3'b110: cond[i] = rs1[i] < rs2[i];                 // BLTU
 				3'b111: cond[i] = rs1[i] >= rs2[i];                // BGEU
 			endcase
@@ -112,7 +112,7 @@ endmodule // brcond
 
 //
 module ex_stage(
-	input clock,               // system clock
+	input clk,               // system clk
 	input reset,               // system reset
 	input IS_EX_PACKET [2:0] is_ex_packet_in,//changed from output to input
 	output EX_IC_PACKET [2:0] ex_packet_out,
@@ -151,15 +151,25 @@ module ex_stage(
 	assign ex_packet_out_reorder[1] = alu_ex_packet_out[2];
 	assign ex_packet_out_reorder[0] = mult_ex_packet_out[2];
 
+	logic   [2:0][2:0] complete_idx_from_pe;  
+	pe  #(.OUTWIDTH(3), .INWIDTH(8)) complete_encoder [2:0]
+	(.gnt({{2'b00,complete_gnt_bus[17 -:6]}, {2'b00, complete_gnt_bus[11 -: 6]}, {2'b00, complete_gnt_bus[5 -: 6]}}),
+	.enc(complete_idx_from_pe));
+
+
 
 	always_comb begin
 		for(int i = 0; i < 3; i++)begin
 			mult_start[i] = (is_ex_packet_in[i].issue_valid) && (is_ex_packet_in[i].alu_func == ALU_MUL);
 		end
 
+		//clog2
+		complete_idx = complete_idx_from_pe;
+
+
 		for(int i = 0; i < 3; i ++) begin
 			if(complete_gnt_bus[(i + 1) * 6-1 -: 6] != 0) begin
-				complete_idx[i] = $clog2(complete_gnt_bus[(i + 1) * 6-1 -: 6]);
+				//complete_idx[i] = log2(complete_gnt_bus[(i + 1) * 6-1 -: 6]);
 				ex_packet_out[i] = ex_packet_out_reorder[complete_idx[i]];
 			end else begin
 				ex_packet_out[i].exe_valid = 0;
@@ -229,7 +239,7 @@ module ex_stage(
 		.cond(brcond_result)
 	);
 
-	mult m0(	.clock(clock),
+	mult m0(	.clk(clk),
 				.reset(reset),
 				.mcand({32'b0,opa_mux_out[0]}),
 				.mplier({32'b0,opb_mux_out[0]}),
@@ -238,7 +248,7 @@ module ex_stage(
 				.mult_ex_packet_out(mult_ex_packet_out[0]),
 				.done(mult_done[0]));
 
-	mult m1(	.clock(clock),
+	mult m1(	.clk(clk),
 				.reset(reset),
 				.mcand({32'b0,opa_mux_out[1]}),
 				.mplier({32'b0,opb_mux_out[1]}),
@@ -247,7 +257,7 @@ module ex_stage(
 				.mult_ex_packet_out(mult_ex_packet_out[1]),
 				.done(mult_done[1]));
 
-	mult m2(	.clock(clock),
+	mult m2(	.clk(clk),
 				.reset(reset),
 				.mcand({32'b0,opa_mux_out[2]}),
 				.mplier({32'b0,opb_mux_out[2]}),

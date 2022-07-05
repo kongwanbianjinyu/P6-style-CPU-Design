@@ -1,0 +1,888 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version S-2021.06-SP1 for linux64 - Jul 13, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+read_file -f sverilog [list ISA.svh sys_defs.svh ROB.sv]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading sverilog files: '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ISA.svh' '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh' '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ISA.svh
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh:379: Using default enum base size of 32. (VER-533)
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:85: signed to unsigned assignment occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:121: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:154: signed to unsigned assignment occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:185: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:186: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:187: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:188: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:189: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:190: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:191: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:244: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:245: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:246: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:247: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:277: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:278: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:279: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine ROB line 92 in file
+		'/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv'.
+==============================================================================
+|     Register Name      | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+==============================================================================
+|     next_tail_reg      | Latch |   6   |  Y  | N  | N  | N  | -  | -  | -  |
+| dispatch_num_valid_reg | Latch |   3   |  Y  | N  | N  | N  | -  | -  | -  |
+|    dispatch_num_reg    | Latch |   2   |  Y  | N  | N  | N  | -  | -  | -  |
+==============================================================================
+
+Inferred memory devices in process
+	in routine ROB line 210 in file
+		'/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    rob_entry_reg    | Flip-flop | 6528  |  Y  | N  | N  | N  | Y  | N  | N  |
+|    rob_entry_reg    | Flip-flop |  192  |  Y  | N  | N  | N  | N  | Y  | N  |
+|    rob_entry_reg    | Flip-flop | 2048  |  Y  | N  | N  | N  | N  | N  | N  |
+|      head_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      tail_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|     ROB/115      |   64   |   32    |      6       |
+|     ROB/118      |   64   |   32    |      6       |
+|     ROB/115      |   64   |   32    |      6       |
+|     ROB/118      |   64   |   32    |      6       |
+|     ROB/115      |   64   |   32    |      6       |
+|     ROB/118      |   64   |   32    |      6       |
+|     ROB/139      |   64   |    5    |      6       |
+|     ROB/139      |   64   |    5    |      6       |
+|     ROB/139      |   64   |    5    |      6       |
+======================================================
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.sv:92: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.db:ROB'
+Loaded 1 design.
+Current design is 'ROB'.
+ROB
+set design_name ROB
+ROB
+set clock_name clk
+clk
+set reset_name reset
+reset
+set CLK_PERIOD 7.5
+7.5
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clk
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./ROB.vg
+set svsim_file [format "%s%s%s" $SYN_DIR $design_name "_svsim.sv"]
+./ROB_svsim.sv
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./ROB.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./ROB.rep
+set res_file [format "%s%s%s" $SYN_DIR $design_name ".res"]
+./ROB.res
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./ROB.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+  current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all -flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  write -format svsim -output $svsim_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  redirect $res_file { report_resources -hier }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+  quit
+}
+Current design is 'ROB'.
+
+  Linking design 'ROB'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  ROB                         /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.db
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Current design is 'ROB'.
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: Design has no hierarchy.  No cells can be ungrouped. (UID-228)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+
+Information: There are 801 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'ROB'
+Information: The register 'rob_entry_reg[0][reg_val][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][reg_val][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][halt]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][exception]' is a constant and will be removed. (OPT-1206)
+Information: The register 'rob_entry_reg[0][complete]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'ROB_DW01_inc_0'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_0'
+  Processing 'ROB_DW01_dec_0'
+  Processing 'ROB_DW01_inc_1'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_1'
+  Processing 'ROB_DW01_dec_1'
+  Processing 'ROB_DW01_inc_2'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_2'
+  Processing 'ROB_DW01_dec_2'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_3'
+  Processing 'ROB_DW01_dec_3'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_4'
+  Processing 'ROB_DW01_dec_4'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_5'
+  Processing 'ROB_DW01_dec_5'
+  Processing 'ROB_DW01_inc_3'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_6'
+  Processing 'ROB_DW01_dec_6'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_7'
+  Processing 'ROB_DW01_dec_7'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_8'
+  Processing 'ROB_DW01_dec_8'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_9'
+  Processing 'ROB_DW01_dec_9'
+  Allocating blocks in 'DW_div_uns_a_width7_b_width6'
+  Processing 'ROB_DW_div_uns_10'
+  Processing 'ROB_DW01_inc_4'
+  Allocating blocks in 'DW_div_uns_a_width7_b_width6'
+  Processing 'ROB_DW_div_uns_11'
+  Allocating blocks in 'DW_div_uns_a_width6_b_width6'
+  Processing 'ROB_DW_div_uns_12'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_13'
+  Processing 'ROB_DW01_cmp2_0'
+  Processing 'ROB_DW01_cmp2_1'
+  Processing 'ROB_DW01_cmp2_2'
+  Processing 'ROB_DW01_inc_5'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_14'
+  Processing 'ROB_DW01_inc_6'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_15'
+  Processing 'ROB_DW01_inc_7'
+  Processing 'ROB_DW01_inc_8'
+  Allocating blocks in 'DW_div_uns_a_width6_b_width6'
+  Processing 'ROB_DW_div_uns_16'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_17'
+  Processing 'ROB_DW01_dec_10'
+  Processing 'ROB_DW01_inc_9'
+  Allocating blocks in 'DW_div_uns_a_width7_b_width6'
+  Processing 'ROB_DW_div_uns_18'
+  Processing 'ROB_DW01_add_0'
+  Processing 'ROB_DW01_inc_10'
+  Allocating blocks in 'DW_div_uns_a_width7_b_width6'
+  Processing 'ROB_DW_div_uns_19'
+  Processing 'ROB_DW01_inc_11'
+  Processing 'ROB_DW01_inc_12'
+  Allocating blocks in 'DW_div_uns_a_width6_b_width6'
+  Processing 'ROB_DW_div_uns_20'
+  Allocating blocks in 'DW_div_uns_a_width7_b_width6'
+  Processing 'ROB_DW_div_uns_21'
+  Processing 'ROB_DW01_inc_13'
+  Allocating blocks in 'DW_div_uns_a_width6_b_width6'
+  Processing 'ROB_DW_div_uns_22'
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Processing 'ROB_DW_div_uns_23'
+  Processing 'ROB_DW01_cmp2_3'
+  Processing 'ROB_DW01_cmp2_4'
+  Processing 'ROB_DW01_sub_0'
+  Processing 'ROB_DW01_cmp6_0'
+  Processing 'ROB_DW01_cmp2_5'
+  Processing 'ROB_DW01_dec_11'
+  Building model 'DW01_add_width8' (rpl)
+  Processing 'DW01_add_width8'
+  Building model 'DW01_add_width8' (cla)
+  Processing 'DW01_add_width8'
+  Building model 'DW01_dec_width8' (rpl)
+  Processing 'DW01_dec_width8'
+  Building model 'DW01_sub_width6' (rpl)
+  Processing 'DW01_sub_width6'
+  Building model 'DW01_sub_width6' (cla)
+  Processing 'DW01_sub_width6'
+  Building model 'DW01_inc_width6' (rpl)
+  Processing 'DW01_inc_width6'
+  Allocating blocks in 'DW02_mult_A_width6_B_width1'
+  Building model 'DW01_MUX'
+  Processing 'DW01_MUX'
+  Building model 'DW01_mmux_width2'
+  Processing 'DW01_mmux_width2'
+  Building model 'DW01_mmux_width3'
+  Processing 'DW01_mmux_width3'
+  Building model 'DW01_mmux_width4'
+  Processing 'DW01_mmux_width4'
+  Building model 'DW01_mmux_width5'
+  Processing 'DW01_mmux_width5'
+  Allocating blocks in 'DW01_absval_width6'
+  Building model 'DW01_inc_width6' (cla)
+  Processing 'DW01_inc_width6'
+  Building model 'DW01_absval_width6' (cla)
+  Processing 'DW01_absval_width6'
+  Allocating blocks in 'DW01_absval_width1'
+  Building model 'DW01_inc_width1' (cla)
+  Processing 'DW01_inc_width1'
+  Building model 'DW01_absval_width1' (cla)
+  Processing 'DW01_absval_width1'
+  Building model 'DW01_inc_width7' (cla)
+  Processing 'DW01_inc_width7'
+  Allocating blocks in 'DW01_absval_width6'
+  Building model 'DW01_inc_width6' (cla)
+  Processing 'DW01_inc_width6'
+  Building model 'DW01_absval_width6' (cla)
+  Processing 'DW01_absval_width6'
+  Building model 'DW01_inc_width7' (cla)
+  Processing 'DW01_inc_width7'
+  Building model 'DW02_mult_A_width6_B_width1' (csa)
+  Processing 'DW02_mult_A_width6_B_width1'
+  Allocating blocks in 'DW02_mult_A_width1_B_width6'
+  Allocating blocks in 'DW01_absval_width6'
+  Allocating blocks in 'DW01_absval_width1'
+  Building model 'DW02_mult_A_width1_B_width6' (csa)
+  Processing 'DW02_mult_A_width1_B_width6'
+  Processing 'ROB_DW01_add_1'
+  Processing 'ROB_DW01_dec_12'
+  Processing 'ROB_DW01_sub_1'
+  Processing 'ROB_DW01_inc_14_DW01_inc_16'
+  Processing 'ROB_DW01_sub_2'
+  Processing 'ROB_DW01_add_2'
+  Processing 'ROB_DW01_dec_13'
+  Processing 'ROB_DW01_add_3'
+  Processing 'ROB_DW01_dec_14'
+  Processing 'ROB_DW01_inc_15_DW01_inc_17'
+  Allocating blocks in 'DW02_mult_A_width6_B_width1'
+  Allocating blocks in 'DW01_absval_width1'
+  Allocating blocks in 'DW01_absval_width6'
+  Processing 'ROB_DW02_mult_0'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Allocating blocks in 'DW_div_uns_a_width32_b_width6'
+  Mapping Optimization (Phase 1)
+  Allocating blocks in 'DW_div_uns_a_width7_b_width6'
+  Mapping Optimization (Phase 2)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:04:49 5550268.0     20.28  125740.5  179395.0                                0.00  
+    0:04:49 5550268.0     20.28  125740.5  179395.0                                0.00  
+    0:04:50 6497529.2      8.56   64475.2  135825.1                                0.00  
+    0:04:51 7233864.0      8.53   60042.0  126041.7                                0.00  
+    0:04:52 7944950.6      8.02   54046.4  116168.3                                0.00  
+    0:04:53 8269311.2      8.02   54622.0  115986.1                                0.00  
+    0:04:53 8962108.8      8.02   54734.7  109876.2                                0.00  
+    0:04:55 9912812.2      8.02   54692.6    8399.3                                0.00  
+    0:05:34 8294156.6      3.28   22642.7     288.3                                0.00  
+    0:05:36 8293800.0      3.31   22598.7     274.9                                0.00  
+    0:05:36 8293800.0      3.31   22598.7     274.9                                0.00  
+    0:05:37 8293841.4      3.30   22552.9     274.9                                0.00  
+    0:05:38 8293841.4      3.30   22552.9     274.9                                0.00  
+    0:05:49 5261216.1      3.42   18261.3     112.3                                0.00  
+    0:05:52 5193810.2      3.36   19380.5     112.9                                0.00  
+    0:05:56 5195104.1      3.15   19304.8     111.7                                0.00  
+    0:05:57 5193121.8      3.15   19090.3     111.7                                0.00  
+    0:05:58 5193453.6      3.15   19003.6     111.7                                0.00  
+    0:05:59 5193478.4      3.15   19098.8     111.7                                0.00  
+    0:06:00 5193428.7      3.15   19006.8     111.7                                0.00  
+    0:06:01 5193445.3      3.15   19100.8     111.7                                0.00  
+    0:06:02 5193727.3      3.15   19002.0     111.7                                0.00  
+    0:06:03 5194191.8      3.15   19099.1     111.7                                0.00  
+    0:06:03 5194706.0      3.15   19098.9     111.7                                0.00  
+    0:06:04 5194913.4      3.15   19098.8     111.7                                0.00  
+    0:06:05 5195245.2      3.15   19098.2     111.7                                0.00  
+    0:06:05 5195245.2      3.15   19095.2     111.7                                0.00  
+    0:06:06 5196033.1      3.15   19095.1     111.7                                0.00  
+    0:06:06 5196033.1      3.15   19095.1     111.7                                0.00  
+    0:06:07 5196033.1      3.15   19095.1     111.7                                0.00  
+    0:06:07 5196033.1      3.15   19095.1     111.7                                0.00  
+    0:06:07 5196323.4      3.11   18737.9      97.7                                0.00  
+    0:06:08 5196439.5      3.11   18737.2      92.3                                0.00  
+    0:06:08 5196522.5      3.11   18737.2      88.0                                0.00  
+    0:06:08 5196912.3      3.09   18575.7      75.0                                0.00  
+    0:06:08 5196920.6      3.09   18575.7      73.0                                0.00  
+    0:06:09 5196920.6      3.09   18575.7      73.0                                0.00  
+    0:06:09 5196920.6      3.09   18575.7      73.0                                0.00  
+    0:06:09 5196920.6      3.09   18575.7      73.0                                0.00  
+    0:06:09 5200246.7      3.09   18531.0     145.0 branch_PC[8]                   0.00  
+    0:06:10 5201781.2      3.09   18485.9     145.0 branch_PC[31]                  0.00  
+    0:06:11 5202842.8      3.09   18483.9     317.0 branch_PC[31]                  0.00  
+    0:06:12 5204642.7      3.09   18482.9     300.2 branch_PC[20]                  0.00  
+    0:06:13 5203373.7      3.08   17739.1     761.2 branch_PC[26]                  0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:06:13 5203373.7      3.08   17739.1     761.2                                0.00  
+    0:06:15 5203531.3      2.54   14256.4     761.4 head_reg[2]/CLRB               0.00  
+    0:06:17 5203589.3      2.02   10865.3     761.4 head_reg[3]/CLRB               0.00  
+    0:06:18 5204004.1      1.90   10392.7     761.4 head_reg[3]/CLRB               0.00  
+    0:06:20 5204070.4      1.84    9916.1     772.2 head_reg[3]/CLRB               0.00  
+    0:06:20 5204070.4      1.83    9786.8     772.2 head_reg[3]/CLRB               0.00  
+    0:06:21 5204111.9      1.81    9485.6     772.2 head_reg[3]/CLRB               0.00  
+    0:06:21 5204385.6      1.75    8938.6     772.2 head_reg[3]/CLRB               0.00  
+    0:06:22 5204236.3      1.65    8553.6     772.2 head_reg[2]/CLRB               0.00  
+    0:06:22 5204468.5      1.60    8177.3     772.2 head_reg[3]/CLRB               0.00  
+    0:06:23 5204634.4      1.53    7511.0     772.2 head_reg[3]/CLRB               0.00  
+    0:06:24 5204991.1      1.43    7462.5     772.2 head_reg[3]/CLRB               0.00  
+    0:06:24 5205115.5      1.40    7432.2     772.2 head_reg[3]/CLRB               0.00  
+    0:06:25 5205322.9      1.35    7019.7     775.0 head_reg[3]/CLRB               0.00  
+    0:06:26 5206193.8      1.22    6226.7     775.0 head_reg[3]/CLRB               0.00  
+    0:06:26 5206583.6      1.19    6226.5     775.0 head_reg[3]/CLRB               0.00  
+    0:06:26 5206583.6      1.19    6226.5     775.0 head_reg[3]/CLRB               0.00  
+    0:06:26 5206724.6      1.12    6226.1     775.0 head_reg[4]/CLRB               0.00  
+    0:06:27 5206782.7      1.07    6243.5     775.0 head_reg[3]/CLRB               0.00  
+    0:06:28 5207504.3      1.00    5514.4     775.0 head_reg[3]/CLRB               0.00  
+    0:06:30 5207504.3      0.93    5083.9     801.6 head_reg[4]/CLRB               0.00  
+    0:06:30 5207222.3      0.92    5092.1     798.7 head_reg[3]/CLRB               0.00  
+    0:06:31 5207487.7      0.91    5069.0     798.7 head_reg[4]/CLRB               0.00  
+    0:06:31 5207670.2      0.90    5051.0     798.7 head_reg[3]/CLRB               0.00  
+    0:06:32 5207637.0      0.89    4174.1     798.7 head_reg[3]/CLRB               0.00  
+    0:06:34 5207786.3      0.84    3767.6     825.3 head_reg[3]/CLRB               0.00  
+    0:06:35 5208051.7      0.82    3650.2     825.3 head_reg[2]/CLRB               0.00  
+    0:06:36 5208358.6      0.80    3723.8     825.3 head_reg[3]/CLRB               0.00  
+    0:06:37 5208217.6      0.80    4743.6     825.3 head_reg[3]/CLRB               0.00  
+    0:06:38 5208143.0      0.78    4641.6     825.3 head_reg[3]/CLRB               0.00  
+    0:06:38 5208051.7      0.75    4641.4     825.3 head_reg[4]/CLRB               0.00  
+    0:06:40 5208400.1      0.68    3675.5     825.3 head_reg[3]/CLRB               0.00  
+    0:06:40 5208176.1      0.67    3675.3     825.3 head_reg[3]/CLRB               0.00  
+    0:06:41 5208217.6      0.66    3670.2     825.3 head_reg[3]/CLRB               0.00  
+    0:06:41 5208350.3      0.65    3588.5     825.3 head_reg[3]/CLRB               0.00  
+    0:06:43 5208275.7      0.63    3456.8     830.8 head_reg[3]/CLRB               0.00  
+    0:06:44 5208474.7      0.62    3369.6     830.8 head_reg[3]/CLRB               0.00  
+    0:06:45 5208425.0      0.60    3220.5     830.8 head_reg[3]/CLRB               0.00  
+    0:06:46 5208425.0      0.59    3190.5     830.8 head_reg[3]/CLRB               0.00  
+    0:06:47 5208806.5      0.59    3155.3     830.8 head_reg[3]/CLRB               0.00  
+    0:06:49 5209105.1      0.58    3050.8     830.8 head_reg[3]/CLRB               0.00  
+    0:06:49 5209047.1      0.57    3032.1     830.8 head_reg[3]/CLRB               0.00  
+    0:06:51 5209013.9      0.57    2997.8     830.8 head_reg[3]/CLRB               0.00  
+    0:06:51 5209105.1      0.55    2995.2     830.8 head_reg[3]/CLRB               0.00  
+    0:06:52 5209229.5      0.54    2974.1     830.8 head_reg[3]/CLRB               0.00  
+    0:06:53 5209229.5      0.54    2907.6     830.8 head_reg[3]/CLRB               0.00  
+    0:06:53 5209503.2      0.51    2832.7     830.8 head_reg[4]/CLRB               0.00  
+    0:06:54 5209710.6      0.50    2667.7     830.8 head_reg[4]/CLRB               0.00  
+    0:06:54 5209586.2      0.49    2270.0     830.8 head_reg[3]/CLRB               0.00  
+    0:06:55 5209561.3      0.46    2234.7     830.8 head_reg[4]/CLRB               0.00  
+    0:06:55 5209760.4      0.45    2170.9     830.8 head_reg[4]/CLRB               0.00  
+    0:06:56 5210059.0      0.44    2162.0     830.8 head_reg[4]/CLRB               0.00  
+    0:06:56 5210390.7      0.43    1890.9     830.8 head_reg[4]/CLRB               0.00  
+    0:06:57 5210365.9      0.43    1897.2     830.8 head_reg[4]/CLRB               0.00  
+    0:06:57 5210515.2      0.42    1891.3     830.8 head_reg[4]/CLRB               0.00  
+    0:06:58 5210523.5      0.41    1862.7     830.8 head_reg[4]/CLRB               0.00  
+    0:06:59 5210681.1      0.40    1774.2     830.8 head_reg[4]/CLRB               0.00  
+    0:07:00 5210581.5      0.40    1765.8     830.8 head_reg[4]/CLRB               0.00  
+    0:07:00 5210581.5      0.40    1765.8     830.8 head_reg[4]/CLRB               0.00  
+    0:07:00 5210581.5      0.40    1768.5     830.8 head_reg[4]/CLRB               0.00  
+    0:07:00 5210540.0      0.40    1759.3     830.8 head_reg[4]/CLRB               0.00  
+    0:07:00 5210631.3      0.39    1761.2     830.8 head_reg[4]/CLRB               0.00  
+    0:07:01 5210805.5      0.38    1740.3     830.8 head_reg[4]/CLRB               0.00  
+    0:07:01 5210788.9      0.38    1740.3     830.8 head_reg[4]/CLRB               0.00  
+    0:07:02 5210921.6      0.38    1694.8     830.8 head_reg[4]/CLRB               0.00  
+    0:07:03 5211062.6      0.37    1684.9     830.8 head_reg[4]/CLRB               0.00  
+    0:07:03 5211195.3      0.37    1684.9     830.8 head_reg[3]/CLRB               0.00  
+    0:07:04 5211270.0      0.36    1684.9     830.8 head_reg[3]/CLRB               0.00  
+    0:07:04 5211294.8      0.35    1668.0     830.8 head_reg[3]/CLRB               0.00  
+    0:07:05 5211344.6      0.35    1663.0     830.8 head_reg[3]/CLRB               0.00  
+    0:07:05 5211435.8      0.34     827.6     830.8 head_reg[3]/CLRB               0.00  
+    0:07:05 5211419.3      0.34     827.8     830.8 head_reg[4]/CLRB               0.00  
+    0:07:05 5211361.2      0.34     850.7     830.8 head_reg[4]/CLRB               0.00  
+    0:07:06 5211361.2      0.34     850.7     830.8 head_reg[4]/CLRB               0.00  
+    0:07:06 5211510.5      0.33     845.3     830.8 head_reg[4]/CLRB               0.00  
+    0:07:06 5211552.0      0.33     845.3     830.8 head_reg[3]/CLRB               0.00  
+    0:07:06 5211651.5      0.29     845.0     830.8 head_reg[4]/CLRB               0.00  
+    0:07:07 5211634.9      0.29     842.5     830.8 head_reg[4]/CLRB               0.00  
+    0:07:07 5211817.4      0.28     837.8     830.8 head_reg[4]/CLRB               0.00  
+    0:07:08 5211900.3      0.28     470.2     830.8 head_reg[4]/CLRB               0.00  
+    0:07:08 5211975.0      0.28     463.0     830.8 head_reg[4]/CLRB               0.00  
+    0:07:08 5211892.0      0.27     452.4     830.8 head_reg[4]/CLRB               0.00  
+    0:07:09 5211983.3      0.27     517.4     830.8 head_reg[4]/CLRB               0.00  
+    0:07:10 5211966.7      0.26     477.0     830.8 head_reg[4]/CLRB               0.00  
+    0:07:11 5211958.4      0.24     374.7     830.8 head_reg[4]/CLRB               0.00  
+    0:07:12 5212033.0      0.22     309.5     830.8 head_reg[4]/CLRB               0.00  
+    0:07:12 5212033.0      0.22     309.5     830.8 head_reg[4]/CLRB               0.00  
+    0:07:12 5212033.0      0.22     309.5     830.8 head_reg[4]/CLRB               0.00  
+    0:07:12 5212547.3      0.22     301.7     830.8 head_reg[4]/CLRB               0.00  
+    0:07:13 5212398.0      0.22     288.6     830.8 head_reg[4]/CLRB               0.00  
+    0:07:14 5212431.2      0.21     288.6     830.8 head_reg[4]/CLRB               0.00  
+    0:07:14 5212480.9      0.21     278.3     830.8 head_reg[4]/CLRB               0.00  
+    0:07:14 5212464.3      0.21     278.2     830.8 head_reg[4]/CLRB               0.00  
+    0:07:15 5212514.1      0.21     276.5     830.8 head_reg[4]/CLRB               0.00  
+    0:07:15 5212563.9      0.21     275.7     830.8 head_reg[4]/CLRB               0.00  
+    0:07:16 5212986.9      0.21     275.7     830.8 head_reg[4]/CLRB               0.00  
+    0:07:16 5213020.1      0.21     226.3     830.8 head_reg[4]/CLRB               0.00  
+    0:07:16 5213318.7      0.19     215.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:17 5213426.5      0.19     172.7     832.8 head_reg[4]/CLRB               0.00  
+    0:07:18 5213459.7      0.18     128.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:19 5213459.7      0.17      80.8     832.8 head_reg[4]/CLRB               0.00  
+    0:07:20 5213459.7      0.17      69.0     832.8 head_reg[4]/CLRB               0.00  
+    0:07:20 5213459.7      0.17      69.0     832.8 head_reg[4]/CLRB               0.00  
+    0:07:20 5213443.1      0.16      68.2     832.8 head_reg[4]/CLRB               0.00  
+    0:07:21 5213443.1      0.16      68.2     832.8 head_reg[4]/CLRB               0.00  
+    0:07:21 5213592.4      0.16      63.7     832.8 head_reg[4]/CLRB               0.00  
+    0:07:22 5213642.2      0.16      55.6     832.8 head_reg[4]/CLRB               0.00  
+    0:07:22 5213799.7      0.15      53.8     832.8 head_reg[3]/CLRB               0.00  
+    0:07:22 5213808.0      0.13      53.7     832.8 head_reg[3]/CLRB               0.00  
+    0:07:23 5214222.8      0.12      31.2     832.8 head_reg[3]/CLRB               0.00  
+    0:07:24 5214338.9      0.11      14.2     832.8 head_reg[3]/CLRB               0.00  
+    0:07:26 5214322.3      0.11      12.2     832.8 head_reg[3]/CLRB               0.00  
+    0:07:26 5214255.9      0.11       8.4     832.8 head_reg[3]/CLRB               0.00  
+    0:07:27 5214513.1      0.11       8.6     832.8 head_reg[3]/CLRB               0.00  
+    0:07:28 5214662.4      0.09       6.2     832.8 head_reg[3]/CLRB               0.00  
+    0:07:29 5214679.0      0.09       4.6     832.8 head_reg[3]/CLRB               0.00  
+    0:07:30 5214695.5      0.08       3.8     832.8 head_reg[3]/CLRB               0.00  
+    0:07:30 5214753.6      0.08       3.7     832.8 head_reg[3]/CLRB               0.00  
+    0:07:31 5214795.1      0.08       3.7     832.8 head_reg[3]/CLRB               0.00  
+    0:07:32 5214936.1      0.07       2.5     832.8 head_reg[3]/CLRB               0.00  
+    0:07:33 5214944.4      0.07       2.4     832.8 head_reg[3]/CLRB               0.00  
+    0:07:33 5215052.2      0.07       1.6     832.8 head_reg[3]/CLRB               0.00  
+    0:07:34 5215068.8      0.06       1.7     832.8 head_reg[3]/CLRB               0.00  
+    0:07:35 5214927.8      0.06       1.1     832.8 head_reg[3]/CLRB               0.00  
+    0:07:36 5215043.9      0.06       1.1     832.8 head_reg[3]/CLRB               0.00  
+    0:07:36 5215043.9      0.06       1.1     832.8 head_reg[3]/CLRB               0.00  
+    0:07:37 5215168.3      0.05       1.1     832.8 head_reg[3]/CLRB               0.00  
+    0:07:38 5215276.1      0.05       1.1     832.8 head_reg[3]/CLRB               0.00  
+    0:07:38 5215508.4      0.05       1.1     832.8 head_reg[3]/CLRB               0.00  
+    0:07:39 5215599.6      0.05       1.1     832.8 head_reg[3]/CLRB               0.00  
+    0:07:39 5215641.1      0.04       1.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:39 5215649.4      0.04       1.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:41 5215641.1      0.04       1.0     832.8 head_reg[4]/CLRB               0.00  
+    0:07:41 5215748.9      0.03       1.0     832.8 head_reg[3]/CLRB               0.00  
+    0:07:41 5215765.5      0.02       0.9     832.8 head_reg[3]/CLRB               0.00  
+    0:07:42 5215757.2      0.02       0.9     832.8 head_reg[3]/CLRB               0.00  
+    0:07:42 5215790.4      0.02       0.9     832.8 head_reg[3]/CLRB               0.00  
+    0:07:42 5215790.4      0.02       0.9     832.8 head_reg[4]/CLRB               0.00  
+    0:07:43 5215732.3      0.01       0.2     832.8 rob_entry_reg[10][NPC][0]/CLRB      0.00  
+    0:07:43 5215848.5      0.01       0.2     832.8 head_reg[3]/CLRB               0.00  
+    0:07:43 5216064.1      0.01       0.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:43 5216080.7      0.01       0.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:43 5215889.9      0.00       0.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:43 5215939.7      0.00       0.1     832.8 head_reg[4]/CLRB               0.00  
+    0:07:43 5215898.2      0.00       0.0     832.8 head_reg[3]/CLRB               0.00  
+    0:07:43 5215956.3      0.00       0.0     832.8                                0.00  
+    0:07:45 5152985.2      0.00       0.0     833.2                                0.00  
+
+
+  Beginning Design Rule Fixing  (min_path)  (max_transition)  (max_fanout)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:07:47 5152985.2      0.00       0.0     833.2                               -3.19  
+    0:07:48 5154096.7      0.00       0.0     671.0 net649070                     -3.19  
+    0:07:49 5155971.2      0.00       0.0     229.0 net650862                     -3.19  
+    0:07:49 5156137.1      0.00       0.0      77.0 net650857                     -3.19  
+    0:07:50 5155473.5      0.01       0.0       0.0 net648945                     -3.19  
+    0:07:50 5155556.5      0.00       0.0       0.0                               -3.19  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:07:50 5155556.5      0.00       0.0       0.0                               -3.19  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:07:50 5155556.5      0.00       0.0       0.0                               -3.19  
+    0:07:51 5155556.5      0.00       0.0       0.0                               -3.19  
+    0:07:55 4986591.2      0.06       5.2       0.0                               -3.19  
+    0:07:59 4863800.9      0.05      23.8       0.0                               -3.19  
+    0:08:02 4834820.2      0.06       3.9       0.0                               -3.19  
+    0:08:05 4812632.7      0.06       6.1       0.0                               -3.19  
+    0:08:10 4797437.4      0.07       4.8       0.0                               -3.19  
+    0:08:13 4788238.9      0.05       1.3       0.0                               -3.19  
+    0:08:15 4782266.9      0.05       2.9       0.0                               -3.19  
+    0:08:16 4779040.4      0.04       2.2       0.0                               -3.19  
+    0:08:17 4777771.3      0.04       0.8       0.0                               -3.19  
+    0:08:18 4777024.8      0.04       1.1       0.0                               -3.19  
+    0:08:18 4776751.1      0.04       1.7       0.0                               -3.19  
+    0:08:19 4776518.9      0.04       1.7       0.0                               -3.19  
+    0:08:19 4776353.0      0.04       1.7       0.0                               -3.19  
+    0:08:19 4776253.5      0.04       1.9       0.0                               -3.19  
+    0:08:19 4776153.9      0.04       1.9       0.0                               -3.19  
+    0:08:20 4776087.6      0.04       1.9       0.0                               -3.19  
+    0:08:20 4776021.2      0.04       1.9       0.0                               -3.19  
+    0:08:20 4775954.9      0.04       1.8       0.0                               -3.19  
+    0:08:20 4775888.5      0.04       1.8       0.0                               -3.19  
+    0:08:20 4775822.2      0.04       1.8       0.0                               -3.19  
+    0:08:20 4775755.8      0.04       2.3       0.0                               -3.19  
+    0:08:21 4775689.4      0.04       1.4       0.0                               -3.19  
+    0:08:21 4775656.3      0.04       1.4       0.0                               -3.19  
+    0:08:21 4775623.1      0.04       1.4       0.0                               -3.19  
+    0:08:22 4775589.9      0.04       1.4       0.0                               -3.19  
+    0:08:22 4775556.7      0.04       1.4       0.0                               -3.19  
+    0:08:22 4775523.6      0.04       1.4       0.0                               -3.19  
+    0:08:22 4775490.4      0.04       1.4       0.0                               -3.19  
+    0:08:23 4775457.2      0.04       1.4       0.0                               -3.19  
+    0:08:23 4775424.0      0.04       1.4       0.0                               -3.19  
+    0:08:24 4775390.8      0.04       1.4       0.0                               -3.19  
+    0:08:25 4775357.7      0.04       1.4       0.0                               -3.19  
+    0:08:25 4775324.5      0.04       1.4       0.0                               -3.19  
+    0:08:25 4775291.3      0.04       1.4       0.0                               -3.19  
+    0:08:26 4775258.1      0.04       1.4       0.0                               -3.19  
+    0:08:26 4775225.0      0.04       1.4       0.0                               -3.19  
+    0:08:26 4775225.0      0.04       1.4       0.0                               -3.19  
+    0:08:27 4775357.7      0.04       0.9       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:28 4775581.6      0.04       0.8       0.0 head_reg[5]/CLRB              -3.19  
+    0:08:29 4775888.5      0.02       0.0       0.0                               -3.19  
+    0:08:29 4775938.3      0.02       0.0       0.0                               -3.19  
+    0:08:29 4776062.7      0.01       0.0       0.0                               -3.19  
+    0:08:30 4776062.7      0.01       0.0       0.0                               -3.19  
+    0:08:31 4776137.3      0.01       0.0       0.0                               -3.19  
+    0:08:31 4776253.5      0.01       0.0       0.0                               -3.19  
+    0:08:31 4776286.6      0.01       0.0       0.0                               -3.19  
+    0:08:32 4776286.6      0.01       0.0       0.0                               -3.19  
+    0:08:34 4764951.0      0.59    1563.8       0.0                               -3.19  
+    0:08:34 4763637.7      0.58    1526.3       0.0                               -3.19  
+    0:08:35 4763527.2      0.58    1515.2       0.0                               -3.19  
+    0:08:35 4763527.2      0.58    1515.2       0.0                               -3.19  
+    0:08:35 4763527.2      0.58    1515.2       0.0                               -3.19  
+    0:08:35 4763527.2      0.58    1515.2       0.0                               -3.19  
+    0:08:35 4763527.2      0.58    1515.2       0.0                               -3.19  
+    0:08:35 4763527.2      0.58    1515.2       0.0                               -3.19  
+    0:08:37 4767143.5      0.48    1297.5       0.0 rob_entry_reg[19][inst][6]/CLRB     -3.19  
+    0:08:38 4770793.1      0.46    1212.8       0.0 rob_entry_reg[46][inst][5]/CLRB     -3.19  
+    0:08:40 4773563.4      0.44    1106.5       0.0 rob_entry_reg[11][NPC][11]/CLRB     -3.19  
+    0:08:42 4777544.7      0.43     978.1       0.0 rob_entry_reg[9][NPC][31]/CLRB     -3.19  
+    0:08:43 4779095.8      0.40     768.7       0.0 rob_entry_reg[27][NPC][8]/CLRB     -3.19  
+    0:08:45 4782098.4      0.30     632.7       0.0 rob_entry_reg[57][NPC][17]/CLRB     -3.19  
+    0:08:47 4783823.6      0.26     438.9       0.0 rob_entry_reg[33][inst][24]/CLRB     -3.19  
+    0:08:49 4784686.2      0.23     287.8       0.0 rob_entry_reg[63][inst][15]/CLRB     -3.19  
+    0:08:50 4790185.4      0.17     195.8       0.0 rob_entry_reg[16][inst][6]/CLRB     -3.19  
+    0:08:51 4794797.1      0.14      95.1       0.0 rob_entry_reg[17][inst][25]/CLRB     -3.19  
+    0:08:52 4797874.3      0.06      27.3       0.0 rob_entry_reg[60][NPC][17]/CLRB     -3.19  
+    0:08:52 4799292.7      0.05       2.6       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:53 4799616.2      0.05       2.4       0.0 rob_entry_reg[41][NPC][0]/CLRB     -3.19  
+    0:08:53 4801291.6      0.02       0.3       0.0 branch_PC[30]                 -3.19  
+    0:08:54 4802668.5      0.02       0.0       0.0 head_reg[2]/CLRB              -3.19  
+    0:08:54 4802759.7      0.02       0.0       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:55 4802826.1      0.02       0.0       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:56 4802834.4      0.02       0.0       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:56 4802834.4      0.02       0.0       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:56 4802933.9      0.02       0.0       0.0 head_reg[4]/CLRB              -3.19  
+    0:08:56 4803116.4      0.01       0.0       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:57 4803149.6      0.00       0.0       0.0 head_reg[3]/CLRB              -3.19  
+    0:08:57 4803282.3      0.00       0.0       0.0 head_reg[4]/CLRB              -3.19  
+    0:08:57 4803390.1      0.00       0.0       0.0 head_reg[4]/CLRB              -3.19  
+    0:08:57 4803431.6      0.00       0.0       0.0 head_reg[4]/CLRB              -3.19  
+    0:08:57 4804758.7      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:08:57 4804758.7      0.00       0.0       0.0                                0.00  
+    0:08:58 4805745.7      0.00       0.0       0.0                                0.00  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'ROB' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'clk': 8745 load(s), 1 driver(s)
+Writing verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Writing ddc file './ROB.ddc'.
+Writing svsim file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB_svsim.sv'.
+Removing design 'ROB'
+Removing design 'ROB_DW_div_uns_0'
+Removing design 'ROB_DW_div_uns_1'
+Removing design 'ROB_DW_div_uns_2'
+Removing design 'ROB_DW_div_uns_3'
+Removing design 'ROB_DW_div_uns_4'
+Removing design 'ROB_DW_div_uns_5'
+Removing design 'ROB_DW_div_uns_6'
+Removing design 'ROB_DW_div_uns_7'
+Removing design 'ROB_DW_div_uns_8'
+Removing design 'ROB_DW_div_uns_9'
+Removing design 'ROB_DW_div_uns_10'
+Removing design 'ROB_DW_div_uns_11'
+Removing design 'ROB_DW_div_uns_13'
+Removing design 'ROB_DW_div_uns_14'
+Removing design 'ROB_DW_div_uns_15'
+Removing design 'ROB_DW_div_uns_17'
+Removing design 'ROB_DW_div_uns_18'
+Removing design 'ROB_DW_div_uns_19'
+Removing design 'ROB_DW_div_uns_21'
+Removing design 'ROB_DW_div_uns_23'
+Removing design 'ROB_DW01_sub_0'
+Removing design 'ROB_DW01_sub_2'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/ROB/ROB_DW_div_uns_0.db:ROB_DW_div_uns_0'
+Loaded 23 designs.
+Current design is 'ROB_DW_div_uns_0'.
+Current design is 'ROB'.
+
+Memory usage for this session 1474 Mbytes.
+Memory usage for this session including child processes 1474 Mbytes.
+CPU usage for this session 530 seconds ( 0.15 hours ).
+Elapsed time for this session 561 seconds ( 0.16 hours ).
+
+Thank you...

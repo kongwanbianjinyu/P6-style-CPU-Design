@@ -4,7 +4,7 @@
 `timescale 1ns/100ps
 module wand_sel (req,gnt);
   //synopsys template
-  parameter WIDTH=64;
+  parameter WIDTH=6;
   input wire  [WIDTH-1:0] req;
   output wand [WIDTH-1:0] gnt;
 

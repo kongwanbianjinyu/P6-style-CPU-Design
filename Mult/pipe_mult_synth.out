@@ -1,0 +1,376 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version S-2021.06-SP1 for linux64 - Jul 13, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+read_file -f ddc [list "mult_stage.ddc"]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Reading ddc file '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult_stage.ddc'.
+Loaded 4 designs.
+Current design is 'mult_stage'.
+mult_stage mult_stage_DW02_mult_0 mult_stage_DW01_add_3 mult_stage_DW01_add_4
+set_dont_touch mult_stage
+1
+read_file -f sverilog [list "sys_defs.svh" "pipe_mult.sv"]
+Loading sverilog files: '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/sys_defs.svh' '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/pipe_mult.sv' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/sys_defs.svh
+Warning:  /afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/sys_defs.svh:379: Using default enum base size of 32. (VER-533)
+Compiling source file /afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/pipe_mult.sv
+Presto compilation completed successfully.
+Current design is now '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult.db:mult'
+Loaded 1 design.
+Current design is 'mult'.
+mult
+#elaborate wand_sel -parameter WIDTH=64
+set design_name mult
+mult
+set clock_name clk
+clk
+set reset_name reset
+reset
+set CLK_PERIOD 4.4
+4.4
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clk
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./mult.vg
+set svsim_file [format "%s%s%s" $SYN_DIR $design_name "_svsim.sv"]
+./mult_svsim.sv
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./mult.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./mult.rep
+set res_file [format "%s%s%s" $SYN_DIR $design_name ".res"]
+./mult.res
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./mult.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+  current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all -flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  write -format svsim -output $svsim_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  redirect $res_file { report_resources -hier }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+  quit
+}
+Current design is 'mult'.
+
+  Linking design 'mult'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (5 designs)               /afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult.db, etc
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Current design is 'mult'.
+Warning: All hierarchical cells are don't touched. No cells can be ungrouped. (UID-229)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 388 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'mult'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:05 2809553.9      0.00       0.0       0.0                                0.00  
+    0:00:05 2809553.9      0.00       0.0       0.0                                0.00  
+    0:00:05 2809553.9      0.00       0.0       0.0                                0.00  
+    0:00:05 2809553.9      0.00       0.0       0.0                                0.00  
+    0:00:05 2809553.9      0.00       0.0       0.0                                0.00  
+    0:00:05 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+    0:00:06 2800322.3      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Design Rule Fixing  (min_path)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:06 2800322.3      0.00       0.0       0.0                               -3.25  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:06 2800322.3      0.00       0.0       0.0                               -3.25  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:06 2800322.3      0.00       0.0       0.0                               -3.25  
+    0:00:06 2800322.3      0.00       0.0       0.0                               -3.25  
+    0:00:06 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:06 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:06 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:07 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:07 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:07 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:07 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:07 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:07 2799857.8      0.00       0.0       0.0                               -3.25  
+    0:00:07 2805041.8      0.00       0.0       0.0 mstage[4]/mcand_out_reg[59]/DIN     -1.78  
+    0:00:08 2810225.8      0.00       0.0       0.0 mstage[1]/mcand_out_reg[53]/DIN     -0.31  
+    0:00:08 2811470.0      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:08 2811470.0      0.00       0.0       0.0                                0.00  
+    0:00:08 2811503.1      0.00       0.0       0.0                                0.00  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'mult' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'mstage[0]/clk': 3440 load(s), 1 driver(s)
+Writing verilog file '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 8 nets to module mult_stage_DW02_mult_0 using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 8 nets to module mult_stage using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 226 nets to module mult using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Writing ddc file './mult.ddc'.
+Writing svsim file '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult_svsim.sv'.
+Removing design 'mult_stage'
+Removing design 'mult_stage_DW02_mult_0'
+Removing design 'mult_stage_DW01_add_3'
+Removing design 'mult_stage_DW01_add_4'
+Removing design 'mult'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/x/y/xyuanzhi/470/test/syn/eecs-470-final-project/Mult/mult_stage_DW01_add_4.db:mult_stage_DW01_add_4'
+Loaded 5 designs.
+Current design is 'mult_stage_DW01_add_4'.
+Current design is 'mult'.
+
+Memory usage for this session 201 Mbytes.
+Memory usage for this session including child processes 201 Mbytes.
+CPU usage for this session 14 seconds ( 0.00 hours ).
+Elapsed time for this session 17 seconds ( 0.00 hours ).
+
+Thank you...

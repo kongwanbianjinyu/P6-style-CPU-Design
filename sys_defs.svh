@@ -24,7 +24,7 @@
 //testbench attribute definitions
 //
 //////////////////////////////////////////////
-//`define CACHE_MODE //removes the byte-level interface from the memory mode, DO NOT MODIFY!
+`define CACHE_MODE //removes the byte-level interface from the memory mode, DO NOT MODIFY!
 `define NUM_MEM_TAGS           15
 
 `define MEM_SIZE_IN_BYTES      (64*1024)
@@ -34,7 +34,8 @@
 `define VERILOG_CLOCK_PERIOD   10.0
 `define SYNTH_CLOCK_PERIOD     10.0 // Clock period for synth and memory latency
 
-`define MEM_LATENCY_IN_CYCLES (100.0/`SYNTH_CLOCK_PERIOD+0.49999)
+//`define MEM_LATENCY_IN_CYCLES (100.0/`SYNTH_CLOCK_PERIOD+0.49999)
+`define MEM_LATENCY_IN_CYCLES (2+0.49999)
 //`define MEM_LATENCY_IN_CYCLES 0
 // the 0.49999 is to force ceiling(100/period).  The default behavior for
 // float to integer conversion is rounding to nearest
@@ -167,6 +168,9 @@ typedef enum logic [4:0] {
 `define MAP_TABLE_SIZE 32
 `define CACHE_LINES 32
 `define CACHE_LINE_BITS $clog2(`CACHE_LINES)
+//`define	BUS_NONE     2'h0
+//`define BUS_LOAD     2'h1
+//`define BUS_STORE    2'h2
 
 
 // the RISCV register file zero register, any read of this register always
@@ -183,14 +187,14 @@ typedef enum logic [1:0] {
 	BUS_STORE    = 2'h2
 } BUS_COMMAND;
 
-`ifndef CACHE_MODE
+// `ifndef CACHE_MODE
 typedef enum logic [1:0] {
 	BYTE = 2'h0,
 	HALF = 2'h1,
 	WORD = 2'h2,
 	DOUBLE = 2'h3
 } MEM_SIZE;
-`endif
+// `endif
 //
 // useful boolean single-bit definitions
 //
@@ -302,19 +306,19 @@ typedef struct packed {
 	INST  inst;                 // instruction (eg RS opcode)
 	logic [`XLEN-1:0] NPC;   // PC + 4
 	logic [`XLEN-1:0] PC;    // PC
-	
+
 	logic [$clog2(`RRF_SIZE):0]        source_reg_idx_in_1 ; // source reg rs1 //ID to MapTable,[2:0] when used
     logic [$clog2(`RRF_SIZE):0]        source_reg_idx_in_2 ; // source reg rs2 //ID to MapTable,[2:0] when used
 	logic [4:0]                          dest_reg_idx;  // destination (writeback) register index  //ID to ROB,MapTable, make [2:0] when used
 
 	logic [`XLEN-1:0] rs1_value;
 	logic [`XLEN-1:0] rs2_value;
-	                                                                                
+
 	ALU_OPA_SELECT opa_select; // ALU opa mux select (ALU_OPA_xxx *)//output to Issue or EX?
 	ALU_OPB_SELECT opb_select; // ALU opb mux select (ALU_OPB_xxx *)//
-	
+
 	//logic                               dispatch_en;   // ID to ROB,MapTable,RS
-	
+
 	//logic [1:0]                         rob_dispatch_num;//dispatch insn number : {0,1,2,3} //ID to MapTable
 
 	ALU_FUNC    alu_func;      // ALU function select (ALU_xxx *)
@@ -332,12 +336,12 @@ typedef struct packed {
 	logic [$clog2(`NUM_RS):0]		RS_tag; 	// insn's RS tag 0-15
 	logic [$clog2(`ROB_SIZE):0]     rob_tag;    // insn's rob tag
 
-	
+
 	// logic [31:0]             	OPA;
 	// logic [31:0]            		OPB;
 	logic [`XLEN-1:0]				rs1_value;
 	logic [`XLEN-1:0]				rs2_value;
-	
+
 	ALU_OPA_SELECT					opa_select;
 	ALU_OPB_SELECT					opb_select;
 	INST inst;
@@ -408,7 +412,7 @@ typedef struct packed{
     logic [31:0]               dispatch_value_out_2;
     //logic [1:0] 					dispatch_num;              // dispatch # for maptable
     logic [$clog2(`ROB_SIZE):0] 	assigned_rob_tag ;
-	
+
 	// complete stage
 	logic [4:0]				complete_reg_idx_out;
 
@@ -434,6 +438,7 @@ typedef struct packed{
 	logic       		halt;          // is this a halt?
 	logic [`XLEN-1:0] 	NPC;
 	logic 				valid;
+	logic [`XLEN-1:0] alu_result;
 } ROB_ENTRY;
 
 typedef struct packed{
@@ -454,12 +459,20 @@ typedef struct packed{
 typedef struct packed{
 	logic [1:0] l_or_s; //10 is l, 01 is s
 	logic 		ready_to_dcache; // different condition for L/S
+	logic 		data_ready; // different condition for L/S
 	logic [`XLEN-1:0] addr;
 	logic [`XLEN-1:0] value;
 	logic [$clog2(`ROB_SIZE):0] rob_tag;
 	logic complete;
 	logic [2:0]   mem_size; // byte, half-word or word
 } LSQ_ENTRY;
+
+typedef enum logic [2:0]{
+	IN_CACHE,
+	IN_MEM,
+	DIRTY,
+	COMMIT
+} CACHE_STATE;
 
 
 `endif // __SYS_DEFS_VH__

@@ -12,7 +12,7 @@
 
 
 module ic_stage(
-    input clock,
+    input clk,
     input reset,
     input EX_IC_PACKET [2:0] ex_ic_packet_in,
     input clear_all,
@@ -23,10 +23,11 @@ module ic_stage(
     output logic [2:0][$clog2(`ROB_SIZE):0]  CDB_rob_tag,
     output logic [2:0][31:0]                  CDB_value,
     output logic [2:0]                         CDB_halt,
+    output logic [2:0][`XLEN-1:0]           alu_result,
 
     // complete insns number
-    output logic [1:0]                   complete_num,
-    output logic [`XLEN-1:0]             branch_PC
+    output logic [1:0]                   complete_num
+    // output logic [`XLEN-1:0]             branch_PC
 );
 
 
@@ -38,7 +39,7 @@ always_comb begin
         // clear CDB first
         complete_num = 0;
         for (int i = 0; i < 3; i++) CDB_rob_tag[i] = 0;
-        
+
         // handle branch exception
         //do not use num, use valid??
         for (int i = 0; i < 3; i++) begin
@@ -48,12 +49,13 @@ always_comb begin
                     CDB_value[i] = ex_ic_packet_in[i].take_branch ? ex_ic_packet_in[i].NPC : ex_ic_packet_in[i].alu_result;
                     CDB_rob_tag[i]  = ex_ic_packet_in[i].rob_tag;
                     CDB_halt[i] = ex_ic_packet_in[i].halt;
+                    alu_result[i] = ex_ic_packet_in[i].alu_result;
                 end
 
-                // calculate branch target PC when branch complete
-                if(ex_ic_packet_in[i].take_branch) begin
-                    branch_PC = ex_ic_packet_in[i].alu_result;
-                end
+                // // calculate branch target PC when branch complete
+                // if(ex_ic_packet_in[i].take_branch) begin
+                //     branch_PC = ex_ic_packet_in[i].alu_result; //TODO: change this
+                // end
             end
         end
         if (lsq2cdb_rob > 0)begin

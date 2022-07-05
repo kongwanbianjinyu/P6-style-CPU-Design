@@ -1,0 +1,622 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version S-2021.06-SP1 for linux64 - Jul 13, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+read_file -f ddc [list "pe/pe_OUTWIDTH4_INWIDTH16.ddc"]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Reading ddc file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/pe/pe_OUTWIDTH4_INWIDTH16.ddc'.
+Loaded 1 design.
+Current design is 'pe_OUTWIDTH4_INWIDTH16'.
+pe_OUTWIDTH4_INWIDTH16
+set_dont_touch pe_OUTWIDTH4_INWIDTH16
+1
+read_file -f sverilog [list "sys_defs.svh" "LSQ.sv"]
+Loading sverilog files: '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh' '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.sv' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/sys_defs.svh:382: Using default enum base size of 32. (VER-533)
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.sv
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.sv:229: signed to unsigned conversion occurs. (VER-318)
+Warning:  /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.sv:230: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine LSQ line 178 in file
+		'/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    lsq_entry_reg    | Flip-flop | 1216  |  Y  | N  | N  | N  | Y  | N  | N  |
+|    lsq_entry_reg    | Flip-flop |  48   |  Y  | N  | N  | N  | N  | N  | N  |
+|      head_reg       | Flip-flop |   5   |  Y  | N  | N  | N  | Y  | N  | N  |
+|      tail_reg       | Flip-flop |   5   |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|      LSQ/65      |   16   |    3    |      4       |
+|     LSQ/119      |   16   |    3    |      4       |
+|     LSQ/120      |   16   |    2    |      4       |
+|     LSQ/122      |   16   |   64    |      4       |
+|     LSQ/165      |   16   |    7    |      4       |
+======================================================
+Presto compilation completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.db:LSQ'
+Loaded 1 design.
+Current design is 'LSQ'.
+LSQ
+#elaborate wand_sel -parameter WIDTH=64
+set design_name LSQ
+LSQ
+set clock_name clk
+clk
+set reset_name reset
+reset
+set CLK_PERIOD 3.5
+3.5
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clk
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./LSQ.vg
+set svsim_file [format "%s%s%s" $SYN_DIR $design_name "_svsim.sv"]
+./LSQ_svsim.sv
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./LSQ.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./LSQ.rep
+set res_file [format "%s%s%s" $SYN_DIR $design_name ".res"]
+./LSQ.res
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./LSQ.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+  current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all -flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  write -format svsim -output $svsim_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  redirect $res_file { report_resources -hier }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+  quit
+}
+Current design is 'LSQ'.
+
+  Linking design 'LSQ'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (2 designs)               /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.db, etc
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Current design is 'LSQ'.
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Warning: All hierarchical cells are don't touched. No cells can be ungrouped. (UID-229)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+
+Information: There are 1314 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'LSQ'
+Information: The register 'head_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'tail_reg[4]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'LSQ_DW01_cmp2_0'
+  Processing 'LSQ_DW01_cmp6_0'
+  Processing 'LSQ_DW01_cmp6_1'
+  Processing 'LSQ_DW01_cmp6_2'
+  Processing 'LSQ_DW01_cmp6_3'
+  Processing 'LSQ_DW01_cmp6_4'
+  Processing 'LSQ_DW01_cmp6_5'
+  Processing 'LSQ_DW01_cmp6_6'
+  Processing 'LSQ_DW01_cmp6_7'
+  Processing 'LSQ_DW01_cmp6_8'
+  Processing 'LSQ_DW01_cmp6_9'
+  Processing 'LSQ_DW01_cmp6_10'
+  Processing 'LSQ_DW01_cmp6_11'
+  Processing 'LSQ_DW01_cmp6_12'
+  Processing 'LSQ_DW01_cmp6_13'
+  Processing 'LSQ_DW01_cmp6_14'
+  Processing 'LSQ_DW01_cmp6_15'
+  Processing 'LSQ_DW01_cmp6_16'
+  Processing 'LSQ_DW01_cmp6_17'
+  Processing 'LSQ_DW01_cmp6_18'
+  Processing 'LSQ_DW01_cmp6_19'
+  Processing 'LSQ_DW01_cmp6_20'
+  Processing 'LSQ_DW01_cmp6_21'
+  Processing 'LSQ_DW01_cmp6_22'
+  Processing 'LSQ_DW01_cmp6_23'
+  Processing 'LSQ_DW01_cmp6_24'
+  Processing 'LSQ_DW01_cmp6_25'
+  Processing 'LSQ_DW01_cmp6_26'
+  Processing 'LSQ_DW01_cmp6_27'
+  Processing 'LSQ_DW01_cmp6_28'
+  Processing 'LSQ_DW01_cmp6_29'
+  Processing 'LSQ_DW01_cmp6_30'
+  Processing 'LSQ_DW01_cmp6_31'
+  Processing 'LSQ_DW01_cmp6_32'
+  Processing 'LSQ_DW01_cmp6_33'
+  Processing 'LSQ_DW01_cmp6_34'
+  Processing 'LSQ_DW01_cmp6_35'
+  Processing 'LSQ_DW01_cmp6_36'
+  Processing 'LSQ_DW01_cmp6_37'
+  Processing 'LSQ_DW01_cmp6_38'
+  Processing 'LSQ_DW01_cmp6_39'
+  Processing 'LSQ_DW01_cmp6_40'
+  Processing 'LSQ_DW01_cmp6_41'
+  Processing 'LSQ_DW01_cmp6_42'
+  Processing 'LSQ_DW01_cmp6_43'
+  Processing 'LSQ_DW01_cmp6_44'
+  Processing 'LSQ_DW01_cmp6_45'
+  Processing 'LSQ_DW01_cmp6_46'
+  Processing 'LSQ_DW01_cmp6_47'
+  Processing 'LSQ_DW01_cmp6_48'
+  Processing 'LSQ_DW01_cmp2_1'
+  Processing 'LSQ_DW01_cmp2_2'
+  Processing 'LSQ_DW01_cmp2_3'
+  Processing 'LSQ_DW01_cmp2_4'
+  Processing 'LSQ_DW01_cmp2_5'
+  Processing 'LSQ_DW01_cmp2_6'
+  Processing 'LSQ_DW01_cmp2_7'
+  Processing 'LSQ_DW01_cmp2_8'
+  Processing 'LSQ_DW01_cmp2_9'
+  Processing 'LSQ_DW01_cmp2_10'
+  Processing 'LSQ_DW01_cmp2_11'
+  Processing 'LSQ_DW01_cmp2_12'
+  Processing 'LSQ_DW01_cmp2_13'
+  Processing 'LSQ_DW01_cmp2_14'
+  Processing 'LSQ_DW01_cmp2_15'
+  Processing 'LSQ_DW01_cmp2_16'
+  Processing 'LSQ_DW01_cmp2_17'
+  Processing 'LSQ_DW01_cmp2_18'
+  Processing 'LSQ_DW01_cmp2_19'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:39  833481.2      0.38     600.0     508.5                                0.00  
+    0:00:40  819977.8      0.41     613.4    1381.3                                0.00  
+    0:00:40  819977.8      0.41     613.4    1381.3                                0.00  
+    0:00:41  819911.5      0.40     611.2    1380.9                                0.00  
+    0:00:41  819911.5      0.40     611.2    1380.9                                0.00  
+    0:00:41  819911.5      0.40     611.2    1380.9                                0.00  
+    0:00:42  647070.8      0.96    1345.4    1164.3                                0.00  
+    0:00:43  646921.5      1.07    1245.1    1063.8                                0.00  
+    0:00:43  646705.9      0.81    1140.6    1061.7                                0.00  
+    0:00:43  646506.8      0.82    1155.6    1061.7                                0.00  
+    0:00:44  646730.8      0.70    1126.2    1061.7                                0.00  
+    0:00:44  646739.1      0.69    1095.3    1061.7                                0.00  
+    0:00:44  646755.7      0.67    1089.4    1061.7                                0.00  
+    0:00:44  646855.2      0.62    1072.1    1061.7                                0.00  
+    0:00:44  646913.3      0.58    1065.1    1061.7                                0.00  
+    0:00:44  647245.0      0.58    1051.0    1061.7                                0.00  
+    0:00:44  647560.2      0.57    1041.4    1061.7                                0.00  
+    0:00:44  647709.5      0.57    1025.6    1061.7                                0.00  
+    0:00:45  647900.3      0.56    1014.9    1061.7                                0.00  
+    0:00:45  648215.5      0.56    1002.6    1061.7                                0.00  
+    0:00:45  648373.1      0.55     984.1    1061.7                                0.00  
+    0:00:45  648605.3      0.55     928.0    1061.7                                0.00  
+    0:00:45  648663.4      0.53     915.4    1061.7                                0.00  
+    0:00:45  649053.2      0.53     907.0    1061.7                                0.00  
+    0:00:45  649020.0      0.52     895.9    1061.7                                0.00  
+    0:00:45  649020.0      0.52     895.9    1061.7                                0.00  
+    0:00:45  649020.0      0.52     895.9    1061.7                                0.00  
+    0:00:45  650985.8      0.51     883.4    1000.7                                0.00  
+    0:00:46  651002.4      0.51     883.5     998.9                                0.00  
+    0:00:46  651019.0      0.51     883.5     997.1                                0.00  
+    0:00:46  651027.3      0.51     883.6     995.2                                0.00  
+    0:00:46  651043.9      0.51     883.6     993.4                                0.00  
+    0:00:46  651060.5      0.51     883.6     991.6                                0.00  
+    0:00:46  651068.7      0.51     884.1     989.7                                0.00  
+    0:00:46  651068.7      0.51     884.1     989.7                                0.00  
+    0:00:46  651068.7      0.51     884.1     989.7                                0.00  
+    0:00:46  651068.7      0.51     884.1     989.7                                0.00  
+    0:00:46  652777.4      0.51     840.7     987.0 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:00:47  654104.5      0.48     810.3     988.0 lsq_entry_reg[0][value][10]/CLRB      0.00  
+    0:00:47  655580.9      0.45     747.7     988.3 lsq_entry_reg[7][addr][13]/CLRB      0.00  
+    0:00:48  656932.9      0.42     695.6     988.3 lsq_entry_reg[2][addr][5]/CLRB      0.00  
+    0:00:48  657521.8      0.37     661.3    1001.5 lsq_entry_reg[7][addr][28]/CLRB      0.00  
+    0:00:49  658517.1      0.36     635.9    1001.5 lsq_entry_reg[14][value][0]/CLRB      0.00  
+    0:00:49  658873.8      0.36     620.8    1002.2                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:00:49  658873.8      0.36     620.8    1002.2                                0.00  
+    0:00:49  659180.7      0.36     610.1    1002.2 lsq_entry_reg[0][value][11]/CLRB      0.00  
+    0:00:49  660101.4      0.36     578.1    1003.5 lsq_entry_reg[15][addr][17]/CLRB      0.00  
+    0:00:50  661370.4      0.35     532.8    1003.5 lsq_entry_reg[8][value][17]/CLRB      0.00  
+    0:00:50  661859.8      0.34     515.8    1003.5 lsq_entry_reg[3][value][12]/CLRB      0.00  
+    0:00:50  662880.0      0.30     493.3     995.5 lsq_entry_reg[6][addr][5]/CLRB      0.00  
+    0:00:50  663925.1      0.30     477.1     996.1 lsq_entry_reg[1][value][10]/CLRB      0.00  
+    0:00:51  664912.1      0.30     427.4     996.6 lsq_entry_reg[12][addr][20]/CLRB      0.00  
+    0:00:51  665227.3      0.30     415.9     996.6 lsq_entry_reg[7][addr][16]/CLRB      0.00  
+    0:00:51  666065.0      0.30     399.8     996.8 lsq_entry_reg[0][value][4]/CLRB      0.00  
+    0:00:51  666031.9      0.29     389.4     996.9 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:00:52  666488.1      0.27     377.5     995.1 lsq_entry_reg[8][addr][13]/CLRB      0.00  
+    0:00:52  666678.8      0.25     360.0     995.7 lsq_entry_reg[4][value][24]/CLRB      0.00  
+    0:00:52  667234.6      0.23     348.1     996.1 lsq_entry_reg[1][value][10]/CLRB      0.00  
+    0:00:52  667508.3      0.23     343.4     996.0 lsq_entry_reg[1][value][11]/CLRB      0.00  
+    0:00:52  667342.4      0.22     338.7     996.1 lsq_entry_reg[4][value][10]/CLRB      0.00  
+    0:00:52  667466.8      0.21     335.3     996.1 lsq_entry_reg[14][value][1]/CLRB      0.00  
+    0:00:52  667616.1      0.21     333.1     996.1 lsq_entry_reg[7][value][16]/CLRB      0.00  
+    0:00:53  667665.9      0.21     330.4     996.1 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:00:53  668445.5      0.21     317.7     996.1 lsq_entry_reg[8][addr][13]/CLRB      0.00  
+    0:00:53  668818.8      0.21     309.8     996.1 lsq_entry_reg[1][value][10]/CLRB      0.00  
+    0:00:53  668926.6      0.20     302.6     996.1 lsq_entry_reg[1][value][10]/CLRB      0.00  
+    0:00:53  669200.3      0.19     296.0     996.0 lsq_entry_reg[5][value][10]/CLRB      0.00  
+    0:00:53  669382.8      0.19     291.6     996.0 lsq_entry_reg[4][value][0]/CLRB      0.00  
+    0:00:53  669532.1      0.18     279.8     996.0 lsq_entry_reg[4][addr][31]/CLRB      0.00  
+    0:00:54  669548.7      0.18     271.0     996.4 lsq_entry_reg[4][addr][31]/CLRB      0.00  
+    0:00:54  669756.0      0.17     259.9     996.7 lsq_entry_reg[6][value][4]/CLRB      0.00  
+    0:00:54  670062.9      0.16     252.0     994.8 lsq_entry_reg[11][addr][3]/CLRB      0.00  
+    0:00:54  670353.2      0.16     237.3     994.8 lsq_entry_reg[11][addr][3]/CLRB      0.00  
+    0:00:54  670403.0      0.16     228.7     993.0 lsq_entry_reg[12][addr][20]/CLRB      0.00  
+    0:00:54  670286.9      0.14     218.5     993.0 lsq_entry_reg[6][addr][2]/CLRB      0.00  
+    0:00:54  670574.4      0.14     214.4     992.9 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:55  670643.5      0.14     200.3     989.0 lsq_entry_reg[4][addr][31]/CLRB      0.00  
+    0:00:55  670900.7      0.14     188.5     988.5 lsq_entry_reg[5][addr][21]/CLRB      0.00  
+    0:00:55  671257.3      0.14     180.5     989.1 lsq_entry_reg[3][value][14]/CLRB      0.00  
+    0:00:55  671431.5      0.14     179.6     988.8 lsq_entry_reg[2][value][0]/CLRB      0.00  
+    0:00:55  671365.2      0.14     172.8     988.8 lsq_entry_reg[1][value][11]/CLRB      0.00  
+    0:00:55  673380.7      0.14     163.0    1001.2 lsq_entry_reg[5][value][0]/CLRB      0.00  
+    0:00:56  673604.7      0.14     155.8     999.5 lsq_entry_reg[6][addr][2]/CLRB      0.00  
+    0:00:56  673513.4      0.14     146.4    1000.3 lsq_entry_reg[10][addr][13]/CLRB      0.00  
+    0:00:56  673372.4      0.14     143.9    1002.3 lsq_entry_reg[3][value][14]/CLRB      0.00  
+    0:00:56  673637.8      0.14     138.6    1002.3 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:56  673836.9      0.14     133.9    1004.1 lsq_entry_reg[4][value][24]/CLRB      0.00  
+    0:00:56  673853.5      0.14     124.9    1008.5 lsq_entry_reg[5][value][0]/CLRB      0.00  
+    0:00:56  674085.7      0.14     119.0    1008.6 lsq_entry_reg[2][value][18]/CLRB      0.00  
+    0:00:57  674177.0      0.14     116.5    1011.6 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:00:57  674566.8      0.14     114.4    1010.3 lsq_entry_reg[0][value][4]/CLRB      0.00  
+    0:00:57  674649.7      0.14     119.5    1010.4 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:57  674765.9      0.14     116.9    1007.5 lsq_entry_reg[0][value][4]/CLRB      0.00  
+    0:00:57  674765.9      0.14     111.5    1009.5 lsq_entry_reg[0][value][4]/CLRB      0.00  
+    0:00:57  675421.1      0.11      86.7    1006.5 lsq_entry_reg[6][value][4]/CLRB      0.00  
+    0:00:57  675686.5      0.10      81.7    1006.3 lsq_entry_reg[0][value][5]/CLRB      0.00  
+    0:00:58  675495.8      0.10      72.8    1006.3 lsq_entry_reg[13][addr][13]/CLRB      0.00  
+    0:00:58  675553.8      0.09      67.2    1006.3 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:58  675139.1      0.09      65.2    1006.3 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:58  675636.8      0.08      55.5    1006.3 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:58  675595.3      0.08      51.5    1006.3 lsq_entry_reg[6][addr][26]/CLRB      0.00  
+    0:00:58  675628.5      0.07      44.1    1006.3 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:58  675595.3      0.07      42.0    1006.3 lsq_entry_reg[6][addr][9]/CLRB      0.00  
+    0:00:58  675628.5      0.06      40.2    1006.3 lsq_entry_reg[0][value][5]/CLRB      0.00  
+    0:00:59  675255.2      0.06      35.7    1006.3 lsq_entry_reg[0][value][5]/CLRB      0.00  
+    0:00:59  675246.9      0.05      33.5    1006.3 lsq_entry_reg[4][value][0]/CLRB      0.00  
+    0:00:59  675164.0      0.05      29.4    1006.3 lsq_entry_reg[3][value][14]/CLRB      0.00  
+    0:00:59  675238.6      0.05      29.3    1006.3 lsq_entry_reg[1][value][11]/CLRB      0.00  
+    0:00:59  675263.5      0.05      26.3    1006.3 lsq_entry_reg[5][addr][9]/CLRB      0.00  
+    0:00:59  675421.1      0.05      24.7    1006.3 lsq_entry_reg[12][value][1]/CLRB      0.00  
+    0:00:59  675661.7      0.04      21.5    1006.5 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:01:00  676026.6      0.04      19.9    1005.3 lsq_entry_reg[7][value][5]/CLRB      0.00  
+    0:01:00  676267.2      0.04      18.3    1000.8 lsq_entry_reg[8][value][5]/CLRB      0.00  
+    0:01:00  676433.0      0.04      16.1    1001.8 lsq_entry_reg[7][value][8]/CLRB      0.00  
+    0:01:00  676491.1      0.03      14.3    1001.8 lsq_entry_reg[13][addr][13]/CLRB      0.00  
+    0:01:00  676574.0      0.03      13.1    1001.8 lsq_entry_reg[6][value][5]/CLRB      0.00  
+    0:01:00  676449.6      0.03      11.3    1001.8 lsq_entry_reg[11][addr][3]/CLRB      0.00  
+    0:01:00  676209.1      0.03       9.2    1001.8 lsq_entry_reg[4][value][0]/CLRB      0.00  
+    0:01:00  676234.0      0.03       8.9    1002.8 lsq_entry_reg[11][value][12]/CLRB      0.00  
+    0:01:00  676383.3      0.02       8.2    1002.8 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:01:01  676623.8      0.02       6.5    1002.9 lsq_entry_reg[7][addr][13]/CLRB      0.00  
+    0:01:01  676806.3      0.02       5.0    1003.2 lsq_entry_reg[3][addr][25]/CLRB      0.00  
+    0:01:01  676856.1      0.02       4.1    1003.5 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:01:01  677154.7      0.01       2.6    1003.5 lsq_entry_reg[1][value][10]/CLRB      0.00  
+    0:01:01  677478.1      0.01       1.5    1004.3 lsq_entry_reg[5][value][0]/CLRB      0.00  
+    0:01:01  677519.6      0.01       1.1    1004.3 lsq_entry_reg[0][addr][18]/CLRB      0.00  
+    0:01:01  677793.3      0.01       0.6    1004.5 lsq_entry_reg[5][addr][8]/CLRB      0.00  
+    0:01:01  677586.0      0.00       0.1    1004.5 lsq_entry_reg[8][addr][13]/CLRB      0.00  
+    0:01:01  677503.0      0.00       0.0    1002.7 lsq_entry_reg[1][addr][13]/CLRB      0.00  
+    0:01:02  677345.4      0.00       0.0    1002.7                                0.00  
+    0:01:03  665185.9      0.00       0.0    2669.2                                0.00  
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_fanout)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:04  665185.9      0.00       0.0    2669.2                                0.00  
+    0:01:04  666430.0      0.00       0.0    1067.0 ex_ic_packet_in[2][rs2_value][14]      0.00  
+    0:01:04  667234.6      0.00       0.0    1022.0 ex_ic_packet_in[2][rs2_value][22]      0.00  
+    0:01:04  668022.5      0.00       0.0     975.1 ex_ic_packet_in[2][rs2_value][17]      0.00  
+    0:01:04  668835.4      0.00       0.0     489.2 net102678                      0.00  
+    0:01:05  669515.5      0.00       0.0      28.2 net87334                       0.00  
+    0:01:05  669913.7      0.00       0.0       6.0 n5737                          0.00  
+    0:01:05  669714.6      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:05  669714.6      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:05  669714.6      0.00       0.0       0.0                                0.00  
+    0:01:05  669714.6      0.00       0.0       0.0                                0.00  
+    0:01:05  659056.3      0.09      13.2       0.0                                0.00  
+    0:01:06  654303.6      0.07      12.7       0.0                                0.00  
+    0:01:06  652205.1      0.06      11.5       0.0                                0.00  
+    0:01:06  651450.3      0.06      13.0       0.0                                0.00  
+    0:01:06  651209.8      0.06      19.5       0.0                                0.00  
+    0:01:06  650911.2      0.06      16.8       0.0                                0.00  
+    0:01:06  650745.3      0.07      15.8       0.0                                0.00  
+    0:01:06  650413.5      0.07      20.4       0.0                                0.00  
+    0:01:06  650272.5      0.07      22.5       0.0                                0.00  
+    0:01:07  650173.0      0.06      24.2       0.0                                0.00  
+    0:01:07  650173.0      0.06      24.2       0.0                                0.00  
+    0:01:07  651035.6      0.06      11.6       0.0 lsq_entry_reg[12][value][3]/CLRB      0.00  
+    0:01:08  651135.1      0.02       4.4       0.0 lsq_entry_reg[8][addr][16]/CLRB      0.00  
+    0:01:08  652951.6      0.01       0.9       0.0 lsq_entry_reg[4][value][10]/CLRB      0.00  
+    0:01:08  653042.9      0.00       0.2       0.0 lsq_entry_reg[12][value][3]/CLRB      0.00  
+    0:01:09  653117.5      0.00       0.1       0.0 lsq_entry_reg[5][value][10]/CLRB      0.00  
+    0:01:09  653142.4      0.00       0.0       0.0                                0.00  
+    0:01:09  640269.4      0.27      75.8       0.0                                0.00  
+    0:01:09  638618.8      0.27      86.3       0.0                                0.00  
+    0:01:09  638535.9      0.27      86.9       0.0                                0.00  
+    0:01:09  638535.9      0.27      86.9       0.0                                0.00  
+    0:01:09  638535.9      0.27      86.9       0.0                                0.00  
+    0:01:09  638535.9      0.27      86.9       0.0                                0.00  
+    0:01:09  638535.9      0.27      86.9       0.0                                0.00  
+    0:01:09  638535.9      0.27      86.9       0.0                                0.00  
+    0:01:10  639970.8      0.17      27.0       0.0 lsq_entry_reg[10][value][0]/CLRB      0.00  
+    0:01:10  641195.6      0.08      18.9       0.0 lsq_entry_reg[5][rob_tag][2]/CLRB      0.00  
+    0:01:11  641776.2      0.02       4.9       0.0 lsq_entry_reg[15][addr][15]/CLRB      0.00  
+    0:01:11  641975.3      0.01       3.1       0.0 lsq_entry_reg[2][addr][30]/CLRB      0.00  
+    0:01:11  642199.2      0.01       1.2       0.0                                0.00  
+    0:01:11  642207.5      0.01       0.9       0.0                                0.00  
+    0:01:12  642257.3      0.00       0.4       0.0                                0.00  
+    0:01:12  642431.5      0.00       0.1       0.0                                0.00  
+    0:01:12  642431.5      0.00       0.0       0.0                                0.00  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:12  642431.5      0.00       0.0       0.0                                0.00  
+    0:01:12  642431.5      0.00       0.0       0.0                                0.00  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'LSQ' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'clk': 1272 load(s), 1 driver(s)
+Writing verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.vg'.
+Writing ddc file './LSQ.ddc'.
+Writing svsim file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ_svsim.sv'.
+Removing design 'pe_OUTWIDTH4_INWIDTH16'
+Removing design 'LSQ'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/LSQ.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/c/h/chenhaom/eecs470/projects/final/eecs-470-final-project/LSQ/pe_OUTWIDTH4_INWIDTH16.db:pe_OUTWIDTH4_INWIDTH16'
+Loaded 2 designs.
+Current design is 'pe_OUTWIDTH4_INWIDTH16'.
+Current design is 'LSQ'.
+
+Memory usage for this session 468 Mbytes.
+Memory usage for this session including child processes 468 Mbytes.
+CPU usage for this session 77 seconds ( 0.02 hours ).
+Elapsed time for this session 80 seconds ( 0.02 hours ).
+
+Thank you...

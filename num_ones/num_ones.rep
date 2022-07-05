@@ -1,0 +1,328 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : design
+Design : num_ones
+Version: S-2021.06-SP1
+Date   : Fri Apr 15 23:36:12 2022
+****************************************
+
+Design allows ideal nets on clock nets.
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Local Link Library:
+
+    {lec25dscc25_TT.db}
+
+Flip-Flop Types:
+
+    No flip-flop types specified.
+
+Latch Types:
+
+    No latch types specified.
+
+Operating Conditions:
+
+
+    Operating Condition Name : nom_pvt
+    Library : lec25dscc25_TT
+    Process :   1.00
+    Temperature :  25.00
+    Voltage :   2.50
+    Interconnect Model : balanced_tree
+
+Wire Loading Model:
+
+    Selected manually by the user.
+
+Name           :   tsmcwire
+Location       :   lec25dscc25_TT
+Resistance     :   0.2642
+Capacitance    :   0.000132782
+Area           :   0.27
+Slope          :   0.74
+Fanout   Length   Points Average Cap Std Deviation
+--------------------------------------------------------------
+     1     0.89
+     2     1.48
+     3     2.44
+     4     3.18
+     5     3.92
+
+
+
+Wire Loading Model Mode: top.
+
+Timing Ranges:
+
+    No timing ranges specified.
+
+Pin Input Delays:
+
+    None specified.
+
+Pin Output Delays:
+
+    None specified.
+
+Disabled Timing Arcs:
+
+    No arcs disabled.
+
+Required Licenses:
+
+    None Required
+
+Design Parameters:
+
+    None specified.
+1
+ 
+****************************************
+Report : area
+Design : num_ones
+Version: S-2021.06-SP1
+Date   : Fri Apr 15 23:36:12 2022
+****************************************
+
+Library(s) Used:
+
+    lec25dscc25_TT (File: /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db)
+
+Number of ports:                           21
+Number of nets:                            77
+Number of cells:                           59
+Number of combinational cells:             59
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                          4
+Number of references:                      17
+
+Combinational area:               4213.556602
+Buf/Inv area:                      141.004803
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:              29.548261
+
+Total cell area:                  4213.556602
+Total area:                       4243.104864
+1
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 2
+        -transition_time
+Design : num_ones
+Version: S-2021.06-SP1
+Date   : Fri Apr 15 23:36:12 2022
+****************************************
+
+Operating Conditions: nom_pvt   Library: lec25dscc25_TT
+Wire Load Model Mode: top
+
+  Startpoint: A[1] (input port)
+  Endpoint: ones[3] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  num_ones           tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  input external delay                                              0.00       0.00 r
+  A[1] (in)                                               0.26      0.04       0.04 r
+  A[1] (net)                                    2                   0.00       0.04 r
+  U6/DIN1 (xor2s1)                                        0.26      0.00       0.04 r
+  U6/Q (xor2s1)                                           0.21      0.26       0.30 r
+  n25 (net)                                     2                   0.00       0.30 r
+  U9/DIN2 (xor2s1)                                        0.21      0.00       0.30 r
+  U9/Q (xor2s1)                                           0.22      0.21       0.51 f
+  N0 (net)                                      1                   0.00       0.51 f
+  U3/AIN (fadd1s3)                                        0.22      0.01       0.52 f
+  U3/OUTC (fadd1s3)                                       0.15      0.27       0.79 f
+  add_3_root_add_6_root_add_12_I16/carry[1] (net)     1             0.00       0.79 f
+  add_3_root_add_6_root_add_12_I16/U1_1/CIN (fadd1s3)     0.15      0.01       0.79 f
+  add_3_root_add_6_root_add_12_I16/U1_1/OUTS (fadd1s3)     0.32     0.53       1.32 r
+  N30 (net)                                     3                   0.00       1.32 r
+  U27/DIN1 (nnd2s2)                                       0.32      0.00       1.32 r
+  U27/Q (nnd2s2)                                          0.24      0.09       1.41 f
+  n10 (net)                                     1                   0.00       1.41 f
+  U28/DIN2 (nnd3s3)                                       0.24      0.01       1.42 f
+  U28/Q (nnd3s3)                                          0.25      0.12       1.53 r
+  add_0_root_add_6_root_add_12_I16/carry[2] (net)     3             0.00       1.53 r
+  U29/DIN2 (nnd2s2)                                       0.25      0.00       1.54 r
+  U29/Q (nnd2s2)                                          0.19      0.08       1.62 f
+  n21 (net)                                     1                   0.00       1.62 f
+  U44/DIN2 (nnd3s3)                                       0.19      0.01       1.62 f
+  U44/Q (nnd3s3)                                          0.28      0.12       1.74 r
+  add_0_root_add_6_root_add_12_I16/carry[3] (net)     2             0.00       1.74 r
+  U55/DIN2 (xor2s3)                                       0.28      0.01       1.74 r
+  U55/Q (xor2s3)                                          0.25      0.23       1.98 r
+  ones[3] (net)                                 1                   0.00       1.98 r
+  ones[3] (out)                                           0.25      0.02       2.00 r
+  data arrival time                                                            2.00
+
+  max_delay                                                         2.00       2.00
+  output external delay                                             0.00       2.00
+  data required time                                                           2.00
+  ------------------------------------------------------------------------------------
+  data required time                                                           2.00
+  data arrival time                                                           -2.00
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.00
+
+
+  Startpoint: A[13] (input port)
+  Endpoint: ones[2] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  num_ones           tsmcwire              lec25dscc25_TT
+
+  Point                                       Fanout     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  input external delay                                              0.00       0.00 f
+  A[13] (in)                                              0.23      0.04       0.04 f
+  A[13] (net)                                   3                   0.00       0.04 f
+  U5/DIN1 (xor2s1)                                        0.23      0.00       0.05 f
+  U5/Q (xor2s1)                                           0.15      0.21       0.26 f
+  n12 (net)                                     1                   0.00       0.26 f
+  U4/DIN2 (xor2s1)                                        0.15      0.00       0.26 f
+  U4/Q (xor2s1)                                           0.22      0.25       0.51 r
+  N14 (net)                                     2                   0.00       0.51 r
+  U58/DIN1 (xor2s1)                                       0.22      0.00       0.51 r
+  U58/Q (xor2s1)                                          0.19      0.25       0.75 r
+  N9 (net)                                      2                   0.00       0.75 r
+  U16/DIN2 (and2s1)                                       0.19      0.00       0.76 r
+  U16/Q (and2s1)                                          0.36      0.22       0.98 r
+  add_1_root_add_6_root_add_12_I16/carry[1] (net)     3             0.00       0.98 r
+  U13/DIN2 (nnd2s2)                                       0.36      0.00       0.98 r
+  U13/Q (nnd2s2)                                          0.17      0.06       1.05 f
+  n1 (net)                                      1                   0.00       1.05 f
+  U15/DIN3 (nnd3s2)                                       0.17      0.00       1.05 f
+  U15/Q (nnd3s2)                                          0.23      0.11       1.16 r
+  add_1_root_add_6_root_add_12_I16/carry[2] (net)     2             0.00       1.16 r
+  U23/DIN1 (xor2s1)                                       0.23      0.00       1.16 r
+  U23/Q (xor2s1)                                          0.27      0.28       1.45 r
+  N26 (net)                                     3                   0.00       1.45 r
+  U30/DIN1 (xor2s1)                                       0.27      0.00       1.45 r
+  U30/Q (xor2s1)                                          0.20      0.26       1.71 r
+  n11 (net)                                     1                   0.00       1.71 r
+  U31/DIN2 (xor2s2)                                       0.20      0.00       1.71 r
+  U31/Q (xor2s2)                                          0.36      0.26       1.97 r
+  ones[2] (net)                                 1                   0.00       1.97 r
+  ones[2] (out)                                           0.36      0.02       2.00 r
+  data arrival time                                                            2.00
+
+  max_delay                                                         2.00       2.00
+  output external delay                                             0.00       2.00
+  data required time                                                           2.00
+  ------------------------------------------------------------------------------------
+  data required time                                                           2.00
+  data arrival time                                                           -2.00
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  0.00
+
+
+1
+ 
+****************************************
+Report : constraint
+        -verbose
+        -max_delay
+Design : num_ones
+Version: S-2021.06-SP1
+Date   : Fri Apr 15 23:36:12 2022
+****************************************
+
+
+  Startpoint: A[1] (input port)
+  Endpoint: ones[3] (output port)
+  Path Group: input_grp
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  num_ones           tsmcwire              lec25dscc25_TT
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 r
+  A[1] (in)                                               0.04       0.04 r
+  U6/Q (xor2s1)                                           0.26       0.30 r
+  U9/Q (xor2s1)                                           0.21       0.51 f
+  U3/OUTC (fadd1s3)                                       0.28       0.79 f
+  add_3_root_add_6_root_add_12_I16/U1_1/OUTS (fadd1s3)     0.53      1.32 r
+  U27/Q (nnd2s2)                                          0.09       1.41 f
+  U28/Q (nnd3s3)                                          0.12       1.53 r
+  U29/Q (nnd2s2)                                          0.09       1.62 f
+  U44/Q (nnd3s3)                                          0.12       1.74 r
+  U55/Q (xor2s3)                                          0.24       1.98 r
+  ones[3] (out)                                           0.02       2.00 r
+  data arrival time                                                  2.00
+
+  max_delay                                               2.00       2.00
+  output external delay                                   0.00       2.00
+  data required time                                                 2.00
+  --------------------------------------------------------------------------
+  data required time                                                 2.00
+  data arrival time                                                 -2.00
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : reference
+Design : num_ones
+Version: S-2021.06-SP1
+Date   : Fri Apr 15 23:36:13 2022
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+and2s1             lec25dscc25_TT    49.766399       3   149.299198
+and2s2             lec25dscc25_TT    58.060799       2   116.121597
+aoi22s1            lec25dscc25_TT    58.060799       2   116.121597
+aoi22s2            lec25dscc25_TT    58.060799       1    58.060799
+fadd1s3            lec25dscc25_TT   223.949005       2   447.898010 r
+ib1s1              lec25dscc25_TT    33.177601       3    99.532803
+nb1s1              lec25dscc25_TT    41.472000       1    41.472000
+nnd2s1             lec25dscc25_TT    41.472000       5   207.360001
+nnd2s2             lec25dscc25_TT    41.472000      12   497.664001
+nnd2s3             lec25dscc25_TT    58.060799       1    58.060799
+nnd3s2             lec25dscc25_TT    49.766399       4   199.065598
+nnd3s3             lec25dscc25_TT    82.944000       2   165.888000
+xor2s1             lec25dscc25_TT    82.944000      14  1161.216003
+xor2s2             lec25dscc25_TT    99.532799       4   398.131195
+xor2s3             lec25dscc25_TT   116.122002       1   116.122002
+xor3s1             lec25dscc25_TT   182.477005       1   182.477005
+xor3s2             lec25dscc25_TT   199.065994       1   199.065994
+-----------------------------------------------------------------------------
+Total 17 references                                  4213.556602
+1

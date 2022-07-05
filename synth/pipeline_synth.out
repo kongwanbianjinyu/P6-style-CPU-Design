@@ -1,0 +1,927 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version S-2021.06-SP1 for linux64 - Jul 13, 2021 
+
+                    Copyright (c) 1988 - 2021 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+#make all your flip-flops have synchronous resets
+set hdlin_ff_always_sync_set_reset true
+true
+set search_path [ list "./" "/afs/umich.edu/class/eecs470/lib/synopsys/" ]
+./ /afs/umich.edu/class/eecs470/lib/synopsys/
+set target_library "lec25dscc25_TT.db"
+lec25dscc25_TT.db
+set link_library [concat  "*" $target_library]
+* lec25dscc25_TT.db
+#/***********************************************************/
+#/* Set some flags to suppress warnings we don't care about */
+set suppress_errors [concat $suppress_errors "UID-401"]
+UID-401
+suppress_message {"VER-130"}
+#/***********************************************************/
+#/* The following lines are set from environment variables
+#/* automatically by the Makefile
+#/***********************************************************/
+lappend search_path ../
+./ /afs/umich.edu/class/eecs470/lib/synopsys/ ../
+read_file -f ddc [list "MapTable/Map_Table.ddc"]
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/MapTable/Map_Table.ddc'.
+Loaded 1 design.
+Current design is 'Map_Table'.
+Map_Table
+set_dont_touch Map_Table
+1
+read_file -f ddc [list "ROB/ROB.ddc"]
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/ROB/ROB.ddc'.
+Loaded 23 designs.
+Current design is 'ROB'.
+ROB ROB_DW_div_uns_0 ROB_DW_div_uns_1 ROB_DW_div_uns_2 ROB_DW_div_uns_3 ROB_DW_div_uns_4 ROB_DW_div_uns_5 ROB_DW_div_uns_6 ROB_DW_div_uns_7 ROB_DW_div_uns_8 ROB_DW_div_uns_9 ROB_DW_div_uns_10 ROB_DW_div_uns_11 ROB_DW_div_uns_13 ROB_DW_div_uns_14 ROB_DW_div_uns_15 ROB_DW_div_uns_17 ROB_DW_div_uns_18 ROB_DW_div_uns_19 ROB_DW_div_uns_21 ROB_DW_div_uns_23 ROB_DW01_sub_0 ROB_DW01_sub_2
+set_dont_touch ROB
+1
+read_file -f ddc [list "RS/RS.ddc"]
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/RS/RS.ddc'.
+Loaded 4 designs.
+Current design is 'RS'.
+RS psel_gen_REQS3_WIDTH16 num_ones pe_OUTWIDTH4_INWIDTH16
+set_dont_touch RS
+1
+read_file -f ddc [list "Mult/mult.ddc"]
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/Mult/mult.ddc'.
+Loaded 5 designs.
+Current design is 'mult'.
+mult mult_stage mult_stage_DW02_mult_0 mult_stage_DW01_add_3 mult_stage_DW01_add_4
+set_dont_touch mult
+1
+read_file -f ddc [list "Cache/Dcache.ddc"]
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/Cache/Dcache.ddc'.
+Loaded 2 designs.
+Current design is 'Dcache'.
+Dcache Dcache_DW01_cmp6_0_DW01_cmp6_3
+set_dont_touch Dcache
+1
+read_file -f ddc [list "LSQ/LSQ.ddc"]
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/LSQ/LSQ.ddc'.
+Loaded 2 designs.
+Current design is 'LSQ'.
+LSQ pe_OUTWIDTH4_INWIDTH16
+set_dont_touch LSQ
+Warning: Design 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' comes before design 'RS.ddc:pe_OUTWIDTH4_INWIDTH16' in the link_library; 'RS.ddc:pe_OUTWIDTH4_INWIDTH16' will be ignored. (UIO-92)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:LSQ'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:LSQ'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:LSQ'. (UIO-93)
+1
+read_file -f ddc [list "psel_gen/psel_gen_REQS3_WIDTH6.ddc"]
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/psel_gen/psel_gen_REQS3_WIDTH6.ddc'.
+Loaded 2 designs.
+Current design is 'psel_gen_REQS3_WIDTH6'.
+psel_gen_REQS3_WIDTH6 wand_sel_WIDTH6
+set_dont_touch psel_gen_REQS3_WIDTH6
+1
+read_file -f ddc [list "pe/pe_OUTWIDTH3_INWIDTH8.ddc"]
+Reading ddc file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/pe/pe_OUTWIDTH3_INWIDTH8.ddc'.
+Loaded 1 design.
+Current design is 'pe_OUTWIDTH3_INWIDTH8'.
+pe_OUTWIDTH3_INWIDTH8
+set_dont_touch pe_OUTWIDTH3_INWIDTH8
+1
+analyze -f sverilog [list "ISA.svh" "sys_defs.svh" "Pipeline/pipeline.sv" "Pipeline/if_stage.sv" "Pipeline/id_stage.sv" "Pipeline/ex_stage.sv" "Pipeline/ic_stage.sv" "Pipeline/regfile.sv"]
+Running PRESTO HDLC
+Compiling source file ../ISA.svh
+Compiling source file ../sys_defs.svh
+Warning:  ../sys_defs.svh:382: Using default enum base size of 32. (VER-533)
+Compiling source file ../Pipeline/pipeline.sv
+Compiling source file ../Pipeline/if_stage.sv
+Compiling source file ../Pipeline/id_stage.sv
+Compiling source file ../Pipeline/ex_stage.sv
+Compiling source file ../Pipeline/ic_stage.sv
+Compiling source file ../Pipeline/regfile.sv
+Presto compilation completed successfully.
+1
+elaborate pipeline
+Running PRESTO HDLC
+Warning:  ../Pipeline/pipeline.sv:250: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../Pipeline/pipeline.sv:265: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../Pipeline/pipeline.sv:532: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../Pipeline/pipeline.sv:536: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine pipeline line 321 in file
+		'../Pipeline/pipeline.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  if_id_packet_reg   | Flip-flop |  282  |  Y  | N  | N  | N  | Y  | N  | N  |
+|  if_id_packet_reg   | Flip-flop |   9   |  Y  | N  | N  | N  | N  | Y  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine pipeline line 387 in file
+		'../Pipeline/pipeline.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  is_ex_packet_reg   | Flip-flop |  558  |  Y  | N  | N  | N  | Y  | N  | N  |
+|  is_ex_packet_reg   | Flip-flop |   9   |  Y  | N  | N  | N  | N  | Y  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine pipeline line 467 in file
+		'../Pipeline/pipeline.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  ex_ic_packet_reg   | Flip-flop |  420  |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine pipeline line 515 in file
+		'../Pipeline/pipeline.sv'.
+==============================================================================
+|     Register Name      | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+==============================================================================
+| wb_reg_wr_idx_out_reg  | Latch |  15   |  Y  | N  | N  | N  | -  | -  | -  |
+| wb_reg_wr_data_out_reg | Latch |  96   |  Y  | N  | N  | N  | -  | -  | -  |
+==============================================================================
+
+Inferred memory devices in process
+	in routine pipeline line 535 in file
+		'../Pipeline/pipeline.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   retire_halt_reg   | Flip-flop |   3   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine pipeline line 684 in file
+		'../Pipeline/pipeline.sv'.
+============================================================================
+|    Register Name     | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+============================================================================
+| proc2Dcache_data_reg | Latch |  32   |  Y  | N  | N  | N  | -  | -  | -  |
+============================================================================
+Warning:  ../Pipeline/pipeline.sv:515: Netlist for always_comb block contains a latch. (ELAB-974)
+Warning:  ../Pipeline/pipeline.sv:684: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully. (pipeline)
+Elaborated 1 design.
+Current design is now 'pipeline'.
+Information: Building the design 'if_stage'. (HDL-193)
+
+Inferred memory devices in process
+	in routine if_stage line 76 in file
+		'../Pipeline/if_stage.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     PC_prev_reg     | Flip-flop |  32   |  Y  | N  | N  | N  | Y  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (if_stage)
+Information: Building the design 'id_stage'. (HDL-193)
+
+Statistics for case statements in always block at line 317 in file
+	'../Pipeline/id_stage.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           319            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (id_stage)
+Information: Building the design 'ex_stage'. (HDL-193)
+
+Statistics for case statements in always block at line 188 in file
+	'../Pipeline/ex_stage.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           191            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 200 in file
+	'../Pipeline/ex_stage.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           205            |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+	in routine ex_stage line 161 in file
+		'../Pipeline/ex_stage.sv'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|  ex_packet_out_reg  | Latch |  417  |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+Warning:  ../Pipeline/ex_stage.sv:161: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully. (ex_stage)
+Information: Building the design 'ic_stage'. (HDL-193)
+
+Inferred memory devices in process
+	in routine ic_stage line 34 in file
+		'../Pipeline/ic_stage.sv'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   alu_result_reg    | Latch |  96   |  Y  | N  | N  | N  | -  | -  | -  |
+|  complete_num_reg   | Latch |   2   |  Y  | N  | N  | N  | -  | -  | -  |
+|    CDB_value_reg    | Latch |  96   |  Y  | N  | N  | N  | -  | -  | -  |
+|    CDB_halt_reg     | Latch |   3   |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+Warning:  ../Pipeline/ic_stage.sv:34: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully. (ic_stage)
+Information: Building the design 'regfile'. (HDL-193)
+
+Inferred memory devices in process
+	in routine regfile line 62 in file
+		'../Pipeline/regfile.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    registers_reg    | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|    regfile/42    |   32   |   32    |      5       |
+|    regfile/42    |   32   |   32    |      5       |
+|    regfile/42    |   32   |   32    |      5       |
+|    regfile/56    |   32   |   32    |      5       |
+|    regfile/56    |   32   |   32    |      5       |
+|    regfile/56    |   32   |   32    |      5       |
+======================================================
+Presto compilation completed successfully. (regfile)
+Information: Building the design 'decoder'. (HDL-193)
+
+Statistics for case statements in always block at line 53 in file
+	'../Pipeline/id_stage.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            72            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (decoder)
+Information: Building the design 'alu'. (HDL-193)
+Warning:  ../Pipeline/ex_stage.sv:45: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../Pipeline/ex_stage.sv:47: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../Pipeline/ex_stage.sv:63: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../Pipeline/ex_stage.sv:64: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../Pipeline/ex_stage.sv:65: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../Pipeline/ex_stage.sv:66: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 51 in file
+	'../Pipeline/ex_stage.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            53            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (alu)
+Information: Building the design 'brcond'. (HDL-193)
+
+Statistics for case statements in always block at line 95 in file
+	'../Pipeline/ex_stage.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           100            |     no/auto      |
+===============================================
+Presto compilation completed successfully. (brcond)
+Warning: Design 'RS.ddc:pe_OUTWIDTH4_INWIDTH16' comes before design 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' in the link_library; 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' will be ignored. (UIO-92)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+1
+set design_name pipeline
+pipeline
+set clock_name clk
+clk
+set reset_name reset
+reset
+set CLK_PERIOD 20
+20
+#/***********************************************************/
+#/* The rest of this file may be left alone for most small  */
+#/* to moderate sized designs.  You may need to alter it    */
+#/* when synthesizing your final project.                   */
+#/***********************************************************/
+set SYN_DIR ./
+./
+#/***********************************************************/
+#/* Set some flags for optimisation */
+set compile_top_all_paths "true"
+true
+set auto_wire_load_selection "false"
+false
+set compile_seqmap_synchronous_extraction "true"
+true
+# uncomment this and change number appropriately if on multi-core machine
+#set_host_options -max_cores 2
+#/***********************************************************/
+#/*  Clk Periods/uncertainty/transition                     */
+set CLK_TRANSITION 0.1
+0.1
+set CLK_UNCERTAINTY 0.1
+0.1
+set CLK_LATENCY 0.1
+0.1
+#/* Input/output Delay values */
+set AVG_INPUT_DELAY 0.1
+0.1
+set AVG_OUTPUT_DELAY 0.1
+0.1
+#/* Critical Range (ns) */
+set CRIT_RANGE 1.0
+1.0
+#/***********************************************************/
+#/* Design Constrains: Not all used                         */
+set MAX_TRANSITION 1.0
+1.0
+set FAST_TRANSITION 0.1
+0.1
+set MAX_FANOUT 32
+32
+set MID_FANOUT 8
+8
+set LOW_FANOUT 1
+1
+set HIGH_DRIVE 0
+0
+set HIGH_LOAD 1.0
+1.0
+set AVG_LOAD 0.1
+0.1
+set AVG_FANOUT_LOAD 10
+10
+#/***********************************************************/
+#/*BASIC_INPUT = cb18os120_tsmc_max/nd02d1/A1
+#BASIC_OUTPUT = cb18os120_tsmc_max/nd02d1/ZN*/
+set DRIVING_CELL dffacs1
+dffacs1
+#/* DONT_USE_LIST = {   } */
+#/*************operation cons**************/
+#/*OP_WCASE = WCCOM;
+#OP_BCASE = BCCOM;*/
+set WIRE_LOAD "tsmcwire"
+tsmcwire
+set LOGICLIB lec25dscc25_TT
+lec25dscc25_TT
+#/*****************************/
+#/* Sourcing the file that sets the Search path and the libraries(target,link) */
+set sys_clk $clock_name
+clk
+set netlist_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".vg"]
+./pipeline.vg
+set svsim_file [format "%s%s%s" $SYN_DIR $design_name "_svsim.sv"]
+./pipeline_svsim.sv
+set ddc_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".ddc"]
+./pipeline.ddc
+set rep_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".rep"]
+./pipeline.rep
+set res_file [format "%s%s%s" $SYN_DIR $design_name ".res"]
+./pipeline.res
+set dc_shell_status [ set chk_file [format "%s%s"  [format "%s%s"  $SYN_DIR $design_name] ".chk"] ]
+./pipeline.chk
+#/* if we didnt find errors at this point, run */
+if {  $dc_shell_status != [list] } {
+  current_design $design_name
+  link
+  set_wire_load_model -name $WIRE_LOAD -lib $LOGICLIB $design_name
+  set_wire_load_mode top
+  set_fix_multiple_port_nets -outputs -buffer_constants
+  create_clock -period $CLK_PERIOD -name $sys_clk [find port $sys_clk]
+  set_clock_uncertainty $CLK_UNCERTAINTY $sys_clk
+  set_fix_hold $sys_clk
+  group_path -from [all_inputs] -name input_grp
+  group_path -to [all_outputs] -name output_grp
+  set_driving_cell  -lib_cell $DRIVING_CELL [all_inputs]
+  remove_driving_cell [find port $sys_clk]
+  set_fanout_load $AVG_FANOUT_LOAD [all_outputs]
+  set_load $AVG_LOAD [all_outputs]
+  set_input_delay $AVG_INPUT_DELAY -clock $sys_clk [all_inputs]
+  remove_input_delay -clock $sys_clk [find port $sys_clk]
+  set_output_delay $AVG_OUTPUT_DELAY -clock $sys_clk [all_outputs]
+  set_dont_touch $reset_name
+  set_resistance 0 $reset_name
+  set_drive 0 $reset_name
+  set_critical_range $CRIT_RANGE [current_design]
+  set_max_delay $CLK_PERIOD [all_outputs]
+  set MAX_FANOUT $MAX_FANOUT
+  set MAX_TRANSITION $MAX_TRANSITION
+  uniquify
+  ungroup -all -flatten
+  redirect $chk_file { check_design }
+  compile -map_effort medium
+  write -hier -format verilog -output $netlist_file $design_name
+  write -hier -format ddc -output $ddc_file $design_name
+  write -format svsim -output $svsim_file $design_name
+  redirect $rep_file { report_design -nosplit }
+  redirect -append $rep_file { report_area }
+  redirect -append $rep_file { report_timing -max_paths 2 -input_pins -nets -transition_time -nosplit }
+  redirect -append $rep_file { report_constraint -max_delay -verbose -nosplit }
+  redirect $res_file { report_resources -hier }
+  remove_design -all
+  read_file -format verilog $netlist_file
+  current_design $design_name
+  redirect -append $rep_file { report_reference -nosplit }
+  quit
+} else {
+  quit
+}
+Current design is 'pipeline'.
+
+  Linking design 'pipeline'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (49 designs)              /afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/synth/pipeline.db, etc
+  lec25dscc25_TT (library)    /afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db
+
+Warning: Design 'RS.ddc:pe_OUTWIDTH4_INWIDTH16' comes before design 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' in the link_library; 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' will be ignored. (UIO-92)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Current design is 'pipeline'.
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Information: Uniquified 3 instances of design 'decoder'. (OPT-1056)
+Warning: Design 'RS.ddc:pe_OUTWIDTH4_INWIDTH16' comes before design 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' in the link_library; 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' will be ignored. (UIO-92)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+Information: Updating graph... (UID-83)
+Warning: Design 'pipeline' contains 5 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.1 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+Warning: Dont_touch on net 'reset' may be overridden by compile because it
+	is connected to generic logic. Use all_connected to see net
+	connections. (OPT-461)
+
+Information: There are 15648 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'pipeline'
+Warning: Design 'RS.ddc:pe_OUTWIDTH4_INWIDTH16' comes before design 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' in the link_library; 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' will be ignored. (UIO-92)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'pipeline_DW01_cmp2_0_DW01_cmp2_9'
+  Processing 'pipeline_DW01_cmp2_1_DW01_cmp2_10'
+  Processing 'pipeline_DW01_cmp2_2_DW01_cmp2_11'
+  Processing 'pipeline_DW01_cmp2_3_DW01_cmp2_12'
+  Processing 'pipeline_DW_rash_0'
+  Processing 'pipeline_DW01_ash_0'
+  Processing 'pipeline_DW_rash_1'
+  Processing 'pipeline_DW01_cmp2_4_DW01_cmp2_13'
+  Processing 'pipeline_DW01_cmp2_5_DW01_cmp2_14'
+  Processing 'pipeline_DW01_sub_0'
+  Processing 'pipeline_DW01_add_0_DW01_add_1'
+  Processing 'pipeline_DW_rash_2'
+  Processing 'pipeline_DW01_ash_1'
+  Processing 'pipeline_DW_rash_3'
+  Processing 'pipeline_DW01_cmp2_6_DW01_cmp2_15'
+  Processing 'pipeline_DW01_cmp2_7_DW01_cmp2_16'
+  Processing 'pipeline_DW01_sub_1'
+  Processing 'pipeline_DW01_add_1_DW01_add_2'
+  Processing 'pipeline_DW_rash_4'
+  Processing 'pipeline_DW01_ash_2'
+  Processing 'pipeline_DW_rash_5'
+  Processing 'pipeline_DW01_cmp2_8_DW01_cmp2_17'
+  Processing 'pipeline_DW01_cmp2_9_DW01_cmp2_18'
+  Processing 'pipeline_DW01_sub_2'
+  Processing 'pipeline_DW01_add_2_DW01_add_3'
+  Processing 'pipeline_DW01_cmp6_0'
+  Processing 'pipeline_DW01_cmp6_1'
+  Processing 'pipeline_DW01_cmp6_2'
+  Processing 'pipeline_DW01_cmp6_3'
+  Processing 'pipeline_DW01_cmp6_4'
+  Processing 'pipeline_DW01_cmp6_5'
+  Processing 'pipeline_DW01_cmp6_6'
+  Processing 'pipeline_DW01_cmp6_7'
+  Processing 'pipeline_DW01_cmp6_8'
+  Processing 'pipeline_DW01_cmp6_9'
+  Processing 'pipeline_DW01_cmp6_10'
+  Processing 'pipeline_DW01_cmp6_11'
+  Processing 'pipeline_DW01_cmp6_12'
+  Processing 'pipeline_DW01_cmp6_13'
+  Processing 'pipeline_DW01_cmp6_14'
+  Processing 'pipeline_DW01_cmp6_15'
+  Processing 'pipeline_DW01_cmp6_16'
+  Processing 'pipeline_DW01_cmp6_17'
+  Processing 'pipeline_DW01_cmp6_18'
+  Processing 'pipeline_DW01_cmp6_19'
+  Processing 'pipeline_DW01_cmp6_20'
+  Processing 'pipeline_DW01_add_3_DW01_add_4'
+  Processing 'pipeline_DW01_inc_0_DW01_inc_2'
+  Processing 'pipeline_DW01_cmp6_21'
+  Processing 'pipeline_DW01_cmp6_22'
+  Processing 'pipeline_DW01_cmp6_23'
+  Processing 'pipeline_DW01_cmp2_10_DW01_cmp2_19'
+  Processing 'pipeline_DW01_cmp6_24'
+  Processing 'pipeline_DW01_cmp2_11_DW01_cmp2_20'
+  Processing 'pipeline_DW01_cmp6_25'
+  Processing 'pipeline_DW01_cmp2_12_DW01_cmp2_21'
+  Processing 'pipeline_DW01_cmp6_26'
+  Processing 'pipeline_DW01_add_4_DW01_add_5'
+  Processing 'pipeline_DW01_add_5_DW01_add_6'
+  Processing 'pipeline_DW01_add_6_DW01_add_7'
+  Allocating blocks in 'DW02_mult_A_width32_B_width32'
+  Building model 'DW01_MUX'
+  Processing 'DW01_MUX'
+  Building model 'DW01_mmux_width2'
+  Processing 'DW01_mmux_width2'
+  Building model 'DW01_mmux_width3'
+  Processing 'DW01_mmux_width3'
+  Building model 'DW01_mmux_width4'
+  Processing 'DW01_mmux_width4'
+  Building model 'DW01_mmux_width5'
+  Processing 'DW01_mmux_width5'
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_add_width62' (cla)
+  Processing 'DW01_add_width62'
+  Building model 'DW01_add_width62' (cla)
+  Processing 'DW01_add_width62'
+  Building model 'DW02_mult_A_width32_B_width32' (csa)
+  Processing 'DW02_mult_A_width32_B_width32'
+  Processing 'pipeline_DW02_mult_0'
+  Processing 'pipeline_DW01_add_7_DW01_add_8'
+  Processing 'pipeline_DW02_mult_1'
+  Processing 'pipeline_DW01_add_8_DW01_add_9'
+  Processing 'pipeline_DW02_mult_2'
+  Processing 'pipeline_DW01_add_9_DW01_add_10'
+  Processing 'pipeline_DW02_mult_3'
+  Processing 'pipeline_DW01_add_10_DW01_add_11'
+  Processing 'pipeline_DW02_mult_4'
+  Processing 'pipeline_DW01_add_11_DW01_add_12'
+  Processing 'pipeline_DW02_mult_5'
+  Processing 'pipeline_DW01_add_12_DW01_add_13'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:08 20371794.8   1176.89 1537412.6   99354.4                                0.00  
+    0:01:08 20371794.8   1176.89 1537412.6   99354.4                                0.00  
+    0:01:10 20593404.4   1176.89 1537412.6   95882.5                                0.00  
+    0:01:11 21476002.6      0.00       0.0   12710.3                                0.00  
+    0:01:12 21927574.3      0.00       0.0    4441.9                                0.00  
+    0:01:23 21660105.8      0.01       0.0   21485.7                                0.00  
+    0:01:23 21660105.8      0.01       0.0   21485.7                                0.00  
+    0:01:23 21660105.8      0.01       0.0   21485.7                                0.00  
+    0:01:24 21660105.8      0.01       0.0   21485.7                                0.00  
+    0:01:24 21660105.8      0.01       0.0   21485.7                                0.00  
+    0:01:34 19514822.4      0.00       0.0     167.4                                0.00  
+    0:01:35 19503019.5      0.00       0.0     167.4                                0.00  
+    0:01:38 19503019.5      0.00       0.0     167.2                                0.00  
+    0:01:39 19503019.5      0.00       0.0     167.2                                0.00  
+    0:01:39 19503019.5      0.00       0.0     167.2                                0.00  
+    0:01:40 19503019.5      0.00       0.0     167.2                                0.00  
+    0:01:40 19503019.5      0.00       0.0     167.2                                0.00  
+    0:01:41 19503799.1      0.00       0.0       3.1                                0.00  
+    0:01:41 19503799.1      0.00       0.0       3.1                                0.00  
+    0:01:41 19503799.1      0.00       0.0       3.1                                0.00  
+    0:01:41 19503799.1      0.00       0.0       3.1                                0.00  
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:41 19503799.1      0.00       0.0       3.1                                0.00  
+    0:01:41 19503799.1      0.00       0.0       3.1                                0.00  
+    0:01:42 19503799.1      0.00       0.0       3.1                                0.00  
+
+
+  Beginning Design Rule Fixing  (min_path)  (max_transition)
+  ----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:46 19503799.1      0.00       0.0       3.1                               -2.25  
+    0:01:48 19503882.1      0.00       0.0       0.4                               -2.25  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:48 19503882.1      0.00       0.0       0.4                               -2.25  
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:01:48 19503882.1      0.00       0.0       0.4                               -2.25  
+    0:01:49 19503882.1      0.00       0.0       0.4                               -2.25  
+    0:01:51 19472869.3      0.00       0.0       0.4                               -2.25  
+    0:01:53 19454638.2      0.00       0.0       0.4                               -2.25  
+    0:01:55 19441649.2      0.00       0.0       0.4                               -2.25  
+    0:01:56 19435046.9      0.00       0.0       0.4                               -2.25  
+    0:01:57 19430625.9      0.00       0.0       0.4                               -2.25  
+    0:01:58 19426694.4      0.00       0.0       0.4                               -2.25  
+    0:01:59 19424745.2      0.00       0.0       0.4                               -2.25  
+    0:01:59 19423111.2      0.00       0.0       0.4                               -2.25  
+    0:02:00 19421585.0      0.00       0.0       0.4                               -2.25  
+    0:02:00 19420058.9      0.00       0.0       0.4                               -2.25  
+    0:02:00 19418532.7      0.00       0.0       0.4                               -2.25  
+    0:02:00 19417006.5      0.00       0.0       0.4                               -2.25  
+    0:02:01 19415679.4      0.00       0.0       0.4                               -2.25  
+    0:02:01 19415264.7      0.00       0.0       0.4                               -2.25  
+    0:02:01 19415098.8      0.00       0.0       0.4                               -2.25  
+    0:02:01 19414932.9      0.00       0.0       0.4                               -2.25  
+    0:02:02 19414800.2      0.00       0.0       0.4                               -2.25  
+    0:02:02 19414667.5      0.00       0.0       0.4                               -2.25  
+    0:02:02 19414534.8      0.00       0.0       0.4                               -2.25  
+    0:02:02 19414402.1      0.00       0.0       0.4                               -2.25  
+    0:02:02 19414269.4      0.00       0.0       0.4                               -2.25  
+    0:02:02 19414136.7      0.00       0.0       0.4                               -2.25  
+    0:02:03 19414004.0      0.00       0.0       0.4                               -2.25  
+    0:02:03 19413871.3      0.00       0.0       0.4                               -2.25  
+    0:02:03 19413738.5      0.00       0.0       0.4                               -2.25  
+    0:02:03 19413605.8      0.00       0.0       0.4                               -2.25  
+    0:02:03 19413473.1      0.00       0.0       0.4                               -2.25  
+    0:02:03 19413340.4      0.00       0.0       0.4                               -2.25  
+    0:02:04 19413207.7      0.00       0.0       0.4                               -2.25  
+    0:02:04 19413075.0      0.00       0.0       0.4                               -2.25  
+    0:02:04 19412942.3      0.00       0.0       0.4                               -2.25  
+    0:02:04 19412809.6      0.00       0.0       0.4                               -2.25  
+    0:02:04 19412676.9      0.00       0.0       0.4                               -2.25  
+    0:02:04 19412544.1      0.00       0.0       0.4                               -2.25  
+    0:02:04 19412411.4      0.00       0.0       0.4                               -2.25  
+    0:02:05 19412278.7      0.00       0.0       0.4                               -2.25  
+    0:02:05 19412146.0      0.00       0.0       0.4                               -2.25  
+    0:02:05 19412013.3      0.00       0.0       0.4                               -2.25  
+    0:02:05 19411880.6      0.00       0.0       0.4                               -2.25  
+    0:02:05 19411747.9      0.00       0.0       0.4                               -2.25  
+    0:02:05 19411615.2      0.00       0.0       0.4                               -2.25  
+    0:02:06 19411482.5      0.00       0.0       0.4                               -2.25  
+    0:02:06 19411349.8      0.00       0.0       0.4                               -2.25  
+    0:02:06 19411217.0      0.00       0.0       0.4                               -2.25  
+    0:02:06 19411084.3      0.00       0.0       0.4                               -2.25  
+    0:02:06 19410951.6      0.00       0.0       0.4                               -2.25  
+    0:02:06 19410818.9      0.00       0.0       0.4                               -2.25  
+    0:02:07 19410686.2      0.00       0.0       0.4                               -2.25  
+    0:02:07 19410553.5      0.00       0.0       0.4                               -2.25  
+    0:02:07 19410420.8      0.00       0.0       0.4                               -2.25  
+    0:02:07 19410288.1      0.00       0.0       0.4                               -2.25  
+    0:02:07 19410155.4      0.00       0.0       0.4                               -2.25  
+    0:02:08 19410022.6      0.00       0.0       0.4                               -2.25  
+    0:02:08 19409889.9      0.00       0.0       0.4                               -2.25  
+    0:02:08 19409757.2      0.00       0.0       0.4                               -2.25  
+    0:02:08 19409624.5      0.00       0.0       0.4                               -2.25  
+    0:02:09 19409491.8      0.00       0.0       0.4                               -2.25  
+    0:02:09 19409359.1      0.00       0.0       0.4                               -2.25  
+    0:02:09 19409226.4      0.00       0.0       0.4                               -2.25  
+    0:02:09 19409093.7      0.00       0.0       0.4                               -2.25  
+    0:02:09 19408961.0      0.00       0.0       0.4                               -2.25  
+    0:02:10 19408795.1      0.00       0.0       0.4                               -2.25  
+    0:02:10 19408695.5      0.00       0.0       0.4                               -2.25  
+    0:02:10 19408596.0      0.00       0.0       0.4                               -2.25  
+    0:02:10 19408496.5      0.00       0.0       0.4                               -2.25  
+    0:02:10 19408396.9      0.00       0.0       0.4                               -2.25  
+    0:02:10 19408297.4      0.00       0.0       0.4                               -2.25  
+    0:02:11 19408197.9      0.00       0.0       0.4                               -2.25  
+    0:02:11 19408098.3      0.00       0.0       0.4                               -2.25  
+    0:02:11 19407998.8      0.00       0.0       0.4                               -2.25  
+    0:02:11 19407899.3      0.00       0.0       0.4                               -2.25  
+    0:02:11 19407799.7      0.00       0.0       0.4                               -2.25  
+    0:02:11 19407700.2      0.00       0.0       0.4                               -2.25  
+    0:02:11 19407600.7      0.00       0.0       0.4                               -2.25  
+    0:02:12 19407501.2      0.00       0.0       0.4                               -2.25  
+    0:02:12 19407501.2      0.00       0.0       0.4                               -2.25  
+    0:02:13 19407501.2      0.00       0.0       0.4                               -2.25  
+    0:02:13 19406516.9      0.00       0.0       0.4                               -2.25  
+    0:02:13 19406516.9      0.00       0.0       0.4                               -2.25  
+    0:02:13 19406516.9      0.00       0.0       0.4                               -2.25  
+    0:02:14 19406516.9      0.00       0.0       0.4                               -2.25  
+    0:02:14 19406516.9      0.00       0.0       0.4                               -2.25  
+    0:02:14 19406516.9      0.00       0.0       0.4                               -2.25  
+
+
+  Beginning Critical Range Optimization
+  -------------------------------------
+
+                                  TOTAL                                                  
+   ELAPSED            WORST NEG   SETUP    DESIGN                              MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT             COST    
+  --------- --------- --------- --------- --------- ------------------------- -----------
+    0:02:14 19406516.9      0.00       0.0       0.4                               -2.25  
+    0:02:17 19407047.8      0.00       0.0       0.4                               -2.25  
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'pipeline' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'ex_stage_0/m2/mstage[7]/clk': 27367 load(s), 1 driver(s)
+Warning: Design 'RS.ddc:pe_OUTWIDTH4_INWIDTH16' comes before design 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' in the link_library; 'LSQ.ddc:pe_OUTWIDTH4_INWIDTH16' will be ignored. (UIO-92)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'RS.ddc:rs'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Information: Design 'pe_OUTWIDTH4_INWIDTH16' is referenced in design 'LSQ.ddc:lsq'. (UIO-93)
+Writing verilog file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/synth/pipeline.vg'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 6 nets to module RS using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 8 nets to module mult_stage_DW02_mult_0 using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 8 nets to module mult_stage using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 226 nets to module mult using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 30 nets to module pipeline_DW02_mult_1 using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 30 nets to module pipeline_DW02_mult_3 using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 30 nets to module pipeline_DW02_mult_5 using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Warning: Verilog writer has added 157 nets to module pipeline using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+Writing ddc file './pipeline.ddc'.
+Writing svsim file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/synth/pipeline_svsim.sv'.
+Removing design 'Map_Table'
+Removing design 'ROB'
+Removing design 'ROB_DW_div_uns_0'
+Removing design 'ROB_DW_div_uns_1'
+Removing design 'ROB_DW_div_uns_2'
+Removing design 'ROB_DW_div_uns_3'
+Removing design 'ROB_DW_div_uns_4'
+Removing design 'ROB_DW_div_uns_5'
+Removing design 'ROB_DW_div_uns_6'
+Removing design 'ROB_DW_div_uns_7'
+Removing design 'ROB_DW_div_uns_8'
+Removing design 'ROB_DW_div_uns_9'
+Removing design 'ROB_DW_div_uns_10'
+Removing design 'ROB_DW_div_uns_11'
+Removing design 'ROB_DW_div_uns_13'
+Removing design 'ROB_DW_div_uns_14'
+Removing design 'ROB_DW_div_uns_15'
+Removing design 'ROB_DW_div_uns_17'
+Removing design 'ROB_DW_div_uns_18'
+Removing design 'ROB_DW_div_uns_19'
+Removing design 'ROB_DW_div_uns_21'
+Removing design 'ROB_DW_div_uns_23'
+Removing design 'ROB_DW01_sub_0'
+Removing design 'ROB_DW01_sub_2'
+Removing design 'RS'
+Removing design 'psel_gen_REQS3_WIDTH16'
+Removing design 'num_ones'
+Removing design 'pe_OUTWIDTH4_INWIDTH16'
+Removing design 'mult'
+Removing design 'mult_stage'
+Removing design 'mult_stage_DW02_mult_0'
+Removing design 'mult_stage_DW01_add_3'
+Removing design 'mult_stage_DW01_add_4'
+Removing design 'Dcache'
+Removing design 'Dcache_DW01_cmp6_0_DW01_cmp6_3'
+Removing design 'LSQ'
+Removing design 'pe_OUTWIDTH4_INWIDTH16'
+Removing design 'psel_gen_REQS3_WIDTH6'
+Removing design 'wand_sel_WIDTH6'
+Removing design 'pe_OUTWIDTH3_INWIDTH8'
+Removing design 'pipeline'
+Removing design 'pipeline_DW01_ash_0'
+Removing design 'pipeline_DW01_sub_0'
+Removing design 'pipeline_DW01_add_0_DW01_add_1'
+Removing design 'pipeline_DW01_ash_1'
+Removing design 'pipeline_DW01_sub_1'
+Removing design 'pipeline_DW01_add_1_DW01_add_2'
+Removing design 'pipeline_DW01_ash_2'
+Removing design 'pipeline_DW01_sub_2'
+Removing design 'pipeline_DW01_add_2_DW01_add_3'
+Removing design 'pipeline_DW01_add_3_DW01_add_4'
+Removing design 'pipeline_DW01_inc_0_DW01_inc_2'
+Removing design 'pipeline_DW01_cmp6_24'
+Removing design 'pipeline_DW01_cmp6_25'
+Removing design 'pipeline_DW01_cmp6_26'
+Removing design 'pipeline_DW01_add_4_DW01_add_5'
+Removing design 'pipeline_DW01_add_5_DW01_add_6'
+Removing design 'pipeline_DW01_add_6_DW01_add_7'
+Removing design 'pipeline_DW02_mult_0'
+Removing design 'pipeline_DW01_add_7_DW01_add_8'
+Removing design 'pipeline_DW02_mult_1'
+Removing design 'pipeline_DW01_add_8_DW01_add_9'
+Removing design 'pipeline_DW02_mult_2'
+Removing design 'pipeline_DW01_add_9_DW01_add_10'
+Removing design 'pipeline_DW02_mult_3'
+Removing design 'pipeline_DW01_add_10_DW01_add_11'
+Removing design 'pipeline_DW02_mult_4'
+Removing design 'pipeline_DW01_add_11_DW01_add_12'
+Removing design 'pipeline_DW02_mult_5'
+Removing design 'pipeline_DW01_add_12_DW01_add_13'
+Removing library 'lec25dscc25_TT'
+Removing library 'gtech'
+Removing library 'standard.sldb'
+Loading db file '/afs/umich.edu/class/eecs470/lib/synopsys/lec25dscc25_TT.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/gtech.db'
+Loading db file '/usr/caen/synopsys-synth-2021.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'lec25dscc25_TT'
+  Loading link library 'gtech'
+Loading verilog file '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/synth/pipeline.vg'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Performing 'read' command.
+Compiling source file /afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/synth/pipeline.vg
+Reading with netlist reader (equivalent to -netlist option).
+Verilog netlist reader completed successfully.
+Current design is now '/afs/umich.edu/user/j/i/jiachenj/eecs-470-final-version/eecs-470-final-project/synth/ROB_DW_div_uns_0.db:ROB_DW_div_uns_0'
+Loaded 69 designs.
+Current design is 'ROB_DW_div_uns_0'.
+Current design is 'pipeline'.
+
+Memory usage for this session 826 Mbytes.
+Memory usage for this session including child processes 826 Mbytes.
+CPU usage for this session 170 seconds ( 0.05 hours ).
+Elapsed time for this session 179 seconds ( 0.05 hours ).
+
+Thank you...

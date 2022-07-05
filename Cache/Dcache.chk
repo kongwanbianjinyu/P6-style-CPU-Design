@@ -1,0 +1,50 @@
+ 
+****************************************
+check_design summary:
+Version:     S-2021.06-SP1
+Date:        Sun Apr 17 18:48:37 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     34
+    Feedthrough (LINT-29)                                          29
+    Shorted outputs (LINT-31)                                       2
+    Constant outputs (LINT-52)                                      3
+--------------------------------------------------------------------------------
+
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[31]' is connected directly to output port 'proc2Dmem_addr[31]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[30]' is connected directly to output port 'proc2Dmem_addr[30]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[29]' is connected directly to output port 'proc2Dmem_addr[29]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[28]' is connected directly to output port 'proc2Dmem_addr[28]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[27]' is connected directly to output port 'proc2Dmem_addr[27]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[26]' is connected directly to output port 'proc2Dmem_addr[26]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[25]' is connected directly to output port 'proc2Dmem_addr[25]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[24]' is connected directly to output port 'proc2Dmem_addr[24]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[23]' is connected directly to output port 'proc2Dmem_addr[23]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[22]' is connected directly to output port 'proc2Dmem_addr[22]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[21]' is connected directly to output port 'proc2Dmem_addr[21]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[20]' is connected directly to output port 'proc2Dmem_addr[20]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[19]' is connected directly to output port 'proc2Dmem_addr[19]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[18]' is connected directly to output port 'proc2Dmem_addr[18]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[17]' is connected directly to output port 'proc2Dmem_addr[17]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[16]' is connected directly to output port 'proc2Dmem_addr[16]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[15]' is connected directly to output port 'proc2Dmem_addr[15]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[14]' is connected directly to output port 'proc2Dmem_addr[14]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[13]' is connected directly to output port 'proc2Dmem_addr[13]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[12]' is connected directly to output port 'proc2Dmem_addr[12]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[11]' is connected directly to output port 'proc2Dmem_addr[11]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[10]' is connected directly to output port 'proc2Dmem_addr[10]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[9]' is connected directly to output port 'proc2Dmem_addr[9]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[8]' is connected directly to output port 'proc2Dmem_addr[8]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[7]' is connected directly to output port 'proc2Dmem_addr[7]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[6]' is connected directly to output port 'proc2Dmem_addr[6]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[5]' is connected directly to output port 'proc2Dmem_addr[5]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[4]' is connected directly to output port 'proc2Dmem_addr[4]'. (LINT-29)
+Warning: In design 'Dcache', input port 'proc2Dcache_addr[3]' is connected directly to output port 'proc2Dmem_addr[3]'. (LINT-29)
+Warning: In design 'Dcache', output port 'proc2Dmem_addr[2]' is connected directly to output port 'proc2Dmem_addr[0]'. (LINT-31)
+Warning: In design 'Dcache', output port 'proc2Dmem_addr[2]' is connected directly to output port 'proc2Dmem_addr[1]'. (LINT-31)
+Warning: In design 'Dcache', output port 'proc2Dmem_addr[2]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Dcache', output port 'proc2Dmem_addr[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'Dcache', output port 'proc2Dmem_addr[0]' is connected directly to 'logic 0'. (LINT-52)
+1

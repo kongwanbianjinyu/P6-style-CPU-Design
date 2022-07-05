@@ -19,7 +19,7 @@ module psel_gen ( // Inputs
 
   // synopsys template
   parameter REQS  = 3;
-  parameter WIDTH = 6;
+  parameter WIDTH = 16;
 
   // Inputs
   input wire  [WIDTH-1:0]       req;

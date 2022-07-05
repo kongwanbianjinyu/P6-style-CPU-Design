@@ -1,0 +1,491 @@
+ 
+****************************************
+check_design summary:
+Version:     S-2021.06-SP1
+Date:        Sat Apr 16 15:52:22 2022
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     52
+    Unloaded inputs (LINT-8)                                       15
+    Unconnected ports (LINT-28)                                    29
+    Feedthrough (LINT-29)                                           7
+    Constant outputs (LINT-52)                                      1
+
+Cells                                                              79
+    Connected to power or ground (LINT-32)                         75
+    Nets connected to multiple pins on same cell (LINT-33)          4
+
+Nets                                                              257
+    Unloaded nets (LINT-2)                                        257
+--------------------------------------------------------------------------------
+
+Warning: In design 'mult', net 'product[32]' driven by pin 'mstage[7]/product_out[32]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[33]' driven by pin 'mstage[7]/product_out[33]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[34]' driven by pin 'mstage[7]/product_out[34]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[35]' driven by pin 'mstage[7]/product_out[35]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[36]' driven by pin 'mstage[7]/product_out[36]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[37]' driven by pin 'mstage[7]/product_out[37]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[38]' driven by pin 'mstage[7]/product_out[38]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[39]' driven by pin 'mstage[7]/product_out[39]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[40]' driven by pin 'mstage[7]/product_out[40]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[41]' driven by pin 'mstage[7]/product_out[41]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[42]' driven by pin 'mstage[7]/product_out[42]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[43]' driven by pin 'mstage[7]/product_out[43]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[44]' driven by pin 'mstage[7]/product_out[44]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[45]' driven by pin 'mstage[7]/product_out[45]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[46]' driven by pin 'mstage[7]/product_out[46]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[47]' driven by pin 'mstage[7]/product_out[47]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[48]' driven by pin 'mstage[7]/product_out[48]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[49]' driven by pin 'mstage[7]/product_out[49]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[50]' driven by pin 'mstage[7]/product_out[50]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[51]' driven by pin 'mstage[7]/product_out[51]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[52]' driven by pin 'mstage[7]/product_out[52]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[53]' driven by pin 'mstage[7]/product_out[53]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[54]' driven by pin 'mstage[7]/product_out[54]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[55]' driven by pin 'mstage[7]/product_out[55]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[56]' driven by pin 'mstage[7]/product_out[56]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[57]' driven by pin 'mstage[7]/product_out[57]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[58]' driven by pin 'mstage[7]/product_out[58]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[59]' driven by pin 'mstage[7]/product_out[59]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[60]' driven by pin 'mstage[7]/product_out[60]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[61]' driven by pin 'mstage[7]/product_out[61]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[62]' driven by pin 'mstage[7]/product_out[62]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'product[63]' driven by pin 'mstage[7]/product_out[63]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[0]' driven by pin 'mstage[7]/mplier_out[0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[1]' driven by pin 'mstage[7]/mplier_out[1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[2]' driven by pin 'mstage[7]/mplier_out[2]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[3]' driven by pin 'mstage[7]/mplier_out[3]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[4]' driven by pin 'mstage[7]/mplier_out[4]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[5]' driven by pin 'mstage[7]/mplier_out[5]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[6]' driven by pin 'mstage[7]/mplier_out[6]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[7]' driven by pin 'mstage[7]/mplier_out[7]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[8]' driven by pin 'mstage[7]/mplier_out[8]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[9]' driven by pin 'mstage[7]/mplier_out[9]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[10]' driven by pin 'mstage[7]/mplier_out[10]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[11]' driven by pin 'mstage[7]/mplier_out[11]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[12]' driven by pin 'mstage[7]/mplier_out[12]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[13]' driven by pin 'mstage[7]/mplier_out[13]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[14]' driven by pin 'mstage[7]/mplier_out[14]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[15]' driven by pin 'mstage[7]/mplier_out[15]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[16]' driven by pin 'mstage[7]/mplier_out[16]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[17]' driven by pin 'mstage[7]/mplier_out[17]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[18]' driven by pin 'mstage[7]/mplier_out[18]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[19]' driven by pin 'mstage[7]/mplier_out[19]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[20]' driven by pin 'mstage[7]/mplier_out[20]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[21]' driven by pin 'mstage[7]/mplier_out[21]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[22]' driven by pin 'mstage[7]/mplier_out[22]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[23]' driven by pin 'mstage[7]/mplier_out[23]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[24]' driven by pin 'mstage[7]/mplier_out[24]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[25]' driven by pin 'mstage[7]/mplier_out[25]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[26]' driven by pin 'mstage[7]/mplier_out[26]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[27]' driven by pin 'mstage[7]/mplier_out[27]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[28]' driven by pin 'mstage[7]/mplier_out[28]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[29]' driven by pin 'mstage[7]/mplier_out[29]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[30]' driven by pin 'mstage[7]/mplier_out[30]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[31]' driven by pin 'mstage[7]/mplier_out[31]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[32]' driven by pin 'mstage[7]/mplier_out[32]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[33]' driven by pin 'mstage[7]/mplier_out[33]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[34]' driven by pin 'mstage[7]/mplier_out[34]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[35]' driven by pin 'mstage[7]/mplier_out[35]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[36]' driven by pin 'mstage[7]/mplier_out[36]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[37]' driven by pin 'mstage[7]/mplier_out[37]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[38]' driven by pin 'mstage[7]/mplier_out[38]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[39]' driven by pin 'mstage[7]/mplier_out[39]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[40]' driven by pin 'mstage[7]/mplier_out[40]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[41]' driven by pin 'mstage[7]/mplier_out[41]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[42]' driven by pin 'mstage[7]/mplier_out[42]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[43]' driven by pin 'mstage[7]/mplier_out[43]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[44]' driven by pin 'mstage[7]/mplier_out[44]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[45]' driven by pin 'mstage[7]/mplier_out[45]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[46]' driven by pin 'mstage[7]/mplier_out[46]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[47]' driven by pin 'mstage[7]/mplier_out[47]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[48]' driven by pin 'mstage[7]/mplier_out[48]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[49]' driven by pin 'mstage[7]/mplier_out[49]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[50]' driven by pin 'mstage[7]/mplier_out[50]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[51]' driven by pin 'mstage[7]/mplier_out[51]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[52]' driven by pin 'mstage[7]/mplier_out[52]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[53]' driven by pin 'mstage[7]/mplier_out[53]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[54]' driven by pin 'mstage[7]/mplier_out[54]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[55]' driven by pin 'mstage[7]/mplier_out[55]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[56]' driven by pin 'mstage[7]/mplier_out[56]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[57]' driven by pin 'mstage[7]/mplier_out[57]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[58]' driven by pin 'mstage[7]/mplier_out[58]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[59]' driven by pin 'mstage[7]/mplier_out[59]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[60]' driven by pin 'mstage[7]/mplier_out[60]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[61]' driven by pin 'mstage[7]/mplier_out[61]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[62]' driven by pin 'mstage[7]/mplier_out[62]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mplier_out[63]' driven by pin 'mstage[7]/mplier_out[63]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[0]' driven by pin 'mstage[7]/mcand_out[0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[1]' driven by pin 'mstage[7]/mcand_out[1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[2]' driven by pin 'mstage[7]/mcand_out[2]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[3]' driven by pin 'mstage[7]/mcand_out[3]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[4]' driven by pin 'mstage[7]/mcand_out[4]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[5]' driven by pin 'mstage[7]/mcand_out[5]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[6]' driven by pin 'mstage[7]/mcand_out[6]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[7]' driven by pin 'mstage[7]/mcand_out[7]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[8]' driven by pin 'mstage[7]/mcand_out[8]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[9]' driven by pin 'mstage[7]/mcand_out[9]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[10]' driven by pin 'mstage[7]/mcand_out[10]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[11]' driven by pin 'mstage[7]/mcand_out[11]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[12]' driven by pin 'mstage[7]/mcand_out[12]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[13]' driven by pin 'mstage[7]/mcand_out[13]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[14]' driven by pin 'mstage[7]/mcand_out[14]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[15]' driven by pin 'mstage[7]/mcand_out[15]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[16]' driven by pin 'mstage[7]/mcand_out[16]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[17]' driven by pin 'mstage[7]/mcand_out[17]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[18]' driven by pin 'mstage[7]/mcand_out[18]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[19]' driven by pin 'mstage[7]/mcand_out[19]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[20]' driven by pin 'mstage[7]/mcand_out[20]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[21]' driven by pin 'mstage[7]/mcand_out[21]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[22]' driven by pin 'mstage[7]/mcand_out[22]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[23]' driven by pin 'mstage[7]/mcand_out[23]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[24]' driven by pin 'mstage[7]/mcand_out[24]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[25]' driven by pin 'mstage[7]/mcand_out[25]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[26]' driven by pin 'mstage[7]/mcand_out[26]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[27]' driven by pin 'mstage[7]/mcand_out[27]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[28]' driven by pin 'mstage[7]/mcand_out[28]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[29]' driven by pin 'mstage[7]/mcand_out[29]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[30]' driven by pin 'mstage[7]/mcand_out[30]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[31]' driven by pin 'mstage[7]/mcand_out[31]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[32]' driven by pin 'mstage[7]/mcand_out[32]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[33]' driven by pin 'mstage[7]/mcand_out[33]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[34]' driven by pin 'mstage[7]/mcand_out[34]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[35]' driven by pin 'mstage[7]/mcand_out[35]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[36]' driven by pin 'mstage[7]/mcand_out[36]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[37]' driven by pin 'mstage[7]/mcand_out[37]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[38]' driven by pin 'mstage[7]/mcand_out[38]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[39]' driven by pin 'mstage[7]/mcand_out[39]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[40]' driven by pin 'mstage[7]/mcand_out[40]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[41]' driven by pin 'mstage[7]/mcand_out[41]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[42]' driven by pin 'mstage[7]/mcand_out[42]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[43]' driven by pin 'mstage[7]/mcand_out[43]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[44]' driven by pin 'mstage[7]/mcand_out[44]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[45]' driven by pin 'mstage[7]/mcand_out[45]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[46]' driven by pin 'mstage[7]/mcand_out[46]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[47]' driven by pin 'mstage[7]/mcand_out[47]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[48]' driven by pin 'mstage[7]/mcand_out[48]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[49]' driven by pin 'mstage[7]/mcand_out[49]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[50]' driven by pin 'mstage[7]/mcand_out[50]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[51]' driven by pin 'mstage[7]/mcand_out[51]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[52]' driven by pin 'mstage[7]/mcand_out[52]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[53]' driven by pin 'mstage[7]/mcand_out[53]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[54]' driven by pin 'mstage[7]/mcand_out[54]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[55]' driven by pin 'mstage[7]/mcand_out[55]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[56]' driven by pin 'mstage[7]/mcand_out[56]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[57]' driven by pin 'mstage[7]/mcand_out[57]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[58]' driven by pin 'mstage[7]/mcand_out[58]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[59]' driven by pin 'mstage[7]/mcand_out[59]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[60]' driven by pin 'mstage[7]/mcand_out[60]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[61]' driven by pin 'mstage[7]/mcand_out[61]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[62]' driven by pin 'mstage[7]/mcand_out[62]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mcand_out[63]' driven by pin 'mstage[7]/mcand_out[63]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][0]' driven by pin 'mstage[7]/is_ex_packet_out[PC][0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][1]' driven by pin 'mstage[7]/is_ex_packet_out[PC][1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][2]' driven by pin 'mstage[7]/is_ex_packet_out[PC][2]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][3]' driven by pin 'mstage[7]/is_ex_packet_out[PC][3]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][4]' driven by pin 'mstage[7]/is_ex_packet_out[PC][4]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][5]' driven by pin 'mstage[7]/is_ex_packet_out[PC][5]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][6]' driven by pin 'mstage[7]/is_ex_packet_out[PC][6]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][7]' driven by pin 'mstage[7]/is_ex_packet_out[PC][7]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][8]' driven by pin 'mstage[7]/is_ex_packet_out[PC][8]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][9]' driven by pin 'mstage[7]/is_ex_packet_out[PC][9]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][10]' driven by pin 'mstage[7]/is_ex_packet_out[PC][10]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][11]' driven by pin 'mstage[7]/is_ex_packet_out[PC][11]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][12]' driven by pin 'mstage[7]/is_ex_packet_out[PC][12]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][13]' driven by pin 'mstage[7]/is_ex_packet_out[PC][13]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][14]' driven by pin 'mstage[7]/is_ex_packet_out[PC][14]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][15]' driven by pin 'mstage[7]/is_ex_packet_out[PC][15]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][16]' driven by pin 'mstage[7]/is_ex_packet_out[PC][16]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][17]' driven by pin 'mstage[7]/is_ex_packet_out[PC][17]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][18]' driven by pin 'mstage[7]/is_ex_packet_out[PC][18]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][19]' driven by pin 'mstage[7]/is_ex_packet_out[PC][19]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][20]' driven by pin 'mstage[7]/is_ex_packet_out[PC][20]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][21]' driven by pin 'mstage[7]/is_ex_packet_out[PC][21]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][22]' driven by pin 'mstage[7]/is_ex_packet_out[PC][22]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][23]' driven by pin 'mstage[7]/is_ex_packet_out[PC][23]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][24]' driven by pin 'mstage[7]/is_ex_packet_out[PC][24]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][25]' driven by pin 'mstage[7]/is_ex_packet_out[PC][25]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][26]' driven by pin 'mstage[7]/is_ex_packet_out[PC][26]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][27]' driven by pin 'mstage[7]/is_ex_packet_out[PC][27]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][28]' driven by pin 'mstage[7]/is_ex_packet_out[PC][28]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][29]' driven by pin 'mstage[7]/is_ex_packet_out[PC][29]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][30]' driven by pin 'mstage[7]/is_ex_packet_out[PC][30]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[PC][31]' driven by pin 'mstage[7]/is_ex_packet_out[PC][31]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[uncond_branch]' driven by pin 'mstage[7]/is_ex_packet_out[uncond_branch]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[cond_branch]' driven by pin 'mstage[7]/is_ex_packet_out[cond_branch]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[alu_func][0]' driven by pin 'mstage[7]/is_ex_packet_out[alu_func][0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[alu_func][1]' driven by pin 'mstage[7]/is_ex_packet_out[alu_func][1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[alu_func][2]' driven by pin 'mstage[7]/is_ex_packet_out[alu_func][2]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[alu_func][3]' driven by pin 'mstage[7]/is_ex_packet_out[alu_func][3]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[alu_func][4]' driven by pin 'mstage[7]/is_ex_packet_out[alu_func][4]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[opb_select][0]' driven by pin 'mstage[7]/is_ex_packet_out[opb_select][0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[opb_select][1]' driven by pin 'mstage[7]/is_ex_packet_out[opb_select][1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[opb_select][2]' driven by pin 'mstage[7]/is_ex_packet_out[opb_select][2]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[opb_select][3]' driven by pin 'mstage[7]/is_ex_packet_out[opb_select][3]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[opa_select][0]' driven by pin 'mstage[7]/is_ex_packet_out[opa_select][0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[opa_select][1]' driven by pin 'mstage[7]/is_ex_packet_out[opa_select][1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][0]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][1]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][2]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][2]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][3]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][3]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][4]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][4]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][5]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][5]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][6]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][6]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][7]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][7]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][8]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][8]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][9]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][9]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][10]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][10]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][11]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][11]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][12]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][12]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][13]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][13]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][14]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][14]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][15]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][15]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][16]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][16]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][17]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][17]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][18]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][18]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][19]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][19]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][20]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][20]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][21]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][21]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][22]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][22]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][23]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][23]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][24]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][24]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][25]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][25]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][26]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][26]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][27]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][27]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][28]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][28]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][29]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][29]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][30]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][30]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[rs1_value][31]' driven by pin 'mstage[7]/is_ex_packet_out[rs1_value][31]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[RS_tag][0]' driven by pin 'mstage[7]/is_ex_packet_out[RS_tag][0]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[RS_tag][1]' driven by pin 'mstage[7]/is_ex_packet_out[RS_tag][1]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[RS_tag][2]' driven by pin 'mstage[7]/is_ex_packet_out[RS_tag][2]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[RS_tag][3]' driven by pin 'mstage[7]/is_ex_packet_out[RS_tag][3]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'is_ex_packet_out[RS_tag][4]' driven by pin 'mstage[7]/is_ex_packet_out[RS_tag][4]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[62]' driven by pin 'mstage[7]/mult_22/FS_1/B[62]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[66]' driven by pin 'mstage[7]/mult_22/FS_1/B[66]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[65]' driven by pin 'mstage[7]/mult_22/FS_1/B[65]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[64]' driven by pin 'mstage[7]/mult_22/FS_1/B[64]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[63]' driven by pin 'mstage[7]/mult_22/FS_1/B[63]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[69]' driven by pin 'mstage[7]/mult_22/FS_1/B[69]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[68]' driven by pin 'mstage[7]/mult_22/FS_1/B[68]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/B[67]' driven by pin 'mstage[7]/mult_22/FS_1/B[67]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/A[62]' driven by pin 'mstage[7]/mult_22/FS_1/A[62]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/A[63]' driven by pin 'mstage[7]/mult_22/FS_1/A[63]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/A[64]' driven by pin 'mstage[7]/mult_22/FS_1/A[64]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/A[65]' driven by pin 'mstage[7]/mult_22/FS_1/A[65]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/A[66]' driven by pin 'mstage[7]/mult_22/FS_1/A[66]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/A[67]' driven by pin 'mstage[7]/mult_22/FS_1/A[67]' has no loads. (LINT-2)
+Warning: In design 'mult', net 'mstage[7]/mult_22/FS_1/A[68]' driven by pin 'mstage[7]/mult_22/FS_1/A[68]' has no loads. (LINT-2)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[68]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[67]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[66]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[65]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[64]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[63]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[62]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[69]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[68]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[67]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[66]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[65]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[64]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[63]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW01_add_4', input port 'B[62]' is unloaded. (LINT-8)
+Warning: In design 'mult_stage_DW02_mult_0', port 'TC' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[71]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[70]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[69]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[68]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[67]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[66]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[65]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW02_mult_0', port 'PRODUCT[64]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_3', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_3', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'A[69]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'B[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'B[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'B[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'B[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'B[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'B[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'B[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'CI' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[69]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[68]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[67]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[66]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[65]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[64]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[63]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'SUM[62]' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', port 'CO' is not connected to any nets. (LINT-28)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[6]' is connected directly to output port 'SUM[6]'. (LINT-29)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[5]' is connected directly to output port 'SUM[5]'. (LINT-29)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[4]' is connected directly to output port 'SUM[4]'. (LINT-29)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[3]' is connected directly to output port 'SUM[3]'. (LINT-29)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[2]' is connected directly to output port 'SUM[2]'. (LINT-29)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[1]' is connected directly to output port 'SUM[1]'. (LINT-29)
+Warning: In design 'mult_stage_DW01_add_4', input port 'A[0]' is connected directly to output port 'SUM[0]'. (LINT-29)
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[63]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[62]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[61]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[60]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[59]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[58]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[57]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[56]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[55]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[54]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[53]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[52]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[51]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[50]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[49]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[48]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[47]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[46]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[45]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[44]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[43]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[42]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[41]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[40]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[39]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[38]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[37]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[36]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[35]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[34]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[33]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[32]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[31]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[30]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[29]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[28]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[27]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[26]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[25]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[24]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[23]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[22]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[21]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[20]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[19]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[18]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[17]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[16]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[15]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[14]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[13]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[12]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[11]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[10]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[9]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[8]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[7]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[6]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[5]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[4]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[3]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[2]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[1]' is connected to logic 0. 
+Warning: In design 'mult', a pin on submodule 'mstage[0]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'product_in[0]' is connected to logic 0. 
+Warning: In design 'mult_stage', a pin on submodule 'mult_22' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TC' is connected to logic 0. 
+Warning: In design 'mult_stage', a pin on submodule 'add_20' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'A[69]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[6]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[5]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[4]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[3]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[2]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[1]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'B[0]' is connected to logic 0. 
+Warning: In design 'mult_stage_DW02_mult_0', a pin on submodule 'FS_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'CI' is connected to logic 0. 
+Warning: In design 'mult', the same net is connected to more than one pin on submodule 'mstage[0]'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'product_in[63]', 'product_in[62]'', 'product_in[61]', 'product_in[60]', 'product_in[59]', 'product_in[58]', 'product_in[57]', 'product_in[56]', 'product_in[55]', 'product_in[54]', 'product_in[53]', 'product_in[52]', 'product_in[51]', 'product_in[50]', 'product_in[49]', 'product_in[48]', 'product_in[47]', 'product_in[46]', 'product_in[45]', 'product_in[44]', 'product_in[43]', 'product_in[42]', 'product_in[41]', 'product_in[40]', 'product_in[39]', 'product_in[38]', 'product_in[37]', 'product_in[36]', 'product_in[35]', 'product_in[34]', 'product_in[33]', 'product_in[32]', 'product_in[31]', 'product_in[30]', 'product_in[29]', 'product_in[28]', 'product_in[27]', 'product_in[26]', 'product_in[25]', 'product_in[24]', 'product_in[23]', 'product_in[22]', 'product_in[21]', 'product_in[20]', 'product_in[19]', 'product_in[18]', 'product_in[17]', 'product_in[16]', 'product_in[15]', 'product_in[14]', 'product_in[13]', 'product_in[12]', 'product_in[11]', 'product_in[10]', 'product_in[9]', 'product_in[8]', 'product_in[7]', 'product_in[6]', 'product_in[5]', 'product_in[4]', 'product_in[3]', 'product_in[2]', 'product_in[1]', 'product_in[0]'.
+Warning: In design 'mult_stage_DW02_mult_0', the same net is connected to more than one pin on submodule 'FS_1'. (LINT-33)
+   Net 'n1244' is connected to pins 'A[69]', 'B[6]''.
+Warning: In design 'mult_stage_DW02_mult_0', the same net is connected to more than one pin on submodule 'FS_1'. (LINT-33)
+   Net 'n1245' is connected to pins 'B[5]', 'B[4]'', 'B[3]', 'B[2]', 'B[1]'.
+Warning: In design 'mult_stage_DW02_mult_0', the same net is connected to more than one pin on submodule 'FS_1'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'B[0]', 'CI''.
+Warning: In design 'mult', output port 'mult_ex_packet_out[take_branch]' is connected directly to 'logic 0'. (LINT-52)
+1
