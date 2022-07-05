@@ -5,7 +5,7 @@
 
 ### Introduction ###
 
-This is the project of a 3-way out-of-order RSIC-V CPU using P6 style register renaming, from Group2 in EECS470 course(Winter 2021), University of Michigan, Ann Arbor. In final project, we implemented a P6 style register renaming architecture CPU. The detailed requirements can be found in eecs470fianl.pdf. It works as a 3-way out-of-order superscalar machine and all the other features of it will be described in detail as follows. 
+This is the project of a 3-way out-of-order RSIC-V CPU using P6 style register renaming, from Group2 in EECS470 course(Winter 2021), University of Michigan, Ann Arbor. In final project, we implemented a P6 style register renaming architecture CPU. The detailed requirements can be found in eecs470project3.pdf. It works as a 3-way out-of-order superscalar machine and all the other features of it will be described in detail as follows. 
 
 ### Design Overview ###
 All the modules we implemented are as listed in the flowchart. In fetch stage, we can fetch at most 3 instructions in order. But the fetch number would be less than 3 due to data dependence between the instructions and structure hazard of ROB(Reorder-Buffer), RS(Reservation Station) or CDB.
