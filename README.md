@@ -7,7 +7,7 @@ This is the project of a 3-way out-of-order RSIC-V CPU using P6 style register r
 ### Design Overview ###
 All the modules we implemented are as listed in the flowchart. In fetch stage, we can fetch at most 3 instructions in order. But the fetch number would be less than 3 due to data dependence between the instructions and structure hazard of ROB(Reorder-Buffer), RS(Reservation Station) or CDB.
 
-In the dispatch stage, The decoder would decode the information of the instruction and read the register value from register file. Then it would put them in ROB and RS, record the rob_tag in map table. RS would use a MUX to choose T1/T2 and V1/V2 from other place in pipeline or RRF.
+In the dispatch stage, The decoder would decode the information of the instruction and read the register value from register file. Then it would put them in ROB and RS, record the rob_tag in map table. RS would use a MUX to choose T1/T2 and V1/V2 from other place in pipeline or RRF(Real Register File).
 
 In the issue stage, instructions in RS with zero T1/T2 would request to issue. If more than 3 instructions request, we would use 16-to-3 priority selector to choose which one can go to pipeline register.
 
